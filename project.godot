@@ -11,5 +11,11 @@ config_version=5
 [application]
 
 config/name="Pie Man"
+run/main_scene="res://world.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://autoloads/scripts/global.gd"
+ScoringUi="*res://autoloads/scenes/scoring_ui.tscn"
