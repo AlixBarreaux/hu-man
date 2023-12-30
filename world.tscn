@@ -1,14 +1,14 @@
 [gd_scene load_steps=13 format=3 uid="uid://cbv40bjrx6t5h"]
 
 [ext_resource type="Texture2D" uid="uid://k8ebghsnmd1u" path="res://reference.jpg" id="1_jlp73"]
-[ext_resource type="Texture2D" uid="uid://cii0nbpljpbkq" path="res://tiles.png" id="2_5sb7h"]
-[ext_resource type="PackedScene" uid="uid://blj4q0428rjjx" path="res://astar_enemy.tscn" id="3_6sff2"]
-[ext_resource type="PackedScene" uid="uid://bcvd755c4s3xq" path="res://enemy.tscn" id="4_d41a1"]
+[ext_resource type="Texture2D" path="res://tiles.png" id="2_5sb7h"]
+[ext_resource type="PackedScene" uid="uid://nw5qf0y3mqp5" path="res://astar_enemy.tscn" id="3_6sff2"]
+[ext_resource type="PackedScene" uid="uid://b8ju6rj3bx3w2" path="res://enemy.tscn" id="4_d41a1"]
 [ext_resource type="PackedScene" uid="uid://cvinvy67ghvhb" path="res://scenes/pickables/bonus_item.tscn" id="5_4u5fp"]
-[ext_resource type="PackedScene" uid="uid://da20uwes0rhf6" path="res://player.tscn" id="5_nmmii"]
-[ext_resource type="PackedScene" uid="uid://dinyo3vji2vj0" path="res://scenes/pellets.tscn" id="6_ck6bs"]
+[ext_resource type="PackedScene" uid="uid://ispc4e2egcaj" path="res://player.tscn" id="5_nmmii"]
+[ext_resource type="PackedScene" uid="uid://d35gi8b3l2nhh" path="res://scenes/pellets.tscn" id="6_ck6bs"]
 [ext_resource type="PackedScene" uid="uid://c4s65vdj85p3j" path="res://scenes/pickables/pellet.tscn" id="7_e03ud"]
-[ext_resource type="PackedScene" uid="uid://ofjcfmqof28p" path="res://scenes/ui/info_message_ui.tscn" id="9_n6vsn"]
+[ext_resource type="PackedScene" uid="uid://bxd0v1wymn05u" path="res://scenes/ui/info_message_ui.tscn" id="9_n6vsn"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_uf2fb"]
 vertices = PackedVector2Array(1, -1, 24, -1, 24, 1, 1, 1, 1, 24, -1, 24, -1, 1, -1, -1, -24, 1, -24, -1, 1, -24, -1, -24)
