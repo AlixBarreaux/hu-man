@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+Settings="*res://autoloads/scripts/settings.gd"
 Global="*res://autoloads/scripts/global.gd"
 ScoringUi="*res://autoloads/scenes/scoring_ui.tscn"
 
