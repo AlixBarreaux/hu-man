@@ -12,5 +12,5 @@ func _ready() -> void:
 func on_pellet_picked_up(score_to_add: int) -> void:
 	Global.increase_score(score_to_add)
 	
-	if self.get_child_count() <= 0:
+	if self.get_child_count() <= 1:
 		Global.level_cleared.emit()
