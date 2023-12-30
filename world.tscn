@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://cbv40bjrx6t5h"]
+[gd_scene load_steps=14 format=3 uid="uid://cbv40bjrx6t5h"]
 
 [ext_resource type="Texture2D" uid="uid://k8ebghsnmd1u" path="res://reference.jpg" id="1_jlp73"]
 [ext_resource type="Texture2D" path="res://tiles.png" id="2_5sb7h"]
 [ext_resource type="PackedScene" uid="uid://nw5qf0y3mqp5" path="res://astar_enemy.tscn" id="3_6sff2"]
 [ext_resource type="PackedScene" uid="uid://b8ju6rj3bx3w2" path="res://enemy.tscn" id="4_d41a1"]
 [ext_resource type="PackedScene" uid="uid://cvinvy67ghvhb" path="res://scenes/pickables/bonus_item.tscn" id="5_4u5fp"]
+[ext_resource type="PackedScene" uid="uid://bpsnuln5keu2o" path="res://scenes/pickables/power_pellet.tscn" id="5_gwp35"]
 [ext_resource type="PackedScene" uid="uid://ispc4e2egcaj" path="res://player.tscn" id="5_nmmii"]
 [ext_resource type="PackedScene" uid="uid://d35gi8b3l2nhh" path="res://scenes/pellets.tscn" id="6_ck6bs"]
 [ext_resource type="PackedScene" uid="uid://c4s65vdj85p3j" path="res://scenes/pickables/pellet.tscn" id="7_e03ud"]
@@ -322,6 +323,7 @@ position = Vector2(960, 540)
 texture = ExtResource("1_jlp73")
 
 [node name="TileMap" type="TileMap" parent="."]
+visible = false
 modulate = Color(0.109804, 0.184314, 0.486275, 1)
 tile_set = SubResource("TileSet_1x555")
 rendering_quadrant_size = 48
@@ -332,8 +334,20 @@ layer_0/tile_data = PackedInt32Array(1441794, 196608, 3, 1441793, 65536, 4, 1441
 
 [node name="Pellets" parent="Pickables" instance=ExtResource("6_ck6bs")]
 
+[node name="PowerPellet" parent="Pickables/Pellets" instance=ExtResource("5_gwp35")]
+position = Vector2(168, 168)
+
+[node name="PowerPellet2" parent="Pickables/Pellets" instance=ExtResource("5_gwp35")]
+position = Vector2(1752, 168)
+
+[node name="PowerPellet3" parent="Pickables/Pellets" instance=ExtResource("5_gwp35")]
+position = Vector2(168, 792)
+
+[node name="PowerPellet4" parent="Pickables/Pellets" instance=ExtResource("5_gwp35")]
+position = Vector2(1752, 792)
+
 [node name="Pellet" parent="Pickables/Pellets" instance=ExtResource("7_e03ud")]
-position = Vector2(672, 262)
+position = Vector2(168, 216)
 
 [node name="BonusItems" type="Node" parent="Pickables"]
 
