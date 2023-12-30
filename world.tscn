@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cbv40bjrx6t5h"]
+[gd_scene load_steps=13 format=3 uid="uid://cbv40bjrx6t5h"]
 
 [ext_resource type="Texture2D" uid="uid://k8ebghsnmd1u" path="res://reference.jpg" id="1_jlp73"]
 [ext_resource type="Texture2D" uid="uid://cii0nbpljpbkq" path="res://tiles.png" id="2_5sb7h"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://da20uwes0rhf6" path="res://player.tscn" id="5_nmmii"]
 [ext_resource type="PackedScene" uid="uid://dinyo3vji2vj0" path="res://scenes/pellets.tscn" id="6_ck6bs"]
 [ext_resource type="PackedScene" uid="uid://c4s65vdj85p3j" path="res://scenes/pickables/pellet.tscn" id="7_e03ud"]
+[ext_resource type="PackedScene" uid="uid://ofjcfmqof28p" path="res://scenes/ui/info_message_ui.tscn" id="9_n6vsn"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_uf2fb"]
 vertices = PackedVector2Array(1, -1, 24, -1, 24, 1, 1, 1, 1, 24, -1, 24, -1, 1, -1, -1, -24, 1, -24, -1, 1, -24, -1, -24)
@@ -361,3 +362,7 @@ position = Vector2(1128, 552)
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="Obstacle"]
 radius = 64.0
+
+[node name="InGameUI" type="CanvasLayer" parent="."]
+
+[node name="InfoMessageUI" parent="InGameUI" instance=ExtResource("9_n6vsn")]
