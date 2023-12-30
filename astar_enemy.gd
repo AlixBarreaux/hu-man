@@ -90,14 +90,16 @@ func _physics_process(delta: float) -> void:
 	# Tile center reached
 	if self.global_position == target_position:
 		#print("Solid point before change: ", solid_point_backwards)
-		if solid_point_backwards != null:
-			print("Solid point removed at: ", solid_point_backwards)
-			astar_grid_2d.set_point_solid(solid_point_backwards, false)
+		#if solid_point_backwards != null:
+			#print("Solid point removed at: ", solid_point_backwards)
+			#astar_grid_2d.set_point_solid(solid_point_backwards, false)
 		
-		solid_point_backwards = current_id_path.pop_front()
-		astar_grid_2d.set_point_solid(solid_point_backwards)
-		print("Solid point set at: ", solid_point_backwards)
-		print("Solid point after change: ", solid_point_backwards, "\n\n")
+		current_id_path.pop_front()
+		#solid_point_backwards = current_id_path.pop_front()
+		
+		#astar_grid_2d.set_point_solid(solid_point_backwards)
+		#print("Solid point set at: ", solid_point_backwards)
+		#print("Solid point after change: ", solid_point_backwards, "\n\n")
 		
 		
 		
