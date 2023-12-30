@@ -2,6 +2,7 @@ extends Node
 #class_name Global
 
 
+signal level_cleared
 signal game_over
 
 signal score_changed
@@ -14,6 +15,14 @@ var score: int = 0:
 func set_score(value: int) -> void:
 	score = value
 	self.score_changed.emit()
+	
+	if self.score > self.high_score:
+		self.set_high_score(self.score)
+
+
+func increase_score(value: int) -> void:
+	set_score(score + value)
+
 
 var high_score: int = 0
 

@@ -1,9 +1,9 @@
-extends Control
+extends CanvasLayer
 class_name ScoringUI
 
 
-@onready var score_label: Label = $HBoxContainer/ScoreLabel
-@onready var high_score_label: Label = $HBoxContainer/HighScoreLabel
+@onready var score_label: Label = $Control/HBoxContainer/ScoreLabel
+@onready var high_score_label: Label = $Control/HBoxContainer/HighScoreLabel
 
 
 var high_score_label_text: String = "High Score: " + str(Global.high_score)

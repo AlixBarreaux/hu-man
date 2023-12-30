@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://da20uwes0rhf6"]
+[gd_scene load_steps=4 format=3 uid="uid://da20uwes0rhf6"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_okgwv"]
 [ext_resource type="Texture2D" uid="uid://b1yi440iyutka" path="res://icon.svg" id="1_tetbw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jf374"]
+radius = 13.0
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_okgwv")
@@ -10,3 +13,10 @@ script = ExtResource("1_okgwv")
 self_modulate = Color(0.0352941, 0.607843, 0, 1)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_tetbw")
+
+[node name="PickablesPicker" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickablesPicker"]
+shape = SubResource("CircleShape2D_jf374")
