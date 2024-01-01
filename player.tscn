@@ -6,8 +6,8 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_jf374"]
 radius = 13.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdjil"]
-size = Vector2(46, 46)
+[sub_resource type="CircleShape2D" id="CircleShape2D_14xon"]
+radius = 22.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -30,12 +30,12 @@ polygon = PackedVector2Array(31, -12, 54, -12, 54, -23, 76, 0, 55, 21, 55, 11, 3
 [node name="NextDirectionDetector" type="Node2D" parent="NextDirectionRotator"]
 
 [node name="RayCast2DLeft" type="RayCast2D" parent="NextDirectionRotator/NextDirectionDetector"]
-position = Vector2(20, -23)
+position = Vector2(20, -22)
 rotation = -1.57079
 target_position = Vector2(-0.000238426, 10)
 
 [node name="RayCast2DRight" type="RayCast2D" parent="NextDirectionRotator/NextDirectionDetector"]
-position = Vector2(20, 23)
+position = Vector2(20, 22)
 rotation = -1.57079
 target_position = Vector2(-0.000238426, 10)
 
@@ -51,4 +51,4 @@ collision_mask = 0
 shape = SubResource("CircleShape2D_jf374")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_tdjil")
+shape = SubResource("CircleShape2D_14xon")
