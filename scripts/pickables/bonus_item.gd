@@ -32,12 +32,12 @@ const image_path_list: PackedStringArray = [
 
 
 func enable() -> void:
-	self.collision_shape_2d.disabled = false
+	self.collision_shape_2d.call_deferred("set_disabled", false)
 	self.show()
 
 
 func disable() -> void:
-	self.collision_shape_2d.disabled = true
+	self.collision_shape_2d.call_deferred("set_disabled", true)
 	self.hide()
 	
 
