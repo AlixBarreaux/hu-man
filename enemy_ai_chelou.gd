@@ -1,11 +1,11 @@
-extends Enemy
-class_name EnemyChelou
+extends EnemyAI
+class_name EnemyAIChelou
 
 
 @export var ally_to_target: EnemyBourrin = null
 
 
-func _set_destination_position() -> void:
+func _set_destination_position_on_player() -> void:
 	# Draw a line from Blinky’s position 
 	#ally_to_target.global_position
 	

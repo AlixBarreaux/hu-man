@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://b8ju6rj3bx3w2"]
+[gd_scene load_steps=17 format=3 uid="uid://b8ju6rj3bx3w2"]
 
 [ext_resource type="Script" path="res://scripts/actors/enemy.gd" id="1_umwy5"]
 [ext_resource type="Texture2D" uid="uid://dv01jdqbxv070" path="res://assets/zombie_walk.png" id="2_yep5a"]
+[ext_resource type="Script" path="res://enemy_ai.gd" id="3_imh6c"]
 
 [sub_resource type="Animation" id="Animation_pg68v"]
 resource_name = "move_down"
@@ -115,6 +116,7 @@ transitions = ["Start", "Move", SubResource("AnimationNodeStateMachineTransition
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_umwy5")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -6)
@@ -122,14 +124,7 @@ scale = Vector2(1.8, 1.8)
 texture = ExtResource("2_yep5a")
 hframes = 11
 vframes = 4
-frame = 7
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_desired_distance = 4.0
-target_desired_distance = 4.0
-avoidance_enabled = true
-radius = 13.0
-debug_enabled = true
+frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -143,3 +138,14 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_cow2b")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Move/blend_position = Vector2(0, 0)
+
+[node name="EnemyAI" type="Node2D" parent="." node_paths=PackedStringArray("enemy")]
+script = ExtResource("3_imh6c")
+enemy = NodePath("..")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="EnemyAI"]
+path_desired_distance = 4.0
+target_desired_distance = 4.0
+avoidance_enabled = true
+radius = 13.0
+debug_enabled = true

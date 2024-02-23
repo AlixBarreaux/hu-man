@@ -1,10 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5mkv72mwdf1m"]
+[gd_scene load_steps=2 format=3 uid="uid://c5mkv72mwdf1m"]
 
 [ext_resource type="PackedScene" uid="uid://b8ju6rj3bx3w2" path="res://scenes/actors/enemy.tscn" id="1_jnaxh"]
-[ext_resource type="Script" path="res://scripts/actors/enemy_chelou.gd" id="2_1riwy"]
 
 [node name="EnemyChelou" instance=ExtResource("1_jnaxh")]
-script = ExtResource("2_1riwy")
 
 [node name="Sprite2D" parent="." index="0"]
 frame = 3
