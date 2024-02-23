@@ -1,15 +1,16 @@
-[gd_scene load_steps=14 format=3 uid="uid://cbv40bjrx6t5h"]
+[gd_scene load_steps=15 format=3 uid="uid://cbv40bjrx6t5h"]
 
-[ext_resource type="Texture2D" uid="uid://k8ebghsnmd1u" path="res://reference.jpg" id="1_jlp73"]
-[ext_resource type="Texture2D" uid="uid://cii0nbpljpbkq" path="res://tiles.png" id="2_5sb7h"]
-[ext_resource type="PackedScene" uid="uid://nw5qf0y3mqp5" path="res://astar_enemy.tscn" id="3_6sff2"]
-[ext_resource type="PackedScene" uid="uid://b8ju6rj3bx3w2" path="res://enemy.tscn" id="4_d41a1"]
-[ext_resource type="PackedScene" uid="uid://cvinvy67ghvhb" path="res://scenes/pickables/bonus_item.tscn" id="5_4u5fp"]
-[ext_resource type="PackedScene" uid="uid://bpsnuln5keu2o" path="res://scenes/pickables/power_pellet.tscn" id="5_gwp35"]
-[ext_resource type="PackedScene" uid="uid://ispc4e2egcaj" path="res://player.tscn" id="5_nmmii"]
-[ext_resource type="PackedScene" uid="uid://d35gi8b3l2nhh" path="res://scenes/pellets.tscn" id="6_ck6bs"]
-[ext_resource type="PackedScene" uid="uid://c4s65vdj85p3j" path="res://scenes/pickables/pellet.tscn" id="7_e03ud"]
-[ext_resource type="PackedScene" uid="uid://bxd0v1wymn05u" path="res://scenes/ui/info_message_ui.tscn" id="9_n6vsn"]
+[ext_resource type="Texture2D" uid="uid://k8ebghsnmd1u" path="res://reference.jpg" id="1_kbpl7"]
+[ext_resource type="Texture2D" uid="uid://cii0nbpljpbkq" path="res://tiles.png" id="2_636tm"]
+[ext_resource type="PackedScene" uid="uid://d35gi8b3l2nhh" path="res://scenes/pickables/pellets.tscn" id="3_2jn3a"]
+[ext_resource type="PackedScene" uid="uid://bpsnuln5keu2o" path="res://scenes/pickables/power_pellet.tscn" id="4_6kjkp"]
+[ext_resource type="PackedScene" uid="uid://c4s65vdj85p3j" path="res://scenes/pickables/pellet.tscn" id="5_mcs5t"]
+[ext_resource type="PackedScene" uid="uid://cvinvy67ghvhb" path="res://scenes/pickables/bonus_item.tscn" id="6_652p7"]
+[ext_resource type="PackedScene" uid="uid://ispc4e2egcaj" path="res://scenes/actors/player.tscn" id="7_qppoc"]
+[ext_resource type="PackedScene" uid="uid://c1v0tqqh2nfa5" path="res://scenes/actors/enemy_bourrin.tscn" id="8_a4ges"]
+[ext_resource type="PackedScene" uid="uid://dygx4p6tgp465" path="res://scenes/actors/enemy_assassin.tscn" id="9_njggs"]
+[ext_resource type="PackedScene" uid="uid://c5mkv72mwdf1m" path="res://scenes/actors/enemy_chelou.tscn" id="10_gujsx"]
+[ext_resource type="PackedScene" uid="uid://bxd0v1wymn05u" path="res://scenes/ui/info_message_ui.tscn" id="10_qa8p0"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_uf2fb"]
 vertices = PackedVector2Array(1, -1, 24, -1, 24, 1, 1, 1, 1, 24, -1, 24, -1, 1, -1, -1, -24, 1, -24, -1, 1, -24, -1, -24)
@@ -19,7 +20,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1ivle"]
-texture = ExtResource("2_5sb7h")
+texture = ExtResource("2_636tm")
 texture_region_size = Vector2i(48, 48)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -306,6 +307,7 @@ texture_region_size = Vector2i(48, 48)
 0:2/1 = 1
 0:2/1/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:2/1/physics_layer_0/angular_velocity = 0.0
+0:2/1/custom_data_0 = true
 
 [sub_resource type="TileSet" id="TileSet_1x555"]
 tile_size = Vector2i(48, 48)
@@ -321,10 +323,10 @@ sources/0 = SubResource("TileSetAtlasSource_1ivle")
 [node name="Reference" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(960, 540)
-texture = ExtResource("1_jlp73")
+texture = ExtResource("1_kbpl7")
 
 [node name="TileMap" type="TileMap" parent="."]
-modulate = Color(0.109804, 0.184314, 0.486275, 1)
+modulate = Color(0, 0.219608, 0.113725, 1)
 tile_set = SubResource("TileSet_1x555")
 rendering_quadrant_size = 48
 format = 2
@@ -332,45 +334,44 @@ layer_0/tile_data = PackedInt32Array(1441794, 196608, 3, 1441793, 65536, 4, 1441
 
 [node name="Pickables" type="Node" parent="."]
 
-[node name="Pellets" parent="Pickables" instance=ExtResource("6_ck6bs")]
+[node name="Pellets" parent="Pickables" instance=ExtResource("3_2jn3a")]
 
-[node name="PowerPellet" parent="Pickables/Pellets" instance=ExtResource("5_gwp35")]
+[node name="PowerPellet" parent="Pickables/Pellets" instance=ExtResource("4_6kjkp")]
 position = Vector2(168, 168)
 
-[node name="PowerPellet2" parent="Pickables/Pellets" instance=ExtResource("5_gwp35")]
+[node name="PowerPellet2" parent="Pickables/Pellets" instance=ExtResource("4_6kjkp")]
 position = Vector2(1752, 168)
 
-[node name="PowerPellet3" parent="Pickables/Pellets" instance=ExtResource("5_gwp35")]
+[node name="PowerPellet3" parent="Pickables/Pellets" instance=ExtResource("4_6kjkp")]
 position = Vector2(168, 792)
 
-[node name="PowerPellet4" parent="Pickables/Pellets" instance=ExtResource("5_gwp35")]
+[node name="PowerPellet4" parent="Pickables/Pellets" instance=ExtResource("4_6kjkp")]
 position = Vector2(1752, 792)
 
-[node name="Pellet" parent="Pickables/Pellets" instance=ExtResource("7_e03ud")]
+[node name="Pellet" parent="Pickables/Pellets" instance=ExtResource("5_mcs5t")]
 position = Vector2(168, 216)
 
 [node name="BonusItems" type="Node" parent="Pickables"]
 
-[node name="BonusItem" parent="Pickables/BonusItems" instance=ExtResource("5_4u5fp")]
+[node name="BonusItem" parent="Pickables/BonusItems" instance=ExtResource("6_652p7")]
 position = Vector2(960, 648)
 
 [node name="Actors" type="Node" parent="."]
 
 [node name="Players" type="Node" parent="Actors"]
 
-[node name="Player" parent="Actors/Players" instance=ExtResource("5_nmmii")]
-position = Vector2(1272, 1032)
+[node name="Player" parent="Actors/Players" instance=ExtResource("7_qppoc")]
+position = Vector2(313, 266)
 
 [node name="Enemies" type="Node" parent="Actors"]
 
-[node name="Enemy" parent="Actors/Enemies" node_paths=PackedStringArray("target_node") instance=ExtResource("4_d41a1")]
-position = Vector2(1080, 456)
-target_node = NodePath("../../Players/Player")
+[node name="EnemyBourrin" parent="Actors/Enemies" instance=ExtResource("8_a4ges")]
+position = Vector2(168, 266)
 
-[node name="AstarEnemy" parent="Actors/Enemies" node_paths=PackedStringArray("tile_map", "target_node") instance=ExtResource("3_6sff2")]
-position = Vector2(168, 120)
-tile_map = NodePath("../../../TileMap")
-target_node = NodePath("../../Players/Player")
+[node name="EnemyAssassin" parent="Actors/Enemies" instance=ExtResource("9_njggs")]
+position = Vector2(695, 266)
+
+[node name="EnemyChelou" parent="Actors/Enemies" instance=ExtResource("10_gujsx")]
 
 [node name="WarpZones" type="Node" parent="."]
 
@@ -382,4 +383,4 @@ radius = 64.0
 
 [node name="InGameUI" type="CanvasLayer" parent="."]
 
-[node name="InfoMessageUI" parent="InGameUI" instance=ExtResource("9_n6vsn")]
+[node name="InfoMessageUI" parent="InGameUI" instance=ExtResource("10_qa8p0")]
