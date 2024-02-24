@@ -5,4 +5,4 @@
 [node name="EnemyBourrin" instance=ExtResource("1_oe1ug")]
 
 [node name="Sprite2D" parent="." index="0"]
-frame = 3
+frame = 9

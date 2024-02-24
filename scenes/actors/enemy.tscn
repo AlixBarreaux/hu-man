@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/actors/enemy.gd" id="1_umwy5"]
 [ext_resource type="Texture2D" uid="uid://dv01jdqbxv070" path="res://assets/zombie_walk.png" id="2_yep5a"]
-[ext_resource type="Script" path="res://enemy_ai.gd" id="3_imh6c"]
+[ext_resource type="Script" path="res://scripts/ai/enemy_ai.gd" id="3_4d7dk"]
 
 [sub_resource type="Animation" id="Animation_pg68v"]
 resource_name = "move_down"
@@ -124,7 +124,7 @@ scale = Vector2(1.8, 1.8)
 texture = ExtResource("2_yep5a")
 hframes = 11
 vframes = 4
-frame = 2
+frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -140,7 +140,7 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/Move/blend_position = Vector2(0, 0)
 
 [node name="EnemyAI" type="Node2D" parent="." node_paths=PackedStringArray("enemy")]
-script = ExtResource("3_imh6c")
+script = ExtResource("3_4d7dk")
 enemy = NodePath("..")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="EnemyAI"]

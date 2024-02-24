@@ -73,22 +73,31 @@ func move_to_player() -> void:
 	nav_agent.set_target_position(destination_position)
 
 
+@onready var power_pellets: Node = get_tree().get_root().get_node("World/Pickables/Pellets/Power")
+
+
+func on_power_pellet_picked_up(_value: int) -> void:
+	print("Implement frightened ghost logic!")
+	pass
+
+
 func _ready() -> void:
 	set_physics_process(false)
 	call_deferred("_initialize")
+	
+	for power_pellet in power_pellets.get_children():
+		power_pellet.picked_up.connect(on_power_pellet_picked_up)
 
 
 func _initialize():
 	set_physics_process(true)
 	# Wait for the first physics frame so the NavigationServer can sync.
 	await get_tree().physics_frame
-	
-	# Now that the navigation map is no longer empty, set the movement target
-	#move_to_player()
+	# Now that the nav map is no longer empty, can set the movement target
 
 
-func _physics_process(delta: float) -> void:
-	print(self.name, "Destination value to override: ", destination_position)
+func _physics_process(_delta: float) -> void:
+	#print(self.name, "Destination value to override: ", destination_position)
 	move_to_player()
 	
 	# SIGNAL INSTEAD? -> navigation_finished

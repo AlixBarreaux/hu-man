@@ -14,6 +14,6 @@ func _ready() -> void:
 	animation_tree.active = true
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	self.global_position += direction * speed
 	animation_tree.set("parameters/Move/blend_position", direction)

@@ -4,3 +4,7 @@
 
 [node name="Pellets" type="Node"]
 script = ExtResource("1_6cajc")
+
+[node name="Normal" type="Node" parent="."]
+
+[node name="Power" type="Node" parent="."]

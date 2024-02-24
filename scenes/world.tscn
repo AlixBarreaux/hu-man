@@ -334,20 +334,23 @@ layer_0/tile_data = PackedInt32Array(1441794, 196608, 3, 1441793, 65536, 4, 1441
 
 [node name="Pellets" parent="Pickables" instance=ExtResource("3_2jn3a")]
 
-[node name="PowerPellet" parent="Pickables/Pellets" instance=ExtResource("4_6kjkp")]
-position = Vector2(168, 168)
+[node name="Pellet" parent="Pickables/Pellets/Normal" index="0" instance=ExtResource("5_mcs5t")]
+position = Vector2(168, 123)
 
-[node name="PowerPellet2" parent="Pickables/Pellets" instance=ExtResource("4_6kjkp")]
-position = Vector2(1752, 168)
+[node name="Pellet2" parent="Pickables/Pellets/Normal" index="1" instance=ExtResource("5_mcs5t")]
+position = Vector2(216, 123)
 
-[node name="PowerPellet3" parent="Pickables/Pellets" instance=ExtResource("4_6kjkp")]
-position = Vector2(168, 792)
+[node name="Pellet3" parent="Pickables/Pellets/Normal" index="2" instance=ExtResource("5_mcs5t")]
+position = Vector2(266, 123)
 
-[node name="PowerPellet4" parent="Pickables/Pellets" instance=ExtResource("4_6kjkp")]
-position = Vector2(1752, 792)
+[node name="PowerPellet" parent="Pickables/Pellets/Power" index="0" instance=ExtResource("4_6kjkp")]
+position = Vector2(389, 123)
 
-[node name="Pellet" parent="Pickables/Pellets" instance=ExtResource("5_mcs5t")]
-position = Vector2(168, 216)
+[node name="PowerPellet2" parent="Pickables/Pellets/Power" index="1" instance=ExtResource("4_6kjkp")]
+position = Vector2(448, 123)
+
+[node name="PowerPellet3" parent="Pickables/Pellets/Power" index="2" instance=ExtResource("4_6kjkp")]
+position = Vector2(505, 123)
 
 [node name="BonusItems" type="Node" parent="Pickables"]
 
@@ -439,4 +442,5 @@ position = Vector2(218, 266)
 [node name="InGameUI" type="CanvasLayer" parent="."]
 
 [node name="InfoMessageUI" parent="InGameUI" instance=ExtResource("10_qa8p0")]
-visible = false
+
+[editable path="Pickables/Pellets"]
