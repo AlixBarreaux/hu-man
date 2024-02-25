@@ -4,7 +4,7 @@ class_name Pickable
 
 @export var score_value: int = 0
 
-signal picked_up
+signal picked_up(value: int)
 
 
 func _ready() -> void:

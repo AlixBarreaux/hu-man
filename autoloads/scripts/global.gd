@@ -8,6 +8,10 @@ signal game_over
 signal score_changed
 signal high_score_changed
 
+signal player_died
+signal player_finished_dying
+signal game_started
+
 
 var score: int = 0:
 	set = set_score

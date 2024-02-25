@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/actors/enemy.gd" id="1_umwy5"]
 [ext_resource type="Texture2D" uid="uid://dv01jdqbxv070" path="res://assets/zombie_walk.png" id="2_yep5a"]
-[ext_resource type="Script" path="res://scripts/ai/enemy_ai.gd" id="3_4d7dk"]
+[ext_resource type="PackedScene" uid="uid://beipc3byq6y5w" path="res://enemy_ai.tscn" id="3_85aqi"]
 
 [sub_resource type="Animation" id="Animation_pg68v"]
 resource_name = "move_down"
@@ -124,7 +124,9 @@ scale = Vector2(1.8, 1.8)
 texture = ExtResource("2_yep5a")
 hframes = 11
 vframes = 4
-frame = 3
+frame = 7
+
+[node name="EnemyAI" parent="." instance=ExtResource("3_85aqi")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -138,14 +140,3 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_cow2b")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Move/blend_position = Vector2(0, 0)
-
-[node name="EnemyAI" type="Node2D" parent="." node_paths=PackedStringArray("enemy")]
-script = ExtResource("3_4d7dk")
-enemy = NodePath("..")
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="EnemyAI"]
-path_desired_distance = 4.0
-target_desired_distance = 4.0
-avoidance_enabled = true
-radius = 13.0
-debug_enabled = true

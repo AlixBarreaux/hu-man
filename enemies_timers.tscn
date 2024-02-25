@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxko3dru3t24k"]
+
+[ext_resource type="Script" path="res://enemies_timers.gd" id="1_401w5"]
+
+[node name="EnemiesTimers" type="Node"]
+script = ExtResource("1_401w5")
+
+[node name="ScatterTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="ChaseTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="FrightenedTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[connection signal="timeout" from="ScatterTimer" to="." method="_on_scatter_timer_timeout"]
+[connection signal="timeout" from="ChaseTimer" to="." method="_on_chase_timer_timeout"]

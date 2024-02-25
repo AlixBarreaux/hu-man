@@ -2,7 +2,7 @@ extends EnemyAI
 class_name EnemyAIChelou
 
 
-@export var ally_to_target: EnemyBourrin = null
+@export var ally_to_target: Enemy = null
 
 
 func _set_destination_position_on_player() -> void:
