@@ -388,7 +388,7 @@ spawn_point = NodePath("../../../PlayerSpawnPoint")
 [node name="Enemies" type="Node" parent="Actors"]
 
 [node name="EnemyBourrin" parent="Actors/Enemies" node_paths=PackedStringArray("spawn_point") instance=ExtResource("8_a4ges")]
-position = Vector2(168, 266)
+position = Vector2(888, 364)
 spawn_point = NodePath("../../../EnemiesSpawnPoints/Marker2D")
 
 [node name="WarpZones" type="Node" parent="."]

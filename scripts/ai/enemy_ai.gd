@@ -3,19 +3,19 @@ class_name EnemyAI
 
 
 func on_chasing() -> void:
-	print("Chase!")
+	set_destination_location(DestinationLocations.CHASE_TARGET)
 
 
 func on_scattered() -> void:
-	print("Scatter!")
+	set_destination_location(DestinationLocations.SCATTER_AREA)
 
 
 func on_eaten() -> void:
-	print("Eaten!")
+	set_destination_location(DestinationLocations.ENEMIES_HOME)
 
 
 func on_frightened() -> void:
-	print("Frightened!")
+	set_destination_location(DestinationLocations.RANDOM_LOCATION)
 
 
 enum States {
@@ -58,13 +58,18 @@ func set_state(state: States) -> void:
 @onready var chase_target: Player = get_tree().get_root().get_node("World/Actors/Players/Player")
 var chase_target_position: Vector2 = Vector2(0.0, 0.0)
 
+func _update_chase_target_position() -> void:
+	chase_target_position = chase_target.global_position
+	set_destination_position(chase_target_position)
 
-func _set_chase_target_position() -> void:
-	chase_target_position = chase_target.global_position + (chase_target.direction * tile_size) * 4
 
+@onready var scatter_point: Marker2D = get_tree().get_root().get_node("World/AIWaypoints/ScatterPoints1/Marker2D")
+@onready var scatter_point_position: Vector2 = scatter_point.global_position
 
-var scatter_target
-var frigthened_target
+func update_scatter_area_point_position() -> void:
+	scatter_point_position = scatter_point.global_position
+	set_destination_position(scatter_point_position)
+
 
 @onready var enemies_home: Marker2D = get_tree().get_root().get_node("World/AIWaypoints/EnemiesHome")
 @onready var enemies_home_position: Vector2 = enemies_home.global_position
@@ -95,23 +100,49 @@ enum DestinationLocations {
 }
 
 
+func update_destination_location() -> void:
+	match destination_location:
+		DestinationLocations.CHASE_TARGET:
+			#print("Update chase!")
+			_update_chase_target_position()
+		DestinationLocations.SCATTER_AREA:
+			#print("Update scatter!")
+			update_scatter_area_point_position()
+		DestinationLocations.ENEMIES_HOME:
+			#print("Update enemies home!")
+			set_destination_position(enemies_home_position)
+		DestinationLocations.RANDOM_LOCATION:
+			print("Update random location!")
+			#set_destination_position()
+		_:
+			printerr("(!) ERROR in " + self.name + ": Unrecognized state!")
+
 
 func set_destination_location(new_destination: DestinationLocations) -> void:
 	destination_location = new_destination
+
+
+signal navigation_finished
+
+# State waiting to be set which updates itself in the background while
+# the current one is overrinding it
+var background_state: States = self.current_state
+
+func on_navigation_finished() -> void:
+	if current_state == States.EATEN:
+		set_state(background_state)
+
+
+func _physics_process(_delta: float) -> void:
+	update_destination_location()
 	
-	match destination_location:
-		DestinationLocations.CHASE_TARGET:
-			_set_chase_target_position()
-			set_destination_position(chase_target.global_position)
-		DestinationLocations.SCATTER_AREA:
-			#set_destination_location()
-			pass
-		DestinationLocations.ENEMIES_HOME:
-			set_destination_position(enemies_home_position)
-		DestinationLocations.RANDOM_LOCATION:
-			pass
-		_:
-			printerr("(!) ERROR in " + self.name + ": Unrecognized state!")
+	if nav_agent.is_navigation_finished():
+		navigation_finished.emit()
+		return
+	
+	enemy.direction = to_local(nav_agent.get_next_path_position()).normalized()
+
+
 
 
 @onready var power_pellets: Node = get_tree().get_root().get_node("World/Pickables/Pellets/Power")
@@ -121,16 +152,20 @@ func on_power_pellet_picked_up(_value: int) -> void:
 
 
 @onready var enemies_timers: Node = get_tree().get_root().get_node("World/EnemiesTimers")
-@onready var scatter_timer: Timer = enemies_timers.get_node("ScatterTimer")
-@onready var chase_timer: Timer = enemies_timers.get_node("ChaseTimer")
-@onready var frightened_timer: Timer = enemies_timers.get_node("FrightenedTimer")
+@onready var scatter_timer: Timer = enemies_timers.get_node("ScatterDurationTimer")
+@onready var chase_timer: Timer = enemies_timers.get_node("ChaseDurationTimer")
+@onready var frightened_timer: Timer = enemies_timers.get_node("FrightenedDurationTimer")
 
 
 func on_scatter_timer_timeout() -> void:
+	background_state = States.CHASE
+	if current_state == States.EATEN: return
 	set_state(States.CHASE)
 
 
 func on_chase_timer_timeout() -> void:
+	background_state = States.SCATTER
+	if current_state == States.EATEN: return
 	set_state(States.SCATTER)
 
 
@@ -148,18 +183,15 @@ func enable() -> void:
 
 
 func on_game_started() -> void:
-	print(self.name, ": Game started - WARNING - Should check if scatter mode is chosen!")
 	self.enable()
 
 
 func on_player_died() -> void:
-	print(self.name, ": Player died!")
 	self.disable()
 
 
-func _ready() -> void:
-	set_physics_process(false)
-	call_deferred("_initialize")
+func _initialize_signals() -> void:
+	self.navigation_finished.connect(on_navigation_finished)
 	
 	scatter_timer.timeout.connect(on_scatter_timer_timeout)
 	chase_timer.timeout.connect(on_chase_timer_timeout)
@@ -172,20 +204,28 @@ func _ready() -> void:
 	Global.player_died.connect(on_player_died)
 
 
+func _ready() -> void:
+	set_physics_process(false)
+	call_deferred("_initialize")
+	
+	self._initialize_signals()
+
+
+@export var initial_state: States = States.CHASE
+
 func _initialize():
 	set_physics_process(true)
 	# Wait for the first physics frame so the NavigationServer can sync.
 	await get_tree().physics_frame
 	# Now that the nav map is no longer empty, can set the movement target
 	
-	scatter_timer.start()
-	set_state(States.CHASE)
-
-
-func _physics_process(_delta: float) -> void:
-	# SIGNAL INSTEAD? -> navigation_finished
-	if nav_agent.is_navigation_finished():
-		#print("Navigation finished.")
-		return
+	set_state(initial_state)
 	
-	enemy.direction = to_local(nav_agent.get_next_path_position()).normalized()
+	# WARNING: Timer called by each enemy! Timer should be called once only!
+	match initial_state:
+		States.CHASE:
+			background_state = States.CHASE
+			chase_timer.start()
+		_:
+			background_state = States.SCATTER
+			scatter_timer.start()

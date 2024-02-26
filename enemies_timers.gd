@@ -3,9 +3,9 @@ extends Node
 
 @onready var power_pellets = get_tree().get_root().get_node("World/Pickables/Pellets/Power")
 
-@onready var scatter_timer: Timer = $ScatterTimer
-@onready var chase_timer: Timer = $ChaseTimer
-@onready var frightened_timer: Timer = $FrightenedTimer
+@onready var scatter_timer: Timer = $ScatterDurationTimer
+@onready var chase_timer: Timer = $ChaseDurationTimer
+@onready var frightened_timer: Timer = $FrightenedDurationTimer
 
 
 func stop_all_timers() -> void:
@@ -13,7 +13,7 @@ func stop_all_timers() -> void:
 		timer.stop()
 
 
-func on_power_pellet_picked_up() -> void:
+func on_power_pellet_picked_up(_value: int) -> void:
 	self.frightened_timer.start()
 
 
@@ -30,8 +30,10 @@ func _ready() -> void:
 
 
 func _on_scatter_timer_timeout() -> void:
+	print(self.name, ": Scatter timer timeout!")
 	chase_timer.start()
 
 
 func _on_chase_timer_timeout() -> void:
+	print(self.name, ": Chase timer timeout!")
 	scatter_timer.start()

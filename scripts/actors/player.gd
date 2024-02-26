@@ -57,6 +57,10 @@ func on_game_started() -> void:
 	self.enable()
 
 
+func on_level_cleared() -> void:
+	self.disable()
+
+
 func on_finished_dying() -> void:
 	self.set_global_position(self.spawn_position)
 	#anim_node_sm_playback.travel("idle")
@@ -66,16 +70,19 @@ func _ready() -> void:
 	assert(spawn_point != null)
 	
 	Global.game_started.connect(on_game_started)
+	Global.level_cleared.connect(on_level_cleared)
 	Global.player_finished_dying.connect(on_finished_dying)
 	
 	animation_tree.active = true
 	
 	
-	print("DEBUG -> In ", self.name, ": Triggering events to make player die and restart game!")
-	await get_tree().create_timer(1.0).timeout
-	die()
-	await get_tree().create_timer(5.0).timeout
-	Global.game_started.emit()
+	#print("DEBUG -> In ", self.name, ": Triggering events to make player die and restart game!")
+	#await get_tree().create_timer(1.0).timeout
+	#die()
+	#await get_tree().create_timer(4.0).timeout
+	#Global.game_ready.emit()
+	#await get_tree().create_timer(1.0).timeout
+	#Global.game_started.emit()
 
 
 @onready var next_direction_rotator: Node2D = $NextDirectionRotator

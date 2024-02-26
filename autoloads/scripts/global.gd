@@ -10,6 +10,7 @@ signal high_score_changed
 
 signal player_died
 signal player_finished_dying
+signal game_ready
 signal game_started
 
 

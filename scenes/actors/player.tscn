@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/actors/player.gd" id="1_okgwv"]
 [ext_resource type="Texture2D" uid="uid://b5bksrwba8t4x" path="res://assets/player_walk.png" id="2_4gel4"]
-[ext_resource type="PackedScene" uid="uid://dovcon5sm3n58" path="res://hurtbox.tscn" id="3_ablg5"]
+[ext_resource type="PackedScene" uid="uid://dovcon5sm3n58" path="res://scenes/hurtbox.tscn" id="3_ablg5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_14xon"]
 radius = 22.0
@@ -12,6 +12,21 @@ radius = 24.1868
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_etcpm"]
 height = 40.0
+
+[sub_resource type="Animation" id="Animation_00ij2"]
+resource_name = "die"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [15]
+}
 
 [sub_resource type="Animation" id="Animation_6cvr1"]
 resource_name = "move_down"
@@ -79,21 +94,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [5, 6, 7, 8]
-}
-
-[sub_resource type="Animation" id="Animation_00ij2"]
-resource_name = "die"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [15]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p1mi8"]
