@@ -6,16 +6,16 @@
 script = ExtResource("1_401w5")
 
 [node name="ScatterDurationTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 4.0
 one_shot = true
 
 [node name="ChaseDurationTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 4.0
 one_shot = true
 
 [node name="FrightenedDurationTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 20.0
 one_shot = true
 
-[connection signal="timeout" from="ScatterDurationTimer" to="." method="_on_scatter_timer_timeout"]
-[connection signal="timeout" from="ChaseDurationTimer" to="." method="_on_chase_timer_timeout"]
+[connection signal="timeout" from="ScatterDurationTimer" to="." method="_on_scatter_duration_timer_timeout"]
+[connection signal="timeout" from="ChaseDurationTimer" to="." method="_on_chase_duration_timer_timeout"]
