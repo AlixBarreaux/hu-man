@@ -1,4 +1,5 @@
 extends Node
+class_name EnemiesTimer
 
 
 @onready var power_pellets = get_tree().get_root().get_node("World/Pickables/Pellets/Power")
