@@ -2,6 +2,23 @@ extends Node2D
 class_name EnemyAI
 
 
+# REFACTOR NOTES: Use SETGET on every setter function?
+
+
+# TO REMOVE WHEN DONE:
+
+# Chase -> Scatter, Frightened
+# Scatter -> Chase, Frightened
+# Frightened -> Eaten, Chase, Scatter
+# Eaten -> Chase, Scatter
+
+# Repeat this cycle 4 Times per level:
+# Scatter x sec, Chase x sec
+# After this cycle is over, lock in chase mode
+# Enemy Bourring can replace the Scatter x sec by chase, locking him in chase 
+# mode when x dots are left in the maze
+
+
 func on_chasing() -> void:
 	set_destination_location(DestinationLocations.CHASE_TARGET)
 
@@ -26,9 +43,9 @@ enum States {
 	FRIGHTENED
 }
 
-# SETGET?
+
 var current_state: States = States.SCATTER
-var state_to_resume: States = current_state
+@export var initial_state: States = States.CHASE
 
 func set_state(state: States) -> void:
 	if state == current_state: return
@@ -46,16 +63,11 @@ func set_state(state: States) -> void:
 		_:
 			printerr("(!) Error in " + self.name + ": Unrecognized state!")
 
-# Chase -> Scatter, Frightened
-# Scatter -> Chase, Frightened
-# Frightened -> Eaten, Chase, Scatter
-# Eaten -> Chase, Scatter
 
-# Repeat this cycle 4 Times per level:
-# Scatter x sec, Chase x sec
-# After this cycle is over, lock in chase mode
-# Enemy Bourring can replace the Scatter x sec by chase, locking him in chase 
-# mode when x dots are left in the maze
+# State waiting to be set which updates itself in the background while
+# the current one is overrinding it
+var background_state: States = self.current_state
+
 
 @onready var chase_target: Player = get_tree().get_root().get_node("World/Actors/Players/Player")
 var chase_target_position: Vector2 = Vector2(0.0, 0.0)
@@ -91,23 +103,18 @@ func pick_random_destination_position() -> void:
 @onready var enemies_home: Marker2D = get_tree().get_root().get_node("World/AIWaypoints/EnemiesHome")
 @onready var enemies_home_position: Vector2 = enemies_home.global_position
 
-
 @export var enemy: Enemy = null
 
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var tile_map: TileMap = get_tree().get_root().get_node("World/TileMap")
-
 @onready var tile_size: float = tile_map.get_tileset().get_tile_size().x
 
-# OVERRIDE THIS
 var destination_position: Vector2 = Vector2(0.0, 0.0)
-
 
 func set_destination_position(value: Vector2) -> void:
 	destination_position = value
 	nav_agent.set_target_position(destination_position)
 
-var destination_location: DestinationLocations = DestinationLocations.SCATTER_AREA
 
 enum DestinationLocations {
 	CHASE_TARGET,
@@ -120,6 +127,14 @@ enum DestinationLocations {
 # Controls if the destination location is updated on each frame.
 # Set to false when the position is set once and not changing later.
 var can_update_destination_location: bool = true
+
+
+var destination_location: DestinationLocations = DestinationLocations.SCATTER_AREA
+
+func set_destination_location(new_destination: DestinationLocations) -> void:
+	destination_location = new_destination
+	can_update_destination_location = true
+
 
 func update_destination_location() -> void:
 	match destination_location:
@@ -143,36 +158,15 @@ func update_destination_location() -> void:
 			printerr("(!) ERROR in " + self.name + ": Unrecognized state!")
 
 
-func set_destination_location(new_destination: DestinationLocations) -> void:
-	destination_location = new_destination
-	can_update_destination_location = true
-
-
 signal navigation_finished
-
-# State waiting to be set which updates itself in the background while
-# the current one is overrinding it
-var background_state: States = self.current_state
 
 func on_navigation_finished() -> void:
 	if current_state == States.EATEN:
 		can_update_destination_location = true
-		set_state(background_state)
+		self.set_state(background_state)
 	elif current_state == States.FRIGHTENED:
 		can_update_destination_location = true
 		pick_random_destination_position()
-
-
-func _physics_process(_delta: float) -> void:
-	if can_update_destination_location: update_destination_location()
-	
-	if nav_agent.is_navigation_finished():
-		navigation_finished.emit()
-		return
-	
-	enemy.direction = to_local(nav_agent.get_next_path_position()).normalized()
-
-
 
 
 @onready var power_pellets: Node = get_tree().get_root().get_node("World/Pickables/Pellets/Power")
@@ -190,17 +184,17 @@ func on_power_pellet_picked_up(_value: int) -> void:
 func on_scatter_timer_timeout() -> void:
 	background_state = States.CHASE
 	if current_state == States.EATEN or current_state == States.FRIGHTENED: return
-	set_state(States.CHASE)
+	self.set_state(States.CHASE)
 
 
 func on_chase_timer_timeout() -> void:
 	background_state = States.SCATTER
 	if current_state == States.EATEN or current_state == States.FRIGHTENED: return
-	set_state(States.SCATTER)
+	self.set_state(States.SCATTER)
 
 
 func on_frightened_timer_timeout() -> void:
-	set_state(background_state)
+	self.set_state(background_state)
 
 
 func disable() -> void:
@@ -245,17 +239,15 @@ func _ready() -> void:
 	self._initialize_signals()
 
 
-@export var initial_state: States = States.CHASE
-
 func _initialize():
 	set_physics_process(true)
 	# Wait for the first physics frame so the NavigationServer can sync.
 	await get_tree().physics_frame
-	# Now that the nav map is no longer empty, can set the movement target
+	# Now that the nav map is no longer empty, can use pathfinding
 	
 	build_walkable_tiles_list()
 	
-	set_state(initial_state)
+	self.set_state(initial_state)
 	
 	# WARNING: TIMER CALLED BY EACH ENEMY! TIMER SHOULD BE CALLED ONCE ONLY!
 	match initial_state:
@@ -265,3 +257,13 @@ func _initialize():
 		_:
 			background_state = States.SCATTER
 			scatter_timer.start()
+
+
+func _physics_process(_delta: float) -> void:
+	if can_update_destination_location: update_destination_location()
+	
+	if nav_agent.is_navigation_finished():
+		navigation_finished.emit()
+		return
+	
+	enemy.direction = to_local(nav_agent.get_next_path_position()).normalized()
