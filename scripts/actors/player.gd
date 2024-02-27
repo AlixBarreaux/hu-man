@@ -59,6 +59,7 @@ func on_game_started() -> void:
 
 func on_level_cleared() -> void:
 	self.disable()
+	#anim_node_sm_playback.travel("Victory Animation")
 
 
 func on_finished_dying() -> void:

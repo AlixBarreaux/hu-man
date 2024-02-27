@@ -219,6 +219,10 @@ func on_player_died() -> void:
 	self.disable()
 
 
+func on_level_cleared() -> void:
+	self.disable()
+
+
 func _initialize_signals() -> void:
 	self.navigation_finished.connect(on_navigation_finished)
 	
@@ -230,6 +234,7 @@ func _initialize_signals() -> void:
 		power_pellet.picked_up.connect(on_power_pellet_picked_up)
 		
 	Global.game_started.connect(on_game_started)
+	Global.level_cleared.connect(on_level_cleared)
 	Global.player_died.connect(on_player_died)
 
 

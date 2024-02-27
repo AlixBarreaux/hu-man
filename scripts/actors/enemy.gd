@@ -12,8 +12,21 @@ var direction: Vector2 = Vector2(0.0, 0.0)
 @onready var anim_node_sm_playback: AnimationNodeStateMachinePlayback = animation_tree.get("parameters/playback")
 
 
+func enable() -> void:
+	set_physics_process(true)
+
+
+func disable() -> void:
+	set_physics_process(false)
+
+
 func on_game_started() -> void:
 	pass
+
+
+func on_level_cleared() -> void:
+	disable()
+	#anim_node_sm_playback.travel("Defeat Animation")
 
 
 func on_player_died() -> void:
@@ -30,6 +43,7 @@ func _ready() -> void:
 	animation_tree.active = true
 	
 	Global.game_started.connect(on_game_started)
+	Global.level_cleared.connect(on_level_cleared)
 	Global.player_died.connect(on_player_died)
 	Global.player_finished_dying.connect(on_player_finished_dying)
 
