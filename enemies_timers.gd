@@ -29,11 +29,11 @@ func _ready() -> void:
 	Global.player_died.connect(on_player_died)
 
 
-func _on_scatter_timer_timeout() -> void:
-	print(self.name, ": Scatter timer timeout!")
+func _on_scatter_duration_timer_timeout() -> void:
+	print(self.name, ": Scatter duration timer timeout!")
 	chase_timer.start()
 
 
-func _on_chase_timer_timeout() -> void:
-	print(self.name, ": Chase timer timeout!")
+func _on_chase_duration_timer_timeout() -> void:
+	print(self.name, ": Chase duration timer timeout!")
 	scatter_timer.start()

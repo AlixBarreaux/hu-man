@@ -382,13 +382,13 @@ position = Vector2(960, 459)
 [node name="Players" type="Node" parent="Actors"]
 
 [node name="Player" parent="Actors/Players" node_paths=PackedStringArray("spawn_point") instance=ExtResource("7_qppoc")]
-position = Vector2(313, 266)
+position = Vector2(288, 528)
 spawn_point = NodePath("../../../PlayerSpawnPoint")
 
 [node name="Enemies" type="Node" parent="Actors"]
 
 [node name="EnemyBourrin" parent="Actors/Enemies" node_paths=PackedStringArray("spawn_point") instance=ExtResource("8_a4ges")]
-position = Vector2(888, 364)
+position = Vector2(792, 364)
 spawn_point = NodePath("../../../EnemiesSpawnPoints/Marker2D")
 
 [node name="WarpZones" type="Node" parent="."]

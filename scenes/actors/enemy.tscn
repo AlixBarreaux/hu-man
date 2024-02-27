@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/actors/enemy.gd" id="1_umwy5"]
 [ext_resource type="Texture2D" uid="uid://dv01jdqbxv070" path="res://assets/zombie_walk.png" id="2_yep5a"]
-[ext_resource type="PackedScene" uid="uid://beipc3byq6y5w" path="res://enemy_ai.tscn" id="3_85aqi"]
+[ext_resource type="PackedScene" uid="uid://beipc3byq6y5w" path="res://scenes/ai/enemy_ai.tscn" id="3_ck7bq"]
 
 [sub_resource type="Animation" id="Animation_pg68v"]
 resource_name = "move_down"
@@ -126,7 +126,7 @@ hframes = 11
 vframes = 4
 frame = 2
 
-[node name="EnemyAI" parent="." node_paths=PackedStringArray("enemy") instance=ExtResource("3_85aqi")]
+[node name="EnemyAI" parent="." node_paths=PackedStringArray("enemy") instance=ExtResource("3_ck7bq")]
 enemy = NodePath("..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -14,7 +14,7 @@ wait_time = 5.0
 one_shot = true
 
 [node name="FrightenedDurationTimer" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 3.0
 one_shot = true
 
 [connection signal="timeout" from="ScatterDurationTimer" to="." method="_on_scatter_timer_timeout"]

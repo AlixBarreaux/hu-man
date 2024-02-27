@@ -16,6 +16,7 @@ func on_eaten() -> void:
 
 func on_frightened() -> void:
 	set_destination_location(DestinationLocations.RANDOM_LOCATION)
+	frightened_timer.start()
 
 
 enum States {
@@ -71,6 +72,21 @@ func update_scatter_area_point_position() -> void:
 	set_destination_position(scatter_point_position)
 
 
+var walkable_tiles_list: PackedVector2Array = []
+
+func build_walkable_tiles_list() -> void:
+	for tile in tile_map.get_used_cells(0):
+		var cell_tile_data: TileData = tile_map.get_cell_tile_data(0, tile)
+		if cell_tile_data and cell_tile_data.get_custom_data("walkable"):
+				walkable_tiles_list.append(tile)
+
+
+func pick_random_destination_position() -> void:
+	randomize()
+	var random_index: int = randi() % walkable_tiles_list.size() - 1
+	set_destination_position(tile_map.map_to_local(walkable_tiles_list[random_index]))
+
+
 @onready var enemies_home: Marker2D = get_tree().get_root().get_node("World/AIWaypoints/EnemiesHome")
 @onready var enemies_home_position: Vector2 = enemies_home.global_position
 
@@ -113,7 +129,7 @@ func update_destination_location() -> void:
 			set_destination_position(enemies_home_position)
 		DestinationLocations.RANDOM_LOCATION:
 			print("Update random location!")
-			#set_destination_position()
+			pick_random_destination_position()
 		_:
 			printerr("(!) ERROR in " + self.name + ": Unrecognized state!")
 
@@ -131,10 +147,12 @@ var background_state: States = self.current_state
 func on_navigation_finished() -> void:
 	if current_state == States.EATEN:
 		set_state(background_state)
+	elif current_state == States.FRIGHTENED:
+		pick_random_destination_position()
 
 
 func _physics_process(_delta: float) -> void:
-	update_destination_location()
+	#update_destination_location()
 	
 	if nav_agent.is_navigation_finished():
 		navigation_finished.emit()
@@ -159,19 +177,18 @@ func on_power_pellet_picked_up(_value: int) -> void:
 
 func on_scatter_timer_timeout() -> void:
 	background_state = States.CHASE
-	if current_state == States.EATEN: return
+	if current_state == States.EATEN or current_state == States.FRIGHTENED: return
 	set_state(States.CHASE)
 
 
 func on_chase_timer_timeout() -> void:
 	background_state = States.SCATTER
-	if current_state == States.EATEN: return
+	if current_state == States.EATEN or current_state == States.FRIGHTENED: return
 	set_state(States.SCATTER)
 
 
 func on_frightened_timer_timeout() -> void:
-	#set_state(state_to_resume)
-	pass
+	set_state(background_state)
 
 
 func disable() -> void:
@@ -219,9 +236,11 @@ func _initialize():
 	await get_tree().physics_frame
 	# Now that the nav map is no longer empty, can set the movement target
 	
+	build_walkable_tiles_list()
+	
 	set_state(initial_state)
 	
-	# WARNING: Timer called by each enemy! Timer should be called once only!
+	# WARNING: TIMER CALLED BY EACH ENEMY! TIMER SHOULD BE CALLED ONCE ONLY!
 	match initial_state:
 		States.CHASE:
 			background_state = States.CHASE
