@@ -31,6 +31,7 @@ var current_state: States = States.SCATTER
 var state_to_resume: States = current_state
 
 func set_state(state: States) -> void:
+	if state == current_state: return
 	current_state = state
 	
 	match state:
@@ -116,18 +117,26 @@ enum DestinationLocations {
 }
 
 
+# Controls if the destination location is updated on each frame.
+# Set to false when the position is set once and not changing later.
+var can_update_destination_location: bool = true
+
 func update_destination_location() -> void:
 	match destination_location:
 		DestinationLocations.CHASE_TARGET:
-			#print("Update chase!")
+			print("Update chase!")
 			_update_chase_target_position()
 		DestinationLocations.SCATTER_AREA:
-			#print("Update scatter!")
+			print("Update scatter!")
 			update_scatter_area_point_position()
 		DestinationLocations.ENEMIES_HOME:
-			#print("Update enemies home!")
+			can_update_destination_location = false
+			
+			print("Update enemies home!")
 			set_destination_position(enemies_home_position)
 		DestinationLocations.RANDOM_LOCATION:
+			can_update_destination_location = false
+			
 			print("Update random location!")
 			pick_random_destination_position()
 		_:
@@ -136,6 +145,7 @@ func update_destination_location() -> void:
 
 func set_destination_location(new_destination: DestinationLocations) -> void:
 	destination_location = new_destination
+	can_update_destination_location = true
 
 
 signal navigation_finished
@@ -146,13 +156,15 @@ var background_state: States = self.current_state
 
 func on_navigation_finished() -> void:
 	if current_state == States.EATEN:
+		can_update_destination_location = true
 		set_state(background_state)
 	elif current_state == States.FRIGHTENED:
+		can_update_destination_location = true
 		pick_random_destination_position()
 
 
 func _physics_process(_delta: float) -> void:
-	#update_destination_location()
+	if can_update_destination_location: update_destination_location()
 	
 	if nav_agent.is_navigation_finished():
 		navigation_finished.emit()
