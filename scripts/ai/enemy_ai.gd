@@ -6,26 +6,18 @@ class_name EnemyAI
 
 
 # TODO:
-# - Implement ghost "dying" -> Swicth from frigthened to eaten
-# - Implement scatter behavior: Moving around the first point for now, should 
-# go to the next one
-# - Make player die
+# - Make AI stop on enemy death
 # - To avoid calling 4 times the timers on _initialize, do it in enemies_timers
 # and rename this scene to something like EnemiesSharedAI ?
-# (Careful with signals and refs!)
+# (Careful with function / var names, signals and refs!)
 # END TODO
 
 # TO REMOVE WHEN DONE:
 
-# Chase -> Scatter, Frightened
-# Scatter -> Chase, Frightened
-# Frightened -> Eaten, Chase, Scatter
-# Eaten -> Chase, Scatter
-
 # Repeat this cycle 4 Times per level:
 # Scatter x sec, Chase x sec
 # After this cycle is over, lock in chase mode
-# Enemy Bourring can replace the Scatter x sec by chase, locking him in chase 
+# Enemy Bourrin can replace the Scatter x sec by chase, locking him in chase 
 # mode when x dots are left in the maze
 
 
@@ -39,6 +31,7 @@ func on_scattered() -> void:
 	enemy.set_hurt_box_disabled(true)
 	enemy.set_hit_box_disabled(false)
 	set_destination_location(DestinationLocations.SCATTER_AREA)
+	go_to_first_scatter_point()
 
 
 func on_eaten() -> void:
@@ -95,12 +88,28 @@ func _update_chase_target_position() -> void:
 	set_destination_position(chase_target_position)
 
 
-@onready var scatter_point: Marker2D = get_tree().get_root().get_node("World/AIWaypoints/ScatterPoints1/Marker2D")
-@onready var scatter_point_position: Vector2 = scatter_point.global_position
+@onready var scatter_points_node: Node2D = get_tree().get_root().get_node("World/AIWaypoints/ScatterPoints")
+@onready var scatter_point_target_position: Vector2 = Vector2(0.0, 0.0)
 
-func update_scatter_area_point_position() -> void:
-	scatter_point_position = scatter_point.global_position
-	set_destination_position(scatter_point_position)
+@onready var scatter_points: PackedVector2Array = []
+var current_scatter_point_index: int = 0
+
+func build_scatter_points_list() -> void:
+	for node in scatter_points_node.get_children():
+		scatter_points.append(node.global_position)
+
+
+func go_to_first_scatter_point() -> void:
+	current_scatter_point_index = 0
+	set_destination_position(scatter_points[current_scatter_point_index])
+
+
+func go_to_next_scatter_point() -> void:
+	set_destination_position(scatter_points[current_scatter_point_index])
+
+	current_scatter_point_index += 1
+	if current_scatter_point_index >= scatter_points.size():
+		current_scatter_point_index = 0
 
 
 var walkable_tiles_list: PackedVector2Array = []
@@ -157,20 +166,15 @@ func set_destination_location(new_destination: DestinationLocations) -> void:
 func update_destination_location() -> void:
 	match destination_location:
 		DestinationLocations.CHASE_TARGET:
-			#print("Update chase!")
 			_update_chase_target_position()
 		DestinationLocations.SCATTER_AREA:
-			#print("Update scatter!")
-			update_scatter_area_point_position()
+			can_update_destination_location = false
+			go_to_next_scatter_point()
 		DestinationLocations.ENEMIES_HOME:
 			can_update_destination_location = false
-			
-			#print("Update enemies home!")
 			set_destination_position(enemies_home_position)
 		DestinationLocations.RANDOM_LOCATION:
 			can_update_destination_location = false
-			
-			#print("Update random location!")
 			pick_random_destination_position()
 		_:
 			printerr("(!) ERROR in " + self.name + ": Unrecognized state!")
@@ -179,12 +183,16 @@ func update_destination_location() -> void:
 signal navigation_finished
 
 func on_navigation_finished() -> void:
-	if current_state == States.EATEN:
-		can_update_destination_location = true
-		self.set_state(background_state)
-	elif current_state == States.FRIGHTENED:
-		can_update_destination_location = true
-		pick_random_destination_position()
+	match current_state:
+		States.EATEN:
+			can_update_destination_location = true
+			self.set_state(background_state)
+		States.FRIGHTENED:
+			can_update_destination_location = true
+			pick_random_destination_position()
+		States.SCATTER:
+			can_update_destination_location = false
+			go_to_next_scatter_point()
 
 
 @onready var power_pellets: Node = get_tree().get_root().get_node("World/Pickables/Pellets/Power")
@@ -272,6 +280,7 @@ func _initialize():
 	# Now that the nav map is no longer empty, can use pathfinding
 	
 	build_walkable_tiles_list()
+	build_scatter_points_list()
 	
 	self.set_state(initial_state)
 	

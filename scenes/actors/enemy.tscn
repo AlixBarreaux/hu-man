@@ -133,7 +133,7 @@ scale = Vector2(1.8, 1.8)
 texture = ExtResource("2_yep5a")
 hframes = 11
 vframes = 4
-frame = 9
+frame = 6
 
 [node name="EnemyAI" parent="." node_paths=PackedStringArray("enemy") instance=ExtResource("3_ck7bq")]
 enemy = NodePath("..")

@@ -400,20 +400,20 @@ position = Vector2(960, 552)
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
-[node name="ScatterPoints1" type="Node2D" parent="AIWaypoints"]
+[node name="ScatterPoints" type="Node2D" parent="AIWaypoints"]
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
-[node name="Marker2D" type="Marker2D" parent="AIWaypoints/ScatterPoints1"]
+[node name="Marker2D" type="Marker2D" parent="AIWaypoints/ScatterPoints"]
 position = Vector2(504, 266)
 
-[node name="Marker2D2" type="Marker2D" parent="AIWaypoints/ScatterPoints1"]
+[node name="Marker2D2" type="Marker2D" parent="AIWaypoints/ScatterPoints"]
 position = Vector2(504, 123)
 
-[node name="Marker2D3" type="Marker2D" parent="AIWaypoints/ScatterPoints1"]
+[node name="Marker2D3" type="Marker2D" parent="AIWaypoints/ScatterPoints"]
 position = Vector2(168, 123)
 
-[node name="Marker2D4" type="Marker2D" parent="AIWaypoints/ScatterPoints1"]
+[node name="Marker2D4" type="Marker2D" parent="AIWaypoints/ScatterPoints"]
 position = Vector2(168, 266)
 
 [node name="ScatterPoints2" type="Node2D" parent="AIWaypoints"]
