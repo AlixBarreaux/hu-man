@@ -5,6 +5,16 @@ class_name EnemyAI
 # REFACTOR NOTES: Use SETGET on every setter function?
 
 
+# TODO:
+# - Implement ghost "dying" -> Swicth from frigthened to eaten
+# - Implement scatter behavior: Moving around the first point for now, should 
+# go to the next one
+# - Make player die
+# - To avoid calling 4 times the timers on _initialize, do it in enemies_timers
+# and rename this scene to something like EnemiesSharedAI ?
+# (Careful with signals and refs!)
+# END TODO
+
 # TO REMOVE WHEN DONE:
 
 # Chase -> Scatter, Frightened
@@ -20,18 +30,26 @@ class_name EnemyAI
 
 
 func on_chasing() -> void:
+	enemy.set_hurt_box_disabled(true)
+	enemy.set_hit_box_disabled(false)
 	set_destination_location(DestinationLocations.CHASE_TARGET)
 
 
 func on_scattered() -> void:
+	enemy.set_hurt_box_disabled(true)
+	enemy.set_hit_box_disabled(false)
 	set_destination_location(DestinationLocations.SCATTER_AREA)
 
 
 func on_eaten() -> void:
+	enemy.set_hurt_box_disabled(true)
+	enemy.set_hit_box_disabled(true)
 	set_destination_location(DestinationLocations.ENEMIES_HOME)
 
 
 func on_frightened() -> void:
+	enemy.set_hurt_box_disabled(false)
+	enemy.set_hit_box_disabled(true)
 	set_destination_location(DestinationLocations.RANDOM_LOCATION)
 	frightened_timer.start()
 
@@ -45,10 +63,10 @@ enum States {
 
 
 var current_state: States = States.SCATTER
-@export var initial_state: States = States.CHASE
+@export var initial_state: States = States.SCATTER
 
 func set_state(state: States) -> void:
-	if state == current_state: return
+	if state == current_state and not first_initialization: return
 	current_state = state
 	
 	match state:
@@ -139,20 +157,20 @@ func set_destination_location(new_destination: DestinationLocations) -> void:
 func update_destination_location() -> void:
 	match destination_location:
 		DestinationLocations.CHASE_TARGET:
-			print("Update chase!")
+			#print("Update chase!")
 			_update_chase_target_position()
 		DestinationLocations.SCATTER_AREA:
-			print("Update scatter!")
+			#print("Update scatter!")
 			update_scatter_area_point_position()
 		DestinationLocations.ENEMIES_HOME:
 			can_update_destination_location = false
 			
-			print("Update enemies home!")
+			#print("Update enemies home!")
 			set_destination_position(enemies_home_position)
 		DestinationLocations.RANDOM_LOCATION:
 			can_update_destination_location = false
 			
-			print("Update random location!")
+			#print("Update random location!")
 			pick_random_destination_position()
 		_:
 			printerr("(!) ERROR in " + self.name + ": Unrecognized state!")
@@ -205,6 +223,11 @@ func enable() -> void:
 	self.set_physics_process(true)
 
 
+func on_enemy_died() -> void:
+	frightened_timer.stop()
+	self.set_state(States.EATEN)
+
+
 func on_game_started() -> void:
 	self.enable()
 
@@ -226,7 +249,9 @@ func _initialize_signals() -> void:
 	
 	for power_pellet in power_pellets.get_children():
 		power_pellet.picked_up.connect(on_power_pellet_picked_up)
-		
+	
+	enemy.died.connect(on_enemy_died)
+	
 	Global.game_started.connect(on_game_started)
 	Global.level_cleared.connect(on_level_cleared)
 	Global.player_died.connect(on_player_died)
@@ -234,10 +259,11 @@ func _initialize_signals() -> void:
 
 func _ready() -> void:
 	set_physics_process(false)
-	call_deferred("_initialize")
-	
 	self._initialize_signals()
+	call_deferred("_initialize")
 
+
+var first_initialization: bool = true
 
 func _initialize():
 	set_physics_process(true)
@@ -257,6 +283,8 @@ func _initialize():
 		_:
 			background_state = States.SCATTER
 			scatter_timer.start()
+	
+	first_initialization = false
 
 
 func _physics_process(_delta: float) -> void:

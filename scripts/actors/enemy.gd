@@ -29,23 +29,41 @@ func on_level_cleared() -> void:
 	#anim_node_sm_playback.travel("Defeat Animation")
 
 
-func on_player_died() -> void:
-	pass
+@onready var hurt_box: HurtBox = $HurtBox
+
+func set_hurt_box_disabled(value: bool) -> void:
+	for collision_shape in hurt_box.get_children():
+		collision_shape.call_deferred("set_disabled", value)
+
+
+@onready var hit_box: Area2D = $HitBox
+
+func set_hit_box_disabled(value: bool) -> void:
+	for collision_shape in hit_box.get_children():
+		collision_shape.call_deferred("set_disabled", value)
+
+
+signal died
+
+func die() -> void:
+	self.died.emit()
 
 
 func on_player_finished_dying() -> void:
 	self.set_global_position(spawn_position)
 
 
+func _initialize_signals() -> void:
+	Global.game_started.connect(on_game_started)
+	Global.level_cleared.connect(on_level_cleared)
+	Global.player_finished_dying.connect(on_player_finished_dying)
+
+
 func _ready() -> void:
 	assert(spawn_point != null)
 	
 	animation_tree.active = true
-	
-	Global.game_started.connect(on_game_started)
-	Global.level_cleared.connect(on_level_cleared)
-	Global.player_died.connect(on_player_died)
-	Global.player_finished_dying.connect(on_player_finished_dying)
+	self._initialize_signals()
 
 
 func _physics_process(_delta: float) -> void:

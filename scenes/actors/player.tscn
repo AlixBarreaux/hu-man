@@ -7,11 +7,11 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_14xon"]
 radius = 22.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_jf374"]
-radius = 24.1868
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_etcpm"]
 height = 40.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jf374"]
+radius = 24.1868
 
 [sub_resource type="Animation" id="Animation_00ij2"]
 resource_name = "die"
@@ -183,19 +183,21 @@ position = Vector2(20, 22)
 rotation = -1.57079
 target_position = Vector2(-0.000238426, 10)
 
-[node name="Hitbox" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-shape = SubResource("CircleShape2D_jf374")
-
 [node name="Hurtbox" parent="." node_paths=PackedStringArray("actor_to_hurt") instance=ExtResource("3_ablg5")]
 collision_mask = 4
 actor_to_hurt = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("CapsuleShape2D_etcpm")
+debug_color = Color(0.45098, 0.47451, 1, 0.419608)
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_jf374")
+debug_color = Color(1, 0.321569, 0.290196, 0.419608)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

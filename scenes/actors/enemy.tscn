@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://b8ju6rj3bx3w2"]
+[gd_scene load_steps=20 format=3 uid="uid://b8ju6rj3bx3w2"]
 
 [ext_resource type="Script" path="res://scripts/actors/enemy.gd" id="1_umwy5"]
 [ext_resource type="Texture2D" uid="uid://dv01jdqbxv070" path="res://assets/zombie_walk.png" id="2_yep5a"]
 [ext_resource type="PackedScene" uid="uid://beipc3byq6y5w" path="res://scenes/ai/enemy_ai.tscn" id="3_ck7bq"]
+[ext_resource type="PackedScene" uid="uid://dovcon5sm3n58" path="res://scenes/hurtbox.tscn" id="4_54mgl"]
 
 [sub_resource type="Animation" id="Animation_pg68v"]
 resource_name = "move_down"
@@ -114,6 +115,14 @@ states/Move/node = SubResource("AnimationNodeBlendSpace2D_322v2")
 states/Move/position = Vector2(351, 100)
 transitions = ["Start", "Move", SubResource("AnimationNodeStateMachineTransition_2pw3s"), "Move", "End", SubResource("AnimationNodeStateMachineTransition_s0xpn")]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_to6e0"]
+radius = 18.0
+height = 56.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rfcbi"]
+radius = 8.0
+height = 46.0
+
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_umwy5")
 metadata/_edit_group_ = true
@@ -124,7 +133,7 @@ scale = Vector2(1.8, 1.8)
 texture = ExtResource("2_yep5a")
 hframes = 11
 vframes = 4
-frame = 6
+frame = 9
 
 [node name="EnemyAI" parent="." node_paths=PackedStringArray("enemy") instance=ExtResource("3_ck7bq")]
 enemy = NodePath("..")
@@ -141,3 +150,19 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_cow2b")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Move/blend_position = Vector2(0, 0)
+
+[node name="HurtBox" parent="." node_paths=PackedStringArray("actor_to_hurt") instance=ExtResource("4_54mgl")]
+collision_mask = 2
+actor_to_hurt = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CapsuleShape2D_to6e0")
+debug_color = Color(0.45098, 0.47451, 1, 0.419608)
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CapsuleShape2D_rfcbi")
+debug_color = Color(1, 0.321569, 0.290196, 0.419608)

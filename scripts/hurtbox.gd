@@ -11,6 +11,6 @@ func _ready() -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	for collision_shape in self.get_children():
-		collision_shape.set_disabled(true)
+		collision_shape.call_deferred("set_disabled", true)
 	
 	self.actor_to_hurt.die()
