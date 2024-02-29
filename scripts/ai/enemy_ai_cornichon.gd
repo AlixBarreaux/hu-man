@@ -4,5 +4,5 @@ class_name EnemyAIAssassin
 
 # Chase until 8 tiles distance of player, scatter if inside of this zone
 
-func _set_destination_position_on_player() -> void:
-	pass
+func __update_chase_target_position() -> void:
+	chase_target_position = chase_target.global_position

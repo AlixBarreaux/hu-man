@@ -1,8 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://b8ju6rj3bx3w2"]
+[gd_scene load_steps=19 format=3 uid="uid://b8ju6rj3bx3w2"]
 
 [ext_resource type="Script" path="res://scripts/actors/enemy.gd" id="1_umwy5"]
 [ext_resource type="Texture2D" uid="uid://dv01jdqbxv070" path="res://assets/zombie_walk.png" id="2_yep5a"]
-[ext_resource type="PackedScene" uid="uid://beipc3byq6y5w" path="res://scenes/ai/enemy_ai.tscn" id="3_ck7bq"]
 [ext_resource type="PackedScene" uid="uid://dovcon5sm3n58" path="res://scenes/hurtbox.tscn" id="4_54mgl"]
 
 [sub_resource type="Animation" id="Animation_pg68v"]
@@ -133,10 +132,7 @@ scale = Vector2(1.8, 1.8)
 texture = ExtResource("2_yep5a")
 hframes = 11
 vframes = 4
-frame = 6
-
-[node name="EnemyAI" parent="." node_paths=PackedStringArray("enemy") instance=ExtResource("3_ck7bq")]
-enemy = NodePath("..")
+frame = 9
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -2,6 +2,5 @@ extends EnemyAI
 class_name EnemyAICornichon
 
 
-func _set_destination_position_on_player() -> void:
-	#destination_position = player.global_position + (player.direction * tile_size) * 4
-	pass
+func __update_chase_target_position() -> void:
+	chase_target_position = chase_target.global_position + (chase_target.direction * tile_size * 4)

@@ -6,10 +6,13 @@ class_name EnemyAI
 
 
 # TODO:
+# - Add chase behaviors to each specific enemy
+# - Assign scatter points node to each enemy
 # - Make AI stop on enemy death
 # - To avoid calling 4 times the timers on _initialize, do it in enemies_timers
 # and rename this scene to something like EnemiesSharedAI ?
 # (Careful with function / var names, signals and refs!)
+# - Add elroy mode to EnemyBourrin
 # END TODO
 
 # TO REMOVE WHEN DONE:
@@ -83,8 +86,12 @@ var background_state: States = self.current_state
 @onready var chase_target: Player = get_tree().get_root().get_node("World/Actors/Players/Player")
 var chase_target_position: Vector2 = Vector2(0.0, 0.0)
 
-func _update_chase_target_position() -> void:
-	chase_target_position = chase_target.global_position
+func __update_chase_target_position() -> void:
+	printerr("(!) ERROR in: " + self.name + ": __set_chase_target_position() must be implemented!")
+
+
+func set_destination_position_to_chase_target_position() -> void:
+	__update_chase_target_position()
 	set_destination_position(chase_target_position)
 
 
@@ -166,7 +173,7 @@ func set_destination_location(new_destination: DestinationLocations) -> void:
 func update_destination_location() -> void:
 	match destination_location:
 		DestinationLocations.CHASE_TARGET:
-			_update_chase_target_position()
+			set_destination_position_to_chase_target_position()
 		DestinationLocations.SCATTER_AREA:
 			can_update_destination_location = false
 			go_to_next_scatter_point()
