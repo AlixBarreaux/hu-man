@@ -6,13 +6,16 @@ class_name EnemyAI
 
 
 # TODO:
-# - Add chase behaviors to each specific enemy
+# - Add chase behaviors to EnemyCornichon
 # - Assign scatter points node to each enemy
 # - Make AI stop on enemy death
 # - To avoid calling 4 times the timers on _initialize, do it in enemies_timers
 # and rename this scene to something like EnemiesSharedAI ?
 # (Careful with function / var names, signals and refs!)
 # - Add elroy mode to EnemyBourrin
+
+# - Pathfinding optimization: build and store the walkable tiles on a shared AI thingy
+# - Pathfinding optimization: Add a timer to recalculate the path to reduce path update calls
 # END TODO
 
 # TO REMOVE WHEN DONE:

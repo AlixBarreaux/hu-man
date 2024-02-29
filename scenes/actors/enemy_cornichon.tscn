@@ -6,7 +6,8 @@
 [node name="EnemyCornichon" instance=ExtResource("1_kf4hi")]
 
 [node name="EnemyAICornichon" parent="." index="0" node_paths=PackedStringArray("enemy") instance=ExtResource("2_met73")]
+initial_state = 1
 enemy = NodePath("..")
 
 [node name="Sprite2D" parent="." index="1"]
-frame = 3
+frame = 1

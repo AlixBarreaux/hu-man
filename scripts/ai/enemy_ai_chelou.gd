@@ -2,18 +2,10 @@ extends EnemyAI
 class_name EnemyAIChelou
 
 
-@export var enemy_to_target: Enemy = null
+@onready var enemy_to_target: Enemy = get_tree().get_root().get_node("World/Actors/Enemies/EnemyBourrin")
 
 
 func __update_chase_target_position() -> void:
-	# Draw a line from Blinky’s position 
-	#enemy_to_target.global_position
-	
-	# to the cell two tiles in front of Pac-Man, 
-	#player.global_position + player.direction * (tile_size * 2)
-	
-	# then double the length of the line.
-	#* 2
-	
-	#destination_position = 
-	pass
+	var cell_away_point_position: Vector2 = chase_target.global_position + (chase_target.direction * tile_size * 2)
+	var chase_target_to_enemy_vector: Vector2 = enemy_to_target.global_position - cell_away_point_position
+	chase_target_position = cell_away_point_position - chase_target_to_enemy_vector
