@@ -5,5 +5,3 @@
 
 [node name="EnemyAICornichon" instance=ExtResource("1_6fvwv")]
 script = ExtResource("2_fau5h")
-initial_state = null
-scatter_points_node_path_string = null
