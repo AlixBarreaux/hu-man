@@ -1,5 +1,5 @@
 extends EnemyAI
-class_name EnemyAICornichon
+class_name EnemyAIAssassin
 
 
 func __update_chase_target_position() -> void:

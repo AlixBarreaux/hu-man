@@ -1,5 +1,5 @@
 extends EnemyAI
-class_name EnemyAIAssassin
+class_name EnemyAICornichon
 
 
 # Chase until 8 tiles distance of player, scatter if inside of this zone
