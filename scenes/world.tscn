@@ -358,22 +358,22 @@ position = Vector2(1031, 552)
 [node name="Pellets" parent="Pickables" instance=ExtResource("3_2jn3a")]
 
 [node name="Pellet" parent="Pickables/Pellets/Normal" index="0" instance=ExtResource("5_mcs5t")]
-position = Vector2(168, 123)
+position = Vector2(170, 266)
 
 [node name="Pellet2" parent="Pickables/Pellets/Normal" index="1" instance=ExtResource("5_mcs5t")]
-position = Vector2(216, 123)
+position = Vector2(218, 266)
 
 [node name="Pellet3" parent="Pickables/Pellets/Normal" index="2" instance=ExtResource("5_mcs5t")]
-position = Vector2(266, 123)
+position = Vector2(268, 266)
 
 [node name="PowerPellet" parent="Pickables/Pellets/Power" index="0" instance=ExtResource("4_6kjkp")]
-position = Vector2(389, 123)
+position = Vector2(391, 266)
 
 [node name="PowerPellet2" parent="Pickables/Pellets/Power" index="1" instance=ExtResource("4_6kjkp")]
-position = Vector2(448, 123)
+position = Vector2(450, 266)
 
 [node name="PowerPellet3" parent="Pickables/Pellets/Power" index="2" instance=ExtResource("4_6kjkp")]
-position = Vector2(505, 123)
+position = Vector2(507, 266)
 
 [node name="BonusItems" type="Node" parent="Pickables"]
 
@@ -385,7 +385,7 @@ position = Vector2(960, 459)
 [node name="Players" type="Node" parent="Actors"]
 
 [node name="Player" parent="Actors/Players" node_paths=PackedStringArray("spawn_point") instance=ExtResource("7_qppoc")]
-position = Vector2(959, 705)
+position = Vector2(790, 325)
 spawn_point = NodePath("../../../PlayerSpawnPoint")
 
 [node name="Enemies" type="Node" parent="Actors"]
