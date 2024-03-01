@@ -6,11 +6,8 @@ class_name EnemyAI
 
 
 # TODO:
-# - FIX: EATEN but not coming back to background state!
-
-# - Add chase behaviors to EnemyCornichon
-# - Assign scatter points node to each enemy
 # - Make AI stop on enemy death
+# - Add chase behaviors to EnemyCornichon
 # - To avoid calling 4 times the timers on _initialize, do it in enemies_timers
 # and rename this scene to something like EnemiesSharedAI ?
 # (Careful with function / var names, signals and refs!)
@@ -28,7 +25,6 @@ class_name EnemyAI
 # Enemy Bourrin can replace the Scatter x sec by chase, locking him in chase 
 # mode when x dots are left in the maze
 
-
 func on_chasing() -> void:
 	enemy.set_hurt_box_disabled(true)
 	enemy.set_hit_box_disabled(false)
@@ -43,14 +39,12 @@ func on_scattered() -> void:
 
 
 func on_eaten() -> void:
-	print(self.name, ": Eaten!")
 	enemy.set_hurt_box_disabled(true)
 	enemy.set_hit_box_disabled(true)
 	set_destination_location(DestinationLocations.ENEMIES_HOME)
 
 
 func on_frightened() -> void:
-	print(self.name, ": Frightened!")
 	enemy.set_hurt_box_disabled(false)
 	enemy.set_hit_box_disabled(true)
 	set_destination_location(DestinationLocations.RANDOM_LOCATION)
@@ -235,7 +229,6 @@ func on_chase_timer_timeout() -> void:
 
 
 func on_frightened_timer_timeout() -> void:
-	print(self.name, ": Frigthened timer timeout!")
 	if current_state == States.EATEN: return
 	self.set_state(background_state)
 
