@@ -1,5 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://cbv40bjrx6t5h"]
+[gd_scene load_steps=19 format=3 uid="uid://cbv40bjrx6t5h"]
 
+[ext_resource type="Script" path="res://world.gd" id="1_dg45b"]
 [ext_resource type="Texture2D" uid="uid://k8ebghsnmd1u" path="res://temp/reference.jpg" id="1_kbpl7"]
 [ext_resource type="Texture2D" uid="uid://cii0nbpljpbkq" path="res://assets/tiles.png" id="2_636tm"]
 [ext_resource type="PackedScene" uid="uid://d35gi8b3l2nhh" path="res://scenes/pickables/pellets.tscn" id="3_2jn3a"]
@@ -13,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bxd0v1wymn05u" path="res://scenes/ui/info_message_ui.tscn" id="10_qa8p0"]
 [ext_resource type="PackedScene" uid="uid://c5mkv72mwdf1m" path="res://scenes/actors/enemy_chelou.tscn" id="11_r428h"]
 [ext_resource type="PackedScene" uid="uid://bly5qwucu3w3c" path="res://scenes/actors/enemy_cornichon.tscn" id="12_vr16c"]
+[ext_resource type="PackedScene" uid="uid://cs15hy7ubikhu" path="res://audio_manager.tscn" id="14_5osqt"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_uf2fb"]
 vertices = PackedVector2Array(1, -1, 24, -1, 24, 1, 1, 1, 1, 24, -1, 24, -1, 1, -1, -1, -24, 1, -24, -1, 1, -24, -1, -24)
@@ -321,6 +323,7 @@ custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_1ivle")
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_dg45b")
 
 [node name="Reference" type="Sprite2D" parent="."]
 visible = false
@@ -385,7 +388,7 @@ position = Vector2(960, 459)
 [node name="Players" type="Node" parent="Actors"]
 
 [node name="Player" parent="Actors/Players" node_paths=PackedStringArray("spawn_point") instance=ExtResource("7_qppoc")]
-position = Vector2(790, 325)
+position = Vector2(790, 266)
 spawn_point = NodePath("../../../PlayerSpawnPoint")
 
 [node name="Enemies" type="Node" parent="Actors"]
@@ -479,5 +482,7 @@ position = Vector2(218, 266)
 [node name="InGameUI" type="CanvasLayer" parent="."]
 
 [node name="InfoMessageUI" parent="InGameUI" instance=ExtResource("10_qa8p0")]
+
+[node name="AudioManager" parent="." instance=ExtResource("14_5osqt")]
 
 [editable path="Pickables/Pellets"]
