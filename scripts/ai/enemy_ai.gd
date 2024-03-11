@@ -6,7 +6,6 @@ class_name EnemyAI
 
 
 # TODO:
-# - Make AI stop on enemy death
 # - Add chase behaviors to EnemyCornichon
 # - To avoid calling 4 times the timers on _initialize, do it in enemies_timers
 # and rename this scene to something like EnemiesSharedAI ?
@@ -275,18 +274,12 @@ func _initialize_signals() -> void:
 	Global.player_died.connect(on_player_died)
 
 
-func _ready() -> void:
-	set_physics_process(false)
-	self._initialize_signals()
-	call_deferred("_initialize")
-
-
 var first_initialization: bool = true
 
 func _initialize():
-	set_physics_process(true)
+	#set_physics_process(true)
 	# Wait for the first physics frame so the NavigationServer can sync.
-	await get_tree().physics_frame
+	#await get_tree().physics_frame
 	# Now that the nav map is no longer empty, can use pathfinding
 	
 	build_walkable_tiles_list()
@@ -304,6 +297,12 @@ func _initialize():
 			scatter_timer.start()
 	
 	first_initialization = false
+
+
+func _ready() -> void:
+	self.disable()
+	self._initialize_signals()
+	call_deferred("_initialize")
 
 
 func _physics_process(_delta: float) -> void:
