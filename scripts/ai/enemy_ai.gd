@@ -13,7 +13,6 @@ class_name EnemyAI
 # - Add elroy mode to EnemyBourrin
 
 # - Pathfinding optimization: build and store the walkable tiles on a shared AI thingy
-# - Pathfinding optimization: Add a timer to recalculate the path to reduce path update calls
 # END TODO
 
 # TO REMOVE WHEN DONE:
@@ -232,12 +231,16 @@ func on_frightened_timer_timeout() -> void:
 	self.set_state(background_state)
 
 
+@onready var pathfinding_update_timer: Timer = $PathfindingUpdateTimer
+
 func disable() -> void:
 	self.set_physics_process(false)
+	pathfinding_update_timer.stop()
 
 
 func enable() -> void:
 	self.set_physics_process(true)
+	pathfinding_update_timer.start()
 
 
 func on_enemy_died() -> void:
@@ -306,10 +309,12 @@ func _ready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
+	enemy.direction = to_local(nav_agent.get_next_path_position()).normalized()
+
+
+func _on_pathfinding_update_timer_timeout() -> void:
 	if can_update_destination_location: update_destination_location()
 	
 	if nav_agent.is_navigation_finished():
 		navigation_finished.emit()
 		return
-	
-	enemy.direction = to_local(nav_agent.get_next_path_position()).normalized()

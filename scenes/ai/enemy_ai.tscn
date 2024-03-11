@@ -11,3 +11,8 @@ target_desired_distance = 4.0
 avoidance_enabled = true
 radius = 13.0
 debug_enabled = true
+
+[node name="PathfindingUpdateTimer" type="Timer" parent="."]
+wait_time = 0.05
+
+[connection signal="timeout" from="PathfindingUpdateTimer" to="." method="_on_pathfinding_update_timer_timeout"]
