@@ -388,22 +388,19 @@ position = Vector2(960, 459)
 [node name="Players" type="Node" parent="Actors"]
 
 [node name="Player" parent="Actors/Players" node_paths=PackedStringArray("spawn_point") instance=ExtResource("7_qppoc")]
-position = Vector2(790, 266)
+position = Vector2(601, 208)
 spawn_point = NodePath("../../../PlayerSpawnPoint")
 
 [node name="Enemies" type="Node" parent="Actors"]
 
-[node name="EnemyBourrin" parent="Actors/Enemies" node_paths=PackedStringArray("spawn_point") instance=ExtResource("8_a4ges")]
+[node name="EnemyBourrin" parent="Actors/Enemies" instance=ExtResource("8_a4ges")]
 position = Vector2(960, 459)
-spawn_point = NodePath("../../../EnemiesSpawnPoints/Marker2D")
 
-[node name="EnemyAssassin" parent="Actors/Enemies" node_paths=PackedStringArray("spawn_point") instance=ExtResource("10_o4mma")]
+[node name="EnemyChelou" parent="Actors/Enemies" instance=ExtResource("11_r428h")]
 position = Vector2(888, 552)
-spawn_point = NodePath("../../../EnemiesSpawnPoints/Marker2D2")
 
-[node name="EnemyChelou" parent="Actors/Enemies" node_paths=PackedStringArray("spawn_point") instance=ExtResource("11_r428h")]
+[node name="EnemyAssassin" parent="Actors/Enemies" instance=ExtResource("10_o4mma")]
 position = Vector2(960, 552)
-spawn_point = NodePath("../../../EnemiesSpawnPoints/Marker2D3")
 
 [node name="EnemyCornichon" parent="Actors/Enemies" node_paths=PackedStringArray("spawn_point") instance=ExtResource("12_vr16c")]
 position = Vector2(1031, 552)

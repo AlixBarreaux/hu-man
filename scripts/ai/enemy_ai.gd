@@ -6,13 +6,12 @@ class_name EnemyAI
 
 
 # TODO:
-# - Add chase behaviors to EnemyCornichon
+# - Add elroy mode to EnemyBourrin
 # - To avoid calling 4 times the timers on _initialize, do it in enemies_timers
 # and rename this scene to something like EnemiesSharedAI ?
 # (Careful with function / var names, signals and refs!)
-# - Add elroy mode to EnemyBourrin
-
 # - Pathfinding optimization: build and store the walkable tiles on a shared AI thingy
+
 # END TODO
 
 # TO REMOVE WHEN DONE:
@@ -83,7 +82,7 @@ var background_state: States = self.current_state
 
 
 @onready var chase_target: Player = get_tree().get_root().get_node("World/Actors/Players/Player")
-var chase_target_position: Vector2 = Vector2(0.0, 0.0)
+@onready var chase_target_position: Vector2 = Vector2(0.0, 0.0)
 
 func __update_chase_target_position() -> void:
 	printerr("(!) ERROR in: " + self.name + ": __set_chase_target_position() must be implemented!")
@@ -200,6 +199,10 @@ func on_navigation_finished() -> void:
 		States.SCATTER:
 			can_update_destination_location = false
 			go_to_next_scatter_point()
+		# Useful for EnemyAICornichon only. AI just stops on player death anyways.
+		States.CHASE:
+			#can_update_destination_location = true
+			set_destination_location(DestinationLocations.CHASE_TARGET)
 
 
 @onready var power_pellets: Node = get_tree().get_root().get_node("World/Pickables/Pellets/Power")

@@ -2,7 +2,8 @@ extends EnemyAI
 class_name EnemyAICornichon
 
 
-# Chase until 8 tiles distance of player, scatter if inside of this zone
-
 func __update_chase_target_position() -> void:
-	chase_target_position = chase_target.global_position
+	if enemy.global_position.distance_to(chase_target_position) <= tile_size * 8:
+		set_destination_location(DestinationLocations.RANDOM_LOCATION)
+	else:
+		chase_target_position = chase_target.global_position
