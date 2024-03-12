@@ -36,5 +36,3 @@ func _initialize_signals() -> void:
 func _ready() -> void:
 	self._initialize_asserts()
 	self._initialize_signals()
-	
-	self.start()
