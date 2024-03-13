@@ -26,6 +26,7 @@ func on_chasing() -> void:
 	enemy.set_hurt_box_disabled(true)
 	enemy.set_hit_box_disabled(false)
 	set_destination_location(DestinationLocations.CHASE_TARGET)
+	enemy.speed = 1.0
 
 
 func on_scattered() -> void:
@@ -33,12 +34,14 @@ func on_scattered() -> void:
 	enemy.set_hit_box_disabled(false)
 	set_destination_location(DestinationLocations.SCATTER_AREA)
 	go_to_first_scatter_point()
+	enemy.speed = 1.0
 
 
 func on_eaten() -> void:
 	enemy.set_hurt_box_disabled(true)
 	enemy.set_hit_box_disabled(true)
 	set_destination_location(DestinationLocations.ENEMIES_HOME)
+	enemy.speed = 2.0
 
 
 func on_frightened() -> void:
@@ -46,6 +49,7 @@ func on_frightened() -> void:
 	enemy.set_hit_box_disabled(true)
 	set_destination_location(DestinationLocations.RANDOM_LOCATION)
 	frightened_timer.start()
+	enemy.speed = 1.0
 
 
 enum States {
@@ -169,7 +173,7 @@ func set_destination_location(new_destination: DestinationLocations) -> void:
 	can_update_destination_location = true
 
 
-func update_destination_location() -> void:
+func update_destination_location() -> void:	
 	match destination_location:
 		DestinationLocations.CHASE_TARGET:
 			set_destination_position_to_chase_target_position()

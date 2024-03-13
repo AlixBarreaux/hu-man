@@ -2,7 +2,7 @@ extends Node2D
 class_name Enemy
 
 
-@export var speed: float = 1.0
+@export var speed: float = 0.0
 @export var spawn_point: Marker2D = null
 @onready var spawn_position: Vector2 = spawn_point.global_position
 
