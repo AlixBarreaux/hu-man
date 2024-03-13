@@ -239,11 +239,13 @@ func on_frightened_timer_timeout() -> void:
 func disable() -> void:
 	self.set_physics_process(false)
 	pathfinding_update_timer.stop()
+	enemy.can_move = false
 
 
 func enable() -> void:
 	self.set_physics_process(true)
 	pathfinding_update_timer.start()
+	enemy.can_move = true
 
 
 func on_enemy_died() -> void:
@@ -251,8 +253,11 @@ func on_enemy_died() -> void:
 	self.set_state(States.EATEN)
 
 
+@onready var enable_ai_timer: EnableAITimer = get_node_or_null("EnableAITimer")
+
 func on_game_started() -> void:
-	self.enable()
+	if not enable_ai_timer:
+		self.enable()
 
 
 func on_player_died() -> void:

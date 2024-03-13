@@ -77,6 +77,8 @@ func _ready() -> void:
 	animation_tree.set("parameters/Move/blend_position", self.direction)
 
 
+var can_move: bool = true
+
 func _physics_process(_delta: float) -> void:
-	self.global_position += direction * speed
+	if can_move: self.global_position += direction * speed
 	animation_tree.set("parameters/Move/blend_position", direction)
