@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbfr7ueucycnx"]
+
+[ext_resource type="Script" path="res://scripts/enable_ai_timer.gd" id="1_55bq0"]
+
+[node name="EnableAITimer" type="Timer"]
+one_shot = true
+script = ExtResource("1_55bq0")
+
+[connection signal="timeout" from="." to="." method="_on_timeout"]
