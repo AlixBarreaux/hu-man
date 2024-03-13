@@ -128,7 +128,7 @@ func build_walkable_tiles_list() -> void:
 	for tile in tile_map.get_used_cells(0):
 		var cell_tile_data: TileData = tile_map.get_cell_tile_data(0, tile)
 		if cell_tile_data and cell_tile_data.get_custom_data("walkable"):
-				walkable_tiles_list.append(tile)
+			walkable_tiles_list.append(tile)
 
 
 func pick_random_destination_position() -> void:
