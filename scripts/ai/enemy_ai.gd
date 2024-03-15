@@ -212,7 +212,7 @@ func on_navigation_finished() -> void:
 			set_destination_location(DestinationLocations.CHASE_TARGET)
 
 
-@onready var power_pellets: Node = get_tree().get_root().get_node("World/Pickables/Pellets/Power")
+@onready var pellets: Pellets = get_tree().get_root().get_node("World/Pickables/Pellets")
 
 func on_power_pellet_picked_up(_value: int) -> void:
 	self.set_state(States.FRIGHTENED)
@@ -281,10 +281,8 @@ func _initialize_signals() -> void:
 	scatter_timer.timeout.connect(on_scatter_timer_timeout)
 	chase_timer.timeout.connect(on_chase_timer_timeout)
 	frightened_timer.timeout.connect(on_frightened_timer_timeout)
-	
-	for power_pellet in power_pellets.get_children():
-		power_pellet.picked_up.connect(on_power_pellet_picked_up)
-	
+
+	pellets.power_pellet_picked_up.connect(on_power_pellet_picked_up)
 	enemy.died.connect(on_enemy_died)
 	
 	Global.game_started.connect(on_game_started)

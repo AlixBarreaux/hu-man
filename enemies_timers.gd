@@ -2,7 +2,7 @@ extends Node
 class_name EnemiesTimer
 
 
-@onready var power_pellets = get_tree().get_root().get_node("World/Pickables/Pellets/Power")
+@onready var pellets: Pellets = get_tree().get_root().get_node("World/Pickables/Pellets")
 
 @onready var scatter_timer: Timer = $ScatterDurationTimer
 @onready var chase_timer: Timer = $ChaseDurationTimer
@@ -24,8 +24,7 @@ func on_player_died() -> void:
 
 
 func _ready() -> void:
-	for power_pellet in power_pellets.get_children():
-		power_pellet.picked_up.connect(on_power_pellet_picked_up)
+	pellets.power_pellet_picked_up.connect(on_power_pellet_picked_up)
 	
 	Global.player_died.connect(on_player_died)
 
