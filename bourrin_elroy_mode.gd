@@ -2,7 +2,12 @@ extends Node
 class_name BourrinElroyMode
 
 
+# TODO: If low amount of pellets, percentage tiers would round to 0 or be the same
+
+
 @export var enemy_ai: EnemyAIBourrin = null
+@onready var enemy: Enemy = enemy_ai.enemy
+@onready var enemy_ai_to_wait_enable_ai_timer: Timer = get_tree().get_root().get_node("World/Actors/Enemies/EnemyCornichon/EnemyAICornichon/EnableAITimer")
 @onready var pellets_node: Pellets = get_tree().get_root().get_node("World/Pickables/Pellets")
 
 
@@ -31,11 +36,22 @@ func on_pellet_picked_up(value: int) -> void:
 	self.check_if_should_enable_elroy_mode()
 
 
+func on_player_died() -> void:
+	disable_elroy_mode()
+
+
+func on_enemy_to_wait_went_out() -> void:
+	self.check_if_should_enable_elroy_mode()
+
+
 func _ready() -> void:
 	assert(enemy_ai != null)
+	assert(enemy_ai_to_wait_enable_ai_timer != null)
 	
 	pellets_node.initialized.connect(on_pellets_node_initialized)
 	pellets_node.pellet_picked_up.connect(on_pellet_picked_up)
+	Global.player_died.connect(on_player_died)
+	enemy_ai_to_wait_enable_ai_timer.timeout.connect(on_enemy_to_wait_went_out)
 
 
 func check_if_should_enable_elroy_mode() -> void:
@@ -47,17 +63,29 @@ func check_if_should_enable_elroy_mode() -> void:
 		print("Tier 1 elroy: ", remaining_pellets_count)
 		enable_elroy_mode(false)
 		return
-	print("No elroy: ", remaining_pellets_count)
+	#print("No elroy: ", remaining_pellets_count)
 
 
-func enable_elroy_mode(faster_than_player: bool) -> void:
-	# Lock in chase mode
+func enable_elroy_mode(go_faster_than_player: bool) -> void:
+	enemy_ai.elroy_mode_enabled = true
 	
-	if faster_than_player:
-		# Set speed to faster than player
-		return
-	# Set speed to same than player
+	if not go_faster_than_player:
+		enemy_ai.chase_speed = enemy_ai.initial_chase_speed * 2.0
+	else:
+		# ~ as fast as Player
+		enemy_ai.chase_speed = enemy_ai.initial_chase_speed * 2.7
+	
+	
+	if enemy_ai.current_state == enemy_ai.States.CHASE:
+		# REFACTOR: Could reset to chase state again to change the speed
+		# but doesn't seem to work:
+		#enemy_ai.set_state(enemy_ai.States.CHASE)
+		enemy.speed = enemy_ai.chase_speed
+	elif enemy_ai.current_state == enemy_ai.States.SCATTER:
+		enemy_ai.set_state(enemy_ai.States.CHASE)
 
 
 func disable_elroy_mode() -> void:
-	pass
+	enemy_ai.elroy_mode_enabled = false
+	enemy_ai.chase_speed = enemy_ai.initial_chase_speed
+	enemy_ai.set_state(enemy_ai.initial_state)

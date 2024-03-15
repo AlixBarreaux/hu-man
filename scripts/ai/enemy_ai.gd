@@ -4,9 +4,7 @@ class_name EnemyAI
 
 # REFACTOR NOTES: Use SETGET on every setter function?
 
-
 # TODO:
-# - Add elroy mode to EnemyBourrin
 # - To avoid calling 4 times the timers on _initialize, do it in enemies_timers
 # and rename this scene to something like EnemiesSharedAI ?
 # (Careful with function / var names, signals and refs!)
@@ -19,14 +17,18 @@ class_name EnemyAI
 # Repeat this cycle 4 Times per level:
 # Scatter x sec, Chase x sec
 # After this cycle is over, lock in chase mode
-# Enemy Bourrin can replace the Scatter x sec by chase, locking him in chase 
-# mode when x dots are left in the maze
+
+@export var initial_chase_speed: float = 1.0
+var chase_speed: float = initial_chase_speed
+@export var scatter_speed: float = 1.0
+@export var eaten_speed: float = 2.0
+@export var frightened_speed: float = 1.0
 
 func on_chasing() -> void:
 	enemy.set_hurt_box_disabled(true)
 	enemy.set_hit_box_disabled(false)
 	set_destination_location(DestinationLocations.CHASE_TARGET)
-	enemy.speed = 1.0
+	enemy.speed = chase_speed
 
 
 func on_scattered() -> void:
@@ -34,14 +36,14 @@ func on_scattered() -> void:
 	enemy.set_hit_box_disabled(false)
 	set_destination_location(DestinationLocations.SCATTER_AREA)
 	go_to_first_scatter_point()
-	enemy.speed = 1.0
+	enemy.speed = scatter_speed
 
 
 func on_eaten() -> void:
 	enemy.set_hurt_box_disabled(true)
 	enemy.set_hit_box_disabled(true)
 	set_destination_location(DestinationLocations.ENEMIES_HOME)
-	enemy.speed = 2.0
+	enemy.speed = eaten_speed
 
 
 func on_frightened() -> void:
@@ -49,7 +51,7 @@ func on_frightened() -> void:
 	enemy.set_hit_box_disabled(true)
 	set_destination_location(DestinationLocations.RANDOM_LOCATION)
 	frightened_timer.start()
-	enemy.speed = 1.0
+	enemy.speed = frightened_speed
 
 
 enum States {
@@ -62,6 +64,7 @@ enum States {
 
 var current_state: States = States.SCATTER
 @export var initial_state: States = States.SCATTER
+
 
 func set_state(state: States) -> void:
 	if state == current_state and not first_initialization: return
