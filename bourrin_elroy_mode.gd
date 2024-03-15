@@ -2,9 +2,6 @@ extends Node
 class_name BourrinElroyMode
 
 
-# TODO: If low amount of pellets, percentage tiers would round to 0 or be the same
-
-
 @export var enemy_ai: EnemyAIBourrin = null
 @onready var enemy: Enemy = enemy_ai.enemy
 @onready var enemy_ai_to_wait_enable_ai_timer: Timer = get_tree().get_root().get_node("World/Actors/Enemies/EnemyCornichon/EnemyAICornichon/EnableAITimer")
@@ -21,14 +18,17 @@ var tier_2_pellet_count_treshold: int = 0
 
 
 func on_pellets_node_initialized() -> void:
-	print(self.name, ": Pellets initialized, count: ", pellets_node.remaining_pellets_count)
 	remaining_pellets_count = pellets_node.remaining_pellets_count
 	
 	tier_1_pellet_count_treshold = round(remaining_pellets_count * percentage_tier_1)
 	tier_2_pellet_count_treshold = round(remaining_pellets_count * percentage_tier_2)
 	
-	print("Tier 1 initialized: ", tier_1_pellet_count_treshold)
-	print("Tier 2 initialized: ", tier_2_pellet_count_treshold)
+	if remaining_pellets_count <= 2:
+		self.queue_free()
+	
+	if tier_1_pellet_count_treshold == tier_2_pellet_count_treshold:
+		tier_1_pellet_count_treshold = 2
+		tier_2_pellet_count_treshold = 1
 
 
 func on_pellet_picked_up(value: int) -> void:
@@ -56,14 +56,11 @@ func _ready() -> void:
 
 func check_if_should_enable_elroy_mode() -> void:
 	if remaining_pellets_count <= tier_2_pellet_count_treshold:
-		print("Tier 2 elroy: ", remaining_pellets_count)
 		enable_elroy_mode(true)
 		return
 	elif remaining_pellets_count <= tier_1_pellet_count_treshold:
-		print("Tier 1 elroy: ", remaining_pellets_count)
 		enable_elroy_mode(false)
 		return
-	#print("No elroy: ", remaining_pellets_count)
 
 
 func enable_elroy_mode(go_faster_than_player: bool) -> void:
