@@ -278,6 +278,20 @@ func on_enemy_died() -> void:
 @onready var enable_ai_timer: EnableAITimer = get_node_or_null("EnableAITimer")
 
 func on_game_started() -> void:
+	self.set_state(initial_state)
+	
+	# WARNING: TIMER CALLED BY EACH ENEMY! TIMER SHOULD BE CALLED ONCE ONLY!
+	match initial_state:
+		States.CHASE:
+			background_state = States.CHASE
+			chase_timer.start()
+		_:
+			background_state = States.SCATTER
+			scatter_timer.start()
+			
+	first_initialization = false
+	
+	
 	if not enable_ai_timer:
 		self.enable()
 
@@ -315,19 +329,6 @@ func _initialize():
 	
 	build_walkable_tiles_list()
 	build_scatter_points_list()
-	
-	self.set_state(initial_state)
-	
-	# WARNING: TIMER CALLED BY EACH ENEMY! TIMER SHOULD BE CALLED ONCE ONLY!
-	match initial_state:
-		States.CHASE:
-			background_state = States.CHASE
-			chase_timer.start()
-		_:
-			background_state = States.SCATTER
-			scatter_timer.start()
-			
-	first_initialization = false
 
 
 func _ready() -> void:
