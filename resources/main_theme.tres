@@ -1,6 +1,0 @@
-[gd_resource type="Theme" format=3 uid="uid://cmkbdaor5icii"]
-
-[resource]
-Label/font_sizes/font_size = 25
-MessageUILabel/base_type = &"Label"
-MessageUILabel/font_sizes/font_size = 30
