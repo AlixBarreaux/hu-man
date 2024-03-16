@@ -8,15 +8,9 @@ class_name EnemyAI
 # - To avoid calling 4 times the timers on _initialize, do it in enemies_timers
 # and rename this scene to something like EnemiesSharedAI ?
 # (Careful with function / var names, signals and refs!)
-# - Pathfinding optimization: build and store the walkable tiles on a shared AI thingy
+# - Pathfinding optimization: build and store the walkable tiles EnemiesSharedAI
 
 # END TODO
-
-# TO REMOVE WHEN DONE:
-
-# Repeat this cycle 4 Times per level:
-# Scatter x sec, Chase x sec
-# After this cycle is over, lock in chase mode
 
 @export var initial_chase_speed: float = 1.0
 var chase_speed: float = initial_chase_speed
@@ -176,7 +170,7 @@ func set_destination_location(new_destination: DestinationLocations) -> void:
 	can_update_destination_location = true
 
 
-func update_destination_location() -> void:	
+func update_destination_location() -> void:
 	match destination_location:
 		DestinationLocations.CHASE_TARGET:
 			set_destination_position_to_chase_target_position()
@@ -218,21 +212,42 @@ func on_power_pellet_picked_up(_value: int) -> void:
 	self.set_state(States.FRIGHTENED)
 
 
-@onready var enemies_timers: Node = get_tree().get_root().get_node("World/EnemiesTimers")
+@onready var enemies_timers: EnemiesTimer = get_tree().get_root().get_node("World/EnemiesTimers")
 @onready var scatter_timer: Timer = enemies_timers.get_node("ScatterDurationTimer")
 @onready var chase_timer: Timer = enemies_timers.get_node("ChaseDurationTimer")
 @onready var frightened_timer: Timer = enemies_timers.get_node("FrightenedDurationTimer")
 
 
+var cycle_completed_before_permanent_chase_mode: bool = false
+var cycle_count_before_permanent_chase_mode: int = 0
+var cycle_count_limit_before_permanent_chase_mode: int = 4
+
+func check_if_cycle_completed_before_permanent_chase() -> void:
+	if cycle_count_before_permanent_chase_mode >= cycle_count_limit_before_permanent_chase_mode:
+		cycle_completed_before_permanent_chase_mode = true
+
+
 func on_scatter_timer_timeout() -> void:
 	background_state = States.CHASE
 	if current_state == States.EATEN or current_state == States.FRIGHTENED: return
+	
+	if not cycle_completed_before_permanent_chase_mode:
+		cycle_count_before_permanent_chase_mode += 1
+		check_if_cycle_completed_before_permanent_chase()
+	
 	self.set_state(States.CHASE)
 
 
 func on_chase_timer_timeout() -> void:
 	background_state = States.SCATTER
 	if current_state == States.EATEN or current_state == States.FRIGHTENED: return
+	
+	if not cycle_completed_before_permanent_chase_mode:
+		cycle_count_before_permanent_chase_mode += 1
+		check_if_cycle_completed_before_permanent_chase()
+	else:
+		return
+		
 	self.set_state(States.SCATTER)
 
 
@@ -311,7 +326,7 @@ func _initialize():
 		_:
 			background_state = States.SCATTER
 			scatter_timer.start()
-	
+			
 	first_initialization = false
 
 
