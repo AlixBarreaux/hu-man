@@ -1,10 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://cbv40bjrx6t5h"]
+[gd_scene load_steps=19 format=3 uid="uid://cbv40bjrx6t5h"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_dg45b"]
-[ext_resource type="Texture2D" uid="uid://k8ebghsnmd1u" path="res://temp/reference.jpg" id="1_kbpl7"]
 [ext_resource type="PackedScene" uid="uid://d35gi8b3l2nhh" path="res://scenes/pellets.tscn" id="3_2jn3a"]
 [ext_resource type="PackedScene" uid="uid://bxko3dru3t24k" path="res://scenes/ai/enemies_timers.tscn" id="3_i7vv4"]
-[ext_resource type="Texture2D" uid="uid://bf0eklja7um21" path="res://assets/tiles.png" id="3_jyd1d"]
+[ext_resource type="Texture2D" uid="uid://knq3kcv08g8c" path="res://assets/tiles.png" id="3_jyd1d"]
 [ext_resource type="PackedScene" uid="uid://bpsnuln5keu2o" path="res://scenes/pickables/power_pellet.tscn" id="4_6kjkp"]
 [ext_resource type="PackedScene" uid="uid://c4s65vdj85p3j" path="res://scenes/pickables/pellet.tscn" id="5_mcs5t"]
 [ext_resource type="PackedScene" path="res://scenes/pickables/bonus_item.tscn" id="6_652p7"]
@@ -324,11 +323,6 @@ sources/0 = SubResource("TileSetAtlasSource_1ivle")
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_dg45b")
-
-[node name="Reference" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(960, 540)
-texture = ExtResource("1_kbpl7")
 
 [node name="TileMap" type="TileMap" parent="."]
 modulate = Color(0, 0.219608, 0.113725, 1)

@@ -11,10 +11,7 @@ script = ExtResource("1_7gm4n")
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamPolyphonic_al60h")
 autoplay = true
-bus = &"Music"
 
 [node name="Player" type="AudioStreamPlayer" parent="."]
-bus = &"Sound Effects"
 
 [node name="Enemies" type="AudioStreamPlayer" parent="."]
-bus = &"Sound Effects"
