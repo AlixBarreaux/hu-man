@@ -298,6 +298,8 @@ func on_game_started() -> void:
 
 func on_player_died() -> void:
 	self.disable()
+	cycle_count_before_permanent_chase_mode = 0
+	cycle_completed_before_permanent_chase_mode = false
 
 
 func on_level_cleared() -> void:
