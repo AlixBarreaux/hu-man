@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://beipc3byq6y5w"]
+
+[ext_resource type="Script" path="res://scripts/ai/enemy-ai/enemy_ai.gd" id="1_at6rc"]
+
+[node name="EnemyAI" type="Node2D"]
+script = ExtResource("1_at6rc")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 4.0
+target_desired_distance = 4.0
+avoidance_enabled = true
+radius = 13.0
+debug_enabled = true
+
+[node name="PathfindingUpdateTimer" type="Timer" parent="."]
+wait_time = 0.05
+
+[connection signal="timeout" from="PathfindingUpdateTimer" to="." method="_on_pathfinding_update_timer_timeout"]

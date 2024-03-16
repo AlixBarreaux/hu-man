@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://dp7nits2s1os0"]
+
+[ext_resource type="PackedScene" uid="uid://beipc3byq6y5w" path="res://scenes/ai/enemy-ai/enemy_ai.tscn" id="1_6lffv"]
+[ext_resource type="Script" path="res://scripts/ai/enemy-ai/enemy_ai_assassin.gd" id="2_041k1"]
+[ext_resource type="PackedScene" uid="uid://bbfr7ueucycnx" path="res://scenes/ai/enemy-ai/components/enable_ai_timer.tscn" id="3_kgj21"]
+
+[node name="EnemyAIAssassin" instance=ExtResource("1_6lffv")]
+script = ExtResource("2_041k1")
+scatter_points_node_path_string = "World/AIWaypoints/ScatterPoints2"
+
+[node name="EnableAITimer" parent="." index="2" node_paths=PackedStringArray("enemy_ai") instance=ExtResource("3_kgj21")]
+wait_time = 2.0
+enemy_ai = NodePath("..")
