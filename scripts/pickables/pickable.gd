@@ -11,6 +11,6 @@ func _ready() -> void:
 	assert(self.score_value > 0)
 
 
-func _on_area_entered(area: Area2D) -> void:
+func _on_area_entered(_area: Area2D) -> void:
 	self.picked_up.emit(self.score_value)
 	self.queue_free()

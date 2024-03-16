@@ -75,7 +75,7 @@ func _ready() -> void:
 			printerr(self.name, ": Error: Unrecognized tier type!")
 
 
-func _on_area_entered(area: Area2D) -> void:
+func _on_area_entered(_area: Area2D) -> void:
 	self.picked_up.emit(score_value)
 	self.disable()
 	self.queue_free()

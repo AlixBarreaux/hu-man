@@ -19,6 +19,6 @@ func _ready() -> void:
 	assert(self.actor_to_hurt != null)
 
 
-func _on_area_entered(area: Area2D) -> void:
+func _on_area_entered(_area: Area2D) -> void:
 	self.disable()
 	self.actor_to_hurt.die()

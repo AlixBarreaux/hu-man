@@ -31,7 +31,7 @@ func on_pellets_node_initialized() -> void:
 		tier_2_pellet_count_treshold = 1
 
 
-func on_pellet_picked_up(value: int) -> void:
+func on_pellet_picked_up(_value: int) -> void:
 	remaining_pellets_count = pellets_node.remaining_pellets_count
 	self.check_if_should_enable_elroy_mode()
 
