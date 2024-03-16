@@ -1,7 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://b7fxaxq1ovuwu"]
+[gd_scene load_steps=22 format=3 uid="uid://b1mdnhyr4s07r"]
 
 [ext_resource type="Script" path="res://scripts/actors/player.gd" id="1_okgwv"]
-[ext_resource type="Texture2D" path="res://assets/player_walk.png" id="2_4gel4"]
+[ext_resource type="Texture2D" uid="uid://b5bksrwba8t4x" path="res://assets/player_walk.png" id="2_4gel4"]
 [ext_resource type="PackedScene" uid="uid://c3bwqlncgf64g" path="res://scenes/hurtbox.tscn" id="3_ablg5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_14xon"]

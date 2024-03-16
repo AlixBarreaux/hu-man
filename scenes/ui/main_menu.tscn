@@ -1,7 +1,17 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=3 format=3 uid="uid://jfsi42m0xthe"]
 
 [ext_resource type="Theme" uid="uid://cmkbdaor5icii" path="res://resources/main_theme.tres" id="1_a1ygh"]
 [ext_resource type="Texture2D" uid="uid://b1yi440iyutka" path="res://icon.svg" id="1_o4b15"]
+=======
+[gd_scene load_steps=6 format=3 uid="uid://jfsi42m0xthe"]
+
+[ext_resource type="Theme" uid="uid://cmkbdaor5icii" path="res://resources/main_theme.tres" id="1_a1ygh"]
+[ext_resource type="Texture2D" uid="uid://b1yi440iyutka" path="res://icon.svg" id="1_o4b15"]
+[ext_resource type="Texture2D" uid="uid://b8mwcrno878pv" path="res://temp/Screenshot from 2023-12-21 11-00-08.png" id="2_p0y4i"]
+[ext_resource type="Texture2D" uid="uid://btyxw0dy8dw1j" path="res://temp/Screenshot from 2023-12-21 11-11-41.png" id="3_u1hpm"]
+[ext_resource type="Texture2D" uid="uid://b2miklojrca4e" path="res://temp/Screenshot from 2023-12-21 19-54-59.png" id="4_fkcj2"]
+>>>>>>> Stashed changes
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3

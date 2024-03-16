@@ -2,20 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< Updated upstream
-uid="uid://bh1bv5obsuisl"
-=======
-uid="uid://cii0nbpljpbkq"
->>>>>>> Stashed changes
-path="res://.godot/imported/tiles.png-0d11a4bcdfb48056f67a66da241684a1.ctex"
+uid="uid://b8mwcrno878pv"
+path="res://.godot/imported/Screenshot from 2023-12-21 11-00-08.png-fa9b20427b558bc60777b14204832c54.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tiles.png"
-dest_files=["res://.godot/imported/tiles.png-0d11a4bcdfb48056f67a66da241684a1.ctex"]
+source_file="res://temp/Screenshot from 2023-12-21 11-00-08.png"
+dest_files=["res://.godot/imported/Screenshot from 2023-12-21 11-00-08.png-fa9b20427b558bc60777b14204832c54.ctex"]
 
 [params]
 
