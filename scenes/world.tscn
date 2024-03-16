@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://k8ebghsnmd1u" path="res://temp/reference.jpg" id="1_kbpl7"]
 [ext_resource type="Texture2D" uid="uid://cii0nbpljpbkq" path="res://assets/tiles.png" id="2_636tm"]
 [ext_resource type="PackedScene" uid="uid://d35gi8b3l2nhh" path="res://scenes/pickables/pellets.tscn" id="3_2jn3a"]
-[ext_resource type="PackedScene" uid="uid://bxko3dru3t24k" path="res://enemies_timers.tscn" id="3_i7vv4"]
+[ext_resource type="PackedScene" uid="uid://bxko3dru3t24k" path="res://scenes/ai/enemies_timers.tscn" id="3_i7vv4"]
 [ext_resource type="PackedScene" uid="uid://bpsnuln5keu2o" path="res://scenes/pickables/power_pellet.tscn" id="4_6kjkp"]
 [ext_resource type="PackedScene" uid="uid://c4s65vdj85p3j" path="res://scenes/pickables/pellet.tscn" id="5_mcs5t"]
 [ext_resource type="PackedScene" uid="uid://cvinvy67ghvhb" path="res://scenes/pickables/bonus_item.tscn" id="6_652p7"]

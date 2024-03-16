@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bxko3dru3t24k"]
 
-[ext_resource type="Script" path="res://enemies_timers.gd" id="1_401w5"]
+[ext_resource type="Script" path="res://scripts/ai/enemies_timers.gd" id="1_401w5"]
 
 [node name="EnemiesTimers" type="Node"]
 script = ExtResource("1_401w5")

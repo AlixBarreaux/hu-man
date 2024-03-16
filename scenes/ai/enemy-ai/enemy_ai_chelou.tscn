@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://xa8t1qakn35b"]
 
-[ext_resource type="PackedScene" uid="uid://beipc3byq6y5w" path="res://scenes/ai/enemy_ai.tscn" id="1_kj8q0"]
-[ext_resource type="Script" path="res://scripts/ai/enemy_ai_chelou.gd" id="2_x11nh"]
+[ext_resource type="PackedScene" uid="uid://beipc3byq6y5w" path="res://scenes/ai/enemy-ai/enemy_ai.tscn" id="1_kj8q0"]
+[ext_resource type="Script" path="res://scripts/ai/enemy-ai/enemy_ai_chelou.gd" id="2_x11nh"]
 
 [node name="EnemyAIChelou" instance=ExtResource("1_kj8q0")]
 script = ExtResource("2_x11nh")

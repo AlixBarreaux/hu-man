@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c5mkv72mwdf1m"]
 
 [ext_resource type="PackedScene" uid="uid://b8ju6rj3bx3w2" path="res://scenes/actors/enemy.tscn" id="1_jnaxh"]
-[ext_resource type="PackedScene" uid="uid://xa8t1qakn35b" path="res://scenes/ai/enemy_ai_chelou.tscn" id="2_16b7m"]
+[ext_resource type="PackedScene" uid="uid://xa8t1qakn35b" path="res://scenes/ai/enemy-ai/enemy_ai_chelou.tscn" id="2_16b7m"]
 
 [node name="EnemyChelou" instance=ExtResource("1_jnaxh")]
 

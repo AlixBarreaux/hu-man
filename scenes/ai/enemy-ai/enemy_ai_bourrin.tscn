@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://byb5jxjxqtwml"]
 
-[ext_resource type="PackedScene" uid="uid://beipc3byq6y5w" path="res://scenes/ai/enemy_ai.tscn" id="1_wrwpu"]
-[ext_resource type="Script" path="res://scripts/ai/enemy_ai_bourrin.gd" id="2_ki7b2"]
-[ext_resource type="PackedScene" uid="uid://b2mdhubt8q10e" path="res://bourrin_elroy_mode.tscn" id="3_dmwkk"]
+[ext_resource type="PackedScene" uid="uid://beipc3byq6y5w" path="res://scenes/ai/enemy-ai/enemy_ai.tscn" id="1_wrwpu"]
+[ext_resource type="Script" path="res://scripts/ai/enemy-ai/enemy_ai_bourrin.gd" id="2_ki7b2"]
+[ext_resource type="PackedScene" uid="uid://b2mdhubt8q10e" path="res://scenes/ai/enemy-ai/components/bourrin_elroy_mode.tscn" id="3_dmwkk"]
 
 [node name="EnemyAIBourrin" instance=ExtResource("1_wrwpu")]
 script = ExtResource("2_ki7b2")
