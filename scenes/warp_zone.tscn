@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://di40nd36u435f"]
+
+[ext_resource type="Script" path="res://scripts/warp_zone.gd" id="1_vm1m5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qoj0g"]
+size = Vector2(48, 48)
+
+[node name="WarpZone" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_vm1m5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qoj0g")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
