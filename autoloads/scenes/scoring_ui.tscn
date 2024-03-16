@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://dr5pnejiuqckc"]
+
+[ext_resource type="Script" path="res://autoloads/scripts/scoring_ui.gd" id="1_vcil1"]
+[ext_resource type="Theme" path="res://resources/main_theme.tres" id="2_2cwvk"]
+
+[node name="ScoringUI" type="CanvasLayer"]
+script = ExtResource("1_vcil1")
+metadata/_edit_horizontal_guides_ = [-738.0]
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 562.0
+offset_top = 7.0
+offset_right = -562.0
+offset_bottom = 80.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme = ExtResource("2_2cwvk")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_2cwvk")
+alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+text = "Score
+000000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HighScoreLabel" type="Label" parent="Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+text = "High Score
+000000"
+horizontal_alignment = 1
+vertical_alignment = 1
