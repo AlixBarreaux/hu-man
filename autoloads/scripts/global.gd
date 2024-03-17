@@ -98,10 +98,11 @@ func load_game() -> void:
 func on_game_over() -> void:
 	self.save_game()
 
-
 func _ready() -> void:
 	self.game_over.connect(on_game_over)
 	
-	await get_tree().get_root().get_node("World").ready
+	var world_node: World = get_tree().get_root().get_node_or_null("World")
+	if world_node == null: return
+	await world_node.ready
 	reset()
 	self.load_game()
