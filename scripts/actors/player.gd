@@ -13,7 +13,7 @@ var direction: Vector2 = self.initial_direction
 var next_direction: Vector2 = direction
 
 
-func _unhandled_key_input(event: InputEvent) -> void:
+func _unhandled_key_input(_event: InputEvent) -> void:
 	movement_input_vector.x = Input.get_axis("move_left", "move_right")
 	movement_input_vector.y = Input.get_axis("move_up", "move_down")
 
@@ -31,18 +31,21 @@ func can_go_in_next_direction() -> bool:
 @onready var anim_node_sm_playback: AnimationNodeStateMachinePlayback = animation_tree.get("parameters/playback")
 
 
+@onready var hurt_box: HurtBox = $Hurtbox
+
 func enable() -> void:
 	self.set_physics_process(true)
 	self.set_process_unhandled_key_input(true)
+	hurt_box.enable()
 
 
 func disable() -> void:
 	self.set_physics_process(false)
 	self.set_process_unhandled_key_input(false)
+	hurt_box.disable()
 
 
 func die() -> void:
-	print(self.name + ": I die!")
 	self.disable()
 	Global.player_died.emit()
 	anim_node_sm_playback.travel("die")
@@ -75,20 +78,12 @@ func _ready() -> void:
 	Global.player_finished_dying.connect(on_finished_dying)
 	
 	animation_tree.active = true
-	
-	
-	#print("DEBUG -> In ", self.name, ": Triggering events to make player die and restart game!")
-	#await get_tree().create_timer(1.0).timeout
-	#die()
-	#await get_tree().create_timer(4.0).timeout
-	#Global.game_ready.emit()
-	#await get_tree().create_timer(1.0).timeout
-	#Global.game_started.emit()
+	self.disable()
 
 
 @onready var next_direction_rotator: Node2D = $NextDirectionRotator
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	animation_tree.set("parameters/move/blend_position", direction)
 	
 	#if direction.x == -1.0:
