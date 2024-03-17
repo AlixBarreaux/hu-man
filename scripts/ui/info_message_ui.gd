@@ -20,6 +20,10 @@ func on_game_ready() -> void:
 	self.set_text_with_color("Get ready!")
 
 
+func on_game_started() -> void:
+	self.label.hide()
+
+
 func on_player_died() -> void:
 	self.set_text_with_color("You died!", self.player_died_color)
 
@@ -36,6 +40,7 @@ func on_level_cleared() -> void:
 
 func _initialize_signals() -> void:
 	Global.game_ready.connect(on_game_ready)
+	Global.game_started.connect(on_game_started)
 	Global.player_died.connect(on_player_died)
 	Global.game_over.connect(on_game_over)
 	Global.level_cleared.connect(on_level_cleared)
