@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dr5pnejiuqckc"]
 
 [ext_resource type="Script" path="res://autoloads/scripts/scoring_ui.gd" id="1_vcil1"]
-[ext_resource type="Theme" path="res://resources/main_theme.tres" id="2_2cwvk"]
+[ext_resource type="Theme" uid="uid://cmkbdaor5icii" path="res://resources/main_theme.tres" id="2_2cwvk"]
 
 [node name="ScoringUI" type="CanvasLayer"]
 script = ExtResource("1_vcil1")

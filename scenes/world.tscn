@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cbv40bjrx6t5h"]
+[gd_scene load_steps=21 format=3 uid="uid://cbv40bjrx6t5h"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_dg45b"]
 [ext_resource type="PackedScene" uid="uid://d35gi8b3l2nhh" path="res://scenes/pellets.tscn" id="3_2jn3a"]
@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://bly5qwucu3w3c" path="res://scenes/actors/enemy_cornichon.tscn" id="12_vr16c"]
 [ext_resource type="PackedScene" uid="uid://di40nd36u435f" path="res://scenes/warp_zone.tscn" id="14_4r5e0"]
 [ext_resource type="PackedScene" uid="uid://cs15hy7ubikhu" path="res://audio_manager.tscn" id="14_5osqt"]
+[ext_resource type="PackedScene" uid="uid://c57ttid6qs2wq" path="res://scenes/ui/lives_ui.tscn" id="15_0da7m"]
+[ext_resource type="Texture2D" uid="uid://b1yi440iyutka" path="res://icon.svg" id="15_ita6m"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_uf2fb"]
 vertices = PackedVector2Array(1, -1, 24, -1, 24, 1, 1, 1, 1, 24, -1, 24, -1, 1, -1, -1, -24, 1, -24, -1, 1, -24, -1, -24)
@@ -536,6 +538,81 @@ position = Vector2(218, 266)
 [node name="InGameUI" type="CanvasLayer" parent="."]
 
 [node name="InfoMessageUI" parent="InGameUI" instance=ExtResource("10_qa8p0")]
+
+[node name="LivesUI" parent="InGameUI" instance=ExtResource("15_0da7m")]
+offset_left = 399.0
+offset_top = 19.0
+offset_right = 522.0
+offset_bottom = 67.0
+
+[node name="Panel2" type="Panel" parent="InGameUI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -542.0
+offset_top = 19.0
+offset_right = -28.0
+offset_bottom = 67.0
+grow_horizontal = 0
+mouse_filter = 1
+
+[node name="BonusItemsUI" type="HBoxContainer" parent="InGameUI/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 6
+
+[node name="TextureRect" type="TextureRect" parent="InGameUI/Panel2/BonusItemsUI"]
+layout_mode = 2
+texture = ExtResource("15_ita6m")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="InGameUI/Panel2/BonusItemsUI"]
+layout_mode = 2
+texture = ExtResource("15_ita6m")
+expand_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="InGameUI/Panel2/BonusItemsUI"]
+layout_mode = 2
+texture = ExtResource("15_ita6m")
+expand_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="InGameUI/Panel2/BonusItemsUI"]
+layout_mode = 2
+texture = ExtResource("15_ita6m")
+expand_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="InGameUI/Panel2/BonusItemsUI"]
+layout_mode = 2
+texture = ExtResource("15_ita6m")
+expand_mode = 2
+
+[node name="TextureRect6" type="TextureRect" parent="InGameUI/Panel2/BonusItemsUI"]
+layout_mode = 2
+texture = ExtResource("15_ita6m")
+expand_mode = 2
+
+[node name="TextureRect7" type="TextureRect" parent="InGameUI/Panel2/BonusItemsUI"]
+layout_mode = 2
+texture = ExtResource("15_ita6m")
+expand_mode = 2
+
+[node name="TextureRect8" type="TextureRect" parent="InGameUI/Panel2/BonusItemsUI"]
+layout_mode = 2
+texture = ExtResource("15_ita6m")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="InGameUI/Panel2/BonusItemsUI"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "x 000"
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="AudioManager" parent="." instance=ExtResource("14_5osqt")]
 
