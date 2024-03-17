@@ -15,7 +15,7 @@ signal game_ready
 signal game_started
 
 
-var initial_lives: int = 4
+var initial_lives: int = 2
 var lives: int = initial_lives
 var max_lives: int = 5
 var is_game_over: bool = false
