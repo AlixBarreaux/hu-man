@@ -77,7 +77,10 @@ var game_save: GameSave = GameSave.new()
 
 func save_game() -> void:
 	game_save.high_score = self.high_score
-	ResourceSaver.save(game_save, self.SAVE_GAME_FILE_PATH)
+	var resource_to_save: Error = ResourceSaver.save(game_save, self.SAVE_GAME_FILE_PATH)
+	
+	if resource_to_save != OK:
+		printerr("(!) ERROR: In: " + self.get_name() + ": Couldn't save the game save file!")
 	
 
 func load_game() -> void:
@@ -86,20 +89,32 @@ func load_game() -> void:
 	if not game_save_exists:
 		save_game()
 	
-	var game_save_to_load = load(SAVE_GAME_FILE_PATH)
+	var game_save_to_load: Object = load(SAVE_GAME_FILE_PATH)
 	
 	if game_save_to_load == null:
-		printerr("Error while loading the game save file!")
+		printerr("(!) ERROR: In: " + self.get_name() + ": Couldn't load the game save file!")
 		return
 	
-	self.high_score = game_save_to_load.high_score
+	self.set_high_score(game_save_to_load.high_score)
+
+
+func on_player_died() -> void:
+	# Keep progression even if the game didn't end
+	self.save_game()
 
 
 func on_game_over() -> void:
 	self.save_game()
 
+
+func on_level_cleared() -> void:
+	self.save_game()
+
+
 func _ready() -> void:
+	self.player_died.connect(on_player_died)
 	self.game_over.connect(on_game_over)
+	self.level_cleared.connect(on_level_cleared)
 	
 	var world_node: World = get_tree().get_root().get_node_or_null("World")
 	if world_node == null: return
