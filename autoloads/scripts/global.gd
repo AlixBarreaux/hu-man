@@ -5,6 +5,7 @@ extends Node
 signal level_cleared
 signal game_over
 
+signal lives_changed
 signal score_changed
 signal high_score_changed
 
@@ -12,6 +13,38 @@ signal player_died
 signal player_finished_dying
 signal game_ready
 signal game_started
+
+
+var initial_lives: int = 2
+var lives: int = initial_lives
+var is_game_over: bool = false
+
+
+func reset() -> void:
+	is_game_over = false
+	set_score(0)
+	set_lives(initial_lives)
+
+
+func set_lives(value: int) -> void:
+	lives = value
+	print(self.name, ": Lives set to: ", lives)
+	self.lives_changed.emit()
+
+
+func increase_lives(value: int = 1) -> void:
+	set_lives(lives + value)
+
+
+func decrease_lives(value: int = 1) -> void:
+	if lives - value < 0:
+		print(self.name, ": No lives left! ", lives)
+		is_game_over = true
+		self.game_over.emit()
+		return
+	
+	set_lives(lives - value)
+	Global.player_died.emit()
 
 
 var score: int = 0:
@@ -67,4 +100,6 @@ func on_game_over() -> void:
 func _ready() -> void:
 	self.game_over.connect(on_game_over)
 	
+	await get_tree().get_root().get_node("World").ready
+	reset()
 	self.load_game()

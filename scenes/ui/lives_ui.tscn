@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://c57ttid6qs2wq"]
+
+[ext_resource type="Texture2D" uid="uid://b1yi440iyutka" path="res://icon.svg" id="1_pnk1w"]
+[ext_resource type="Script" path="res://scripts/ui/lives_ui.gd" id="1_qnhpc"]
+
+[node name="LivesUI" type="Panel"]
+offset_right = 123.0
+offset_bottom = 48.0
+mouse_filter = 1
+script = ExtResource("1_qnhpc")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_pnk1w")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "x 000"
+horizontal_alignment = 2
+vertical_alignment = 1
