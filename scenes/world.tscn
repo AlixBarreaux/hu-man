@@ -3,11 +3,11 @@
 [ext_resource type="Script" path="res://world.gd" id="1_dg45b"]
 [ext_resource type="PackedScene" uid="uid://d35gi8b3l2nhh" path="res://scenes/pellets.tscn" id="3_2jn3a"]
 [ext_resource type="PackedScene" uid="uid://bxko3dru3t24k" path="res://scenes/ai/enemies_timers.tscn" id="3_i7vv4"]
-[ext_resource type="Texture2D" uid="uid://knq3kcv08g8c" path="res://assets/tiles.png" id="3_jyd1d"]
+[ext_resource type="Texture2D" uid="uid://dovjlefqdodmg" path="res://assets/tiles.png" id="3_jyd1d"]
 [ext_resource type="PackedScene" uid="uid://bpsnuln5keu2o" path="res://scenes/pickables/power_pellet.tscn" id="4_6kjkp"]
 [ext_resource type="PackedScene" uid="uid://c4s65vdj85p3j" path="res://scenes/pickables/pellet.tscn" id="5_mcs5t"]
 [ext_resource type="PackedScene" path="res://scenes/pickables/bonus_item.tscn" id="6_652p7"]
-[ext_resource type="PackedScene" uid="uid://b7fxaxq1ovuwu" path="res://scenes/actors/player.tscn" id="7_qppoc"]
+[ext_resource type="PackedScene" uid="uid://b1mdnhyr4s07r" path="res://scenes/actors/player.tscn" id="7_qppoc"]
 [ext_resource type="PackedScene" uid="uid://c1v0tqqh2nfa5" path="res://scenes/actors/enemy_bourrin.tscn" id="8_a4ges"]
 [ext_resource type="PackedScene" uid="uid://dygx4p6tgp465" path="res://scenes/actors/enemy_assassin.tscn" id="10_o4mma"]
 [ext_resource type="PackedScene" uid="uid://bxd0v1wymn05u" path="res://scenes/ui/info_message_ui.tscn" id="10_qa8p0"]
@@ -355,7 +355,7 @@ position = Vector2(1031, 552)
 [node name="Players" type="Node" parent="Actors"]
 
 [node name="Player" parent="Actors/Players" node_paths=PackedStringArray("spawn_point") instance=ExtResource("7_qppoc")]
-position = Vector2(85, 552)
+position = Vector2(792, 459)
 spawn_point = NodePath("../../../PlayerSpawnPoint")
 
 [node name="Enemies" type="Node" parent="Actors"]
