@@ -75,12 +75,27 @@ const SAVE_GAME_FILE_PATH: String = "user://game_save.res"
 var game_save: GameSave = GameSave.new()
 
 
+var try_to_replace_corrupted_save_file: bool = false
+
 func save_game() -> void:
 	game_save.high_score = self.high_score
 	var resource_to_save: Error = ResourceSaver.save(game_save, self.SAVE_GAME_FILE_PATH)
 	
 	if resource_to_save != OK:
+		if try_to_replace_corrupted_save_file:
+			printerr("(!) ERROR: In: " + self.get_name() + ": Couldn't create a new save game file!")
+			return
 		printerr("(!) ERROR: In: " + self.get_name() + ": Couldn't save the game save file!")
+		
+		printerr("Attempting to delete the save game file...")
+		var file_removal_error: Error = DirAccess.remove_absolute(SAVE_GAME_FILE_PATH)
+		if file_removal_error != OK:
+			printerr("(!) ERROR: In: " + self.get_name() + ": Couldn't remove the game save file!")
+			return
+			
+		printerr("Attempting to create a new save game file...")
+		try_to_replace_corrupted_save_file = true
+		self.save_game()
 	
 
 func load_game() -> void:
