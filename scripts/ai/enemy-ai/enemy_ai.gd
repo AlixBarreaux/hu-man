@@ -302,6 +302,12 @@ func on_player_died() -> void:
 	cycle_completed_before_permanent_chase_mode = false
 
 
+func on_game_over() -> void:
+	self.disable()
+	cycle_count_before_permanent_chase_mode = 0
+	cycle_completed_before_permanent_chase_mode = false
+
+
 func on_level_cleared() -> void:
 	self.disable()
 
@@ -317,8 +323,9 @@ func _initialize_signals() -> void:
 	enemy.died.connect(on_enemy_died)
 	
 	Global.game_started.connect(on_game_started)
-	Global.level_cleared.connect(on_level_cleared)
 	Global.player_died.connect(on_player_died)
+	Global.game_over.connect(on_game_over)
+	Global.level_cleared.connect(on_level_cleared)
 
 
 var first_initialization: bool = true

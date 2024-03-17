@@ -19,7 +19,10 @@ func on_power_pellet_picked_up(_value: int) -> void:
 
 
 func on_player_died() -> void:
-	print(self.name, ": Player died! Timers all stopped!")
+	self.stop_all_timers()
+
+
+func on_game_over() -> void:
 	self.stop_all_timers()
 
 
@@ -27,6 +30,7 @@ func _ready() -> void:
 	pellets.power_pellet_picked_up.connect(on_power_pellet_picked_up)
 	
 	Global.player_died.connect(on_player_died)
+	Global.game_over.connect(on_game_over)
 
 
 func _on_scatter_duration_timer_timeout() -> void:

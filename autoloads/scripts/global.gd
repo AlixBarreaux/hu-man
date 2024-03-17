@@ -15,7 +15,7 @@ signal game_ready
 signal game_started
 
 
-var initial_lives: int = 2
+var initial_lives: int = 4
 var lives: int = initial_lives
 var max_lives: int = 5
 var is_game_over: bool = false
@@ -29,7 +29,6 @@ func reset() -> void:
 
 func set_lives(value: int) -> void:
 	lives = value
-	print(self.name, ": Lives set to: ", lives)
 	self.lives_changed.emit()
 
 
@@ -42,7 +41,6 @@ func decrease_lives(value: int = 1) -> void:
 	var remaining_lives: int = lives - value
 	
 	if remaining_lives < 0:
-		print(self.name, ": No lives left! ", lives)
 		is_game_over = true
 		self.game_over.emit()
 		return

@@ -55,6 +55,7 @@ func on_player_died() -> void:
 
 
 func on_player_finished_dying() -> void:
+	if Global.is_game_over: return
 	self.set_global_position(spawn_position)
 	self.direction = initial_direction
 	animation_tree.set("parameters/Move/blend_position", self.direction)

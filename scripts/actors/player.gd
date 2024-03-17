@@ -47,7 +47,7 @@ func disable() -> void:
 
 func die() -> void:
 	self.disable()
-	Global.player_died.emit()
+	Global.decrease_lives()
 	anim_node_sm_playback.travel("die")
 
 
@@ -66,6 +66,7 @@ func on_level_cleared() -> void:
 
 
 func on_finished_dying() -> void:
+	if Global.is_game_over: return
 	self.set_global_position(self.spawn_position)
 	#anim_node_sm_playback.travel("idle")
 

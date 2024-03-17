@@ -3,6 +3,7 @@ class_name World
 
 
 func on_player_finished_dying() -> void:
+	if Global.is_game_over: return
 	Global.game_ready.emit()
 
 
