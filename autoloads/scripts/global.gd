@@ -37,13 +37,15 @@ func increase_lives(value: int = 1) -> void:
 
 
 func decrease_lives(value: int = 1) -> void:
-	if lives - value < 0:
+	var remaining_lives: int = lives - value
+	
+	if remaining_lives < 0:
 		print(self.name, ": No lives left! ", lives)
 		is_game_over = true
 		self.game_over.emit()
 		return
 	
-	set_lives(lives - value)
+	set_lives(remaining_lives)
 	Global.player_died.emit()
 
 
