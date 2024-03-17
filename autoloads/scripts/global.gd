@@ -17,6 +17,7 @@ signal game_started
 
 var initial_lives: int = 2
 var lives: int = initial_lives
+var max_lives: int = 5
 var is_game_over: bool = false
 
 
@@ -33,6 +34,7 @@ func set_lives(value: int) -> void:
 
 
 func increase_lives(value: int = 1) -> void:
+	if lives + value > max_lives: return
 	set_lives(lives + value)
 
 
