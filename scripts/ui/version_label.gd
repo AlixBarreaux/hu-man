@@ -2,20 +2,27 @@ extends Label
 class_name VersionLabel
 
 
+var modulation_alpha: int = self.modulate.a
+var use_full_opacity: bool = true
+@onready var tween: Tween = null
+
+
+func on_tween_finished() -> void:
+	tween = create_tween()
+	
+	if use_full_opacity:
+		modulation_alpha = 1.0
+	else:
+		modulation_alpha = 0.0
+	
+	use_full_opacity = not use_full_opacity
+	
+	tween.finished.connect(on_tween_finished)
+	tween.tween_property(self, "modulate:a", modulation_alpha, 1)
+
+
 func _ready() -> void:
-	var version_identifier : String = ProjectSettings.get_setting("application/config/version")
-	self.set_text("Version: " + version_identifier)
-	
-	#set("theme_override_colors/font_color", )
-	
-	print("Item type list: ", get_theme().get_theme_item_type_list(Theme.DATA_TYPE_COLOR))
-	
-	print("Item list : ", get_theme().get_theme_item_list(Theme.DATA_TYPE_COLOR, "Label"))
-	
-	print("Has item: ", get_theme().has_theme_item(Theme.DATA_TYPE_COLOR, "Label", "font_color"))
-	
-	print(get_theme().get_theme_item(Theme.DATA_TYPE_COLOR, "Label", "font_color"))
-	#print(get("theme_override_colors/font_color"))
-	
-	#var tween: Tween = create_tween()
-	#tween.tween_property(self, "theme_override_colors/font_color", Color(1.0, 0.0, 0.0, 0.5), 1.0)
+	tween = create_tween()
+	tween.finished.connect(on_tween_finished)
+	tween.tween_property(self, "modulate:a", 0.0, 1)
+	use_full_opacity = true
