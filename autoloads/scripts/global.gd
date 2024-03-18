@@ -131,8 +131,9 @@ func _ready() -> void:
 	self.game_over.connect(on_game_over)
 	self.level_cleared.connect(on_level_cleared)
 	
+	self.load_game()
+	
 	var world_node: World = get_tree().get_root().get_node_or_null("World")
 	if world_node == null: return
 	await world_node.ready
 	reset()
-	self.load_game()
