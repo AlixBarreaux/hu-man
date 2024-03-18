@@ -159,7 +159,6 @@ scale = Vector2(1.8, 1.8)
 texture = ExtResource("2_4gel4")
 hframes = 5
 vframes = 4
-frame = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_14xon")
@@ -208,6 +207,7 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+active = false
 libraries = {
 "": SubResource("AnimationLibrary_p1mi8")
 }
