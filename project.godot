@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Hu Man"
 config/version="0.1.0"
-run/main_scene="res://scenes/world.tscn"
+run/main_scene="res://scenes/ui/main_menu_ui.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
