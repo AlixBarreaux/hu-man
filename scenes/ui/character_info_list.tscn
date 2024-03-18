@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://c10oph44lhfvg"]
+
+[ext_resource type="PackedScene" uid="uid://do2h587y4oc35" path="res://scenes/ui/character_info.tscn" id="1_0f7be"]
+[ext_resource type="Script" path="res://scripts/ui/character_info_list.gd" id="1_p41xs"]
+
+[node name="CharacterInfoList" type="VBoxContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -289.0
+offset_top = -391.0
+offset_right = 289.0
+offset_bottom = 283.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 30
+script = ExtResource("1_p41xs")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_type_variation = &"Label2"
+text = "Your enemies:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CharacterInfo" parent="." instance=ExtResource("1_0f7be")]
+layout_mode = 2
+character_name = "Bourrin"
+text_color = Color(1, 0, 0, 1)
+
+[node name="CharacterInfo2" parent="." instance=ExtResource("1_0f7be")]
+layout_mode = 2
+character_name = "Assassin"
+text_color = Color(1, 0.541176, 1, 1)
+
+[node name="CharacterInfo3" parent="." instance=ExtResource("1_0f7be")]
+layout_mode = 2
+character_name = "Chelou"
+text_color = Color(0, 0.901961, 1, 1)
+
+[node name="CharacterInfo4" parent="." instance=ExtResource("1_0f7be")]
+layout_mode = 2
+character_name = "Cornichon"
+text_color = Color(1, 0.619608, 0, 1)

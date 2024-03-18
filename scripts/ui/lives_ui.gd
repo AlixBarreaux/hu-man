@@ -11,4 +11,5 @@ func on_lives_changed() -> void:
 
 
 func _ready() -> void:
+	self.label.set_text("x " + str(Global.lives))
 	Global.lives_changed.connect(on_lives_changed)

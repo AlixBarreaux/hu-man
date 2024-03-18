@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://vda6whr1obyj"]
+
+[ext_resource type="Texture2D" uid="uid://b1yi440iyutka" path="res://icon.svg" id="1_a4sb5"]
+
+[node name="ScoreInfo" type="HBoxContainer"]
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("1_a4sb5")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "000 Points"
+horizontal_alignment = 2
+vertical_alignment = 1

@@ -1,0 +1,138 @@
+[gd_scene load_steps=9 format=3 uid="uid://jfsi42m0xthe"]
+
+[ext_resource type="Script" path="res://scripts/ui/main_menu_ui.gd" id="1_1t5tc"]
+[ext_resource type="PackedScene" uid="uid://cbv40bjrx6t5h" path="res://scenes/world.tscn" id="2_ulu5h"]
+[ext_resource type="PackedScene" uid="uid://c10oph44lhfvg" path="res://scenes/ui/character_info_list.tscn" id="3_aiv61"]
+[ext_resource type="PackedScene" uid="uid://blgc7c5fots3w" path="res://scenes/ui/score_info_list.tscn" id="4_6pf6j"]
+[ext_resource type="PackedScene" uid="uid://327u7e7176bo" path="res://scenes/ui/label_blinking.tscn" id="5_08ayx"]
+[ext_resource type="PackedScene" uid="uid://oqr5h8qdpdpm" path="res://scenes/ui/version_label.tscn" id="6_k17i2"]
+
+[sub_resource type="Animation" id="Animation_wnyuv"]
+resource_name = "intro"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterInfoList/CharacterInfo:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CharacterInfoList/CharacterInfo2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CharacterInfoList/CharacterInfo3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CharacterInfoList/CharacterInfo4:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ScoreInfoList:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dpqle"]
+_data = {
+"intro": SubResource("Animation_wnyuv")
+}
+
+[node name="MainMenuUI" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"PanelOpaque"
+script = ExtResource("1_1t5tc")
+scene_to_load = ExtResource("2_ulu5h")
+
+[node name="CharacterInfoList" parent="." instance=ExtResource("3_aiv61")]
+layout_mode = 1
+offset_top = -397.0
+offset_bottom = 277.0
+
+[node name="ScoreInfoList" parent="." instance=ExtResource("4_6pf6j")]
+visible = false
+layout_mode = 1
+offset_left = -469.0
+offset_top = -95.0
+offset_right = -199.0
+offset_bottom = 95.0
+
+[node name="LabelBlinking" parent="." instance=ExtResource("5_08ayx")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -210.5
+offset_top = -191.0
+offset_right = 210.5
+offset_bottom = -136.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"Label3"
+theme_override_font_sizes/font_size = 40
+
+[node name="VersionLabel" parent="." instance=ExtResource("6_k17i2")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -107.5
+offset_top = -68.0
+offset_right = 107.5
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dpqle")
+}
+
+[editable path="CharacterInfoList"]
+[editable path="ScoreInfoList"]

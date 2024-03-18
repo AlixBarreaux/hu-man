@@ -13,7 +13,7 @@ class_name InfoMessageUI
 func set_text_with_color(txt: String, color: Color = self.default_color) -> void:
 	self.label.set_text(txt)
 	self.label.add_theme_color_override("font_color", color)
-	self.label.show()
+	self.show()
 
 
 func on_game_ready() -> void:
@@ -21,7 +21,7 @@ func on_game_ready() -> void:
 
 
 func on_game_started() -> void:
-	self.label.hide()
+	self.hide()
 
 
 func on_player_died() -> void:
@@ -47,5 +47,5 @@ func _initialize_signals() -> void:
 
 
 func _ready() -> void:
-	self.label.hide()
+	self.hide()
 	self._initialize_signals()
