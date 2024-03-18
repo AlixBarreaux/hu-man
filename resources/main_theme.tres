@@ -1,6 +1,12 @@
-[gd_resource type="Theme" format=3 uid="uid://cmkbdaor5icii"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cmkbdaor5icii"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ar0iw"]
+bg_color = Color(0.0352941, 0.0509804, 0.0352941, 1)
 
 [resource]
 Label/font_sizes/font_size = 25
-MessageUILabel/base_type = &"Label"
-MessageUILabel/font_sizes/font_size = 30
+Label2/base_type = &"Label"
+Label2/font_sizes/font_size = 30
+Label3/base_type = &"Label"
+PanelOpaque/base_type = &"Panel"
+PanelOpaque/styles/panel = SubResource("StyleBoxFlat_ar0iw")
