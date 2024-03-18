@@ -2,7 +2,7 @@ extends EnemyAI
 class_name EnemyAIChelou
 
 
-@onready var enemy_to_target: Enemy = get_tree().get_root().get_node("World/Actors/Enemies/EnemyBourrin")
+@onready var enemy_to_target: Enemy = get_tree().get_root().get_node("Level/Actors/Enemies/EnemyBourrin")
 
 
 func __update_chase_target_position() -> void:

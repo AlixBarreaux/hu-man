@@ -82,7 +82,7 @@ func set_state(state: States) -> void:
 var background_state: States = self.current_state
 
 
-@onready var chase_target: Player = get_tree().get_root().get_node("World/Actors/Players/Player")
+@onready var chase_target: Player = get_tree().get_root().get_node("Level/Actors/Players/Player")
 @onready var chase_target_position: Vector2 = Vector2(0.0, 0.0)
 
 func __update_chase_target_position() -> void:
@@ -134,13 +134,13 @@ func pick_random_destination_position() -> void:
 	set_destination_position(tile_map.map_to_local(walkable_tiles_list[random_index]))
 
 
-@onready var enemies_home: Marker2D = get_tree().get_root().get_node("World/AIWaypoints/EnemiesHome")
+@onready var enemies_home: Marker2D = get_tree().get_root().get_node("Level/AIWaypoints/EnemiesHome")
 @onready var enemies_home_position: Vector2 = enemies_home.global_position
 
 @export var enemy: Enemy = null
 
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
-@onready var tile_map: TileMap = get_tree().get_root().get_node("World/TileMap")
+@onready var tile_map: TileMap = get_tree().get_root().get_node("Level/TileMap")
 @onready var tile_size: float = tile_map.get_tileset().get_tile_size().x
 
 var destination_position: Vector2 = Vector2(0.0, 0.0)
@@ -206,13 +206,13 @@ func on_navigation_finished() -> void:
 			set_destination_location(DestinationLocations.CHASE_TARGET)
 
 
-@onready var pellets: Pellets = get_tree().get_root().get_node("World/Pickables/Pellets")
+@onready var pellets: Pellets = get_tree().get_root().get_node("Level/Pickables/Pellets")
 
 func on_power_pellet_picked_up(_value: int) -> void:
 	self.set_state(States.FRIGHTENED)
 
 
-@onready var enemies_timers: EnemiesTimer = get_tree().get_root().get_node("World/EnemiesTimers")
+@onready var enemies_timers: EnemiesTimer = get_tree().get_root().get_node("Level/EnemiesTimers")
 @onready var scatter_timer: Timer = enemies_timers.get_node("ScatterDurationTimer")
 @onready var chase_timer: Timer = enemies_timers.get_node("ChaseDurationTimer")
 @onready var frightened_timer: Timer = enemies_timers.get_node("FrightenedDurationTimer")

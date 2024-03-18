@@ -133,7 +133,7 @@ func _ready() -> void:
 	
 	self.load_game()
 	
-	var world_node: World = get_tree().get_root().get_node_or_null("World")
-	if world_node == null: return
-	await world_node.ready
+	var level_node: Level = get_tree().get_root().get_node_or_null("Level")
+	if level_node == null: return
+	await level_node.ready
 	reset()

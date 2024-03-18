@@ -2,7 +2,7 @@ extends Node
 class_name EnemiesTimer
 
 
-@onready var pellets: Pellets = get_tree().get_root().get_node("World/Pickables/Pellets")
+@onready var pellets: Pellets = get_tree().get_root().get_node("Level/Pickables/Pellets")
 
 @onready var scatter_timer: Timer = $ScatterDurationTimer
 @onready var chase_timer: Timer = $ChaseDurationTimer

@@ -4,8 +4,8 @@ class_name BourrinElroyMode
 
 @export var enemy_ai: EnemyAIBourrin = null
 @onready var enemy: Enemy = enemy_ai.enemy
-@onready var enemy_ai_to_wait_enable_ai_timer: Timer = get_tree().get_root().get_node("World/Actors/Enemies/EnemyCornichon/EnemyAICornichon/EnableAITimer")
-@onready var pellets_node: Pellets = get_tree().get_root().get_node("World/Pickables/Pellets")
+@onready var enemy_ai_to_wait_enable_ai_timer: Timer = get_tree().get_root().get_node("Level/Actors/Enemies/EnemyCornichon/EnemyAICornichon/EnableAITimer")
+@onready var pellets_node: Pellets = get_tree().get_root().get_node("Level/Pickables/Pellets")
 
 
 var percentage_tier_1: float = 0.08
