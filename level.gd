@@ -1,5 +1,5 @@
 extends Node2D
-class_name World
+class_name Level
 
 
 func on_player_finished_dying() -> void:

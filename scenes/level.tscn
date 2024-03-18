@@ -1,22 +1,22 @@
 [gd_scene load_steps=21 format=3 uid="uid://cbv40bjrx6t5h"]
 
-[ext_resource type="Script" path="res://world.gd" id="1_dg45b"]
-[ext_resource type="PackedScene" uid="uid://d35gi8b3l2nhh" path="res://scenes/pellets.tscn" id="3_2jn3a"]
-[ext_resource type="PackedScene" uid="uid://bxko3dru3t24k" path="res://scenes/ai/enemies_timers.tscn" id="3_i7vv4"]
-[ext_resource type="Texture2D" uid="uid://dovjlefqdodmg" path="res://assets/tiles.png" id="3_jyd1d"]
-[ext_resource type="PackedScene" uid="uid://bpsnuln5keu2o" path="res://scenes/pickables/power_pellet.tscn" id="4_6kjkp"]
-[ext_resource type="PackedScene" uid="uid://c4s65vdj85p3j" path="res://scenes/pickables/pellet.tscn" id="5_mcs5t"]
-[ext_resource type="PackedScene" path="res://scenes/pickables/bonus_item.tscn" id="6_652p7"]
-[ext_resource type="PackedScene" uid="uid://b1mdnhyr4s07r" path="res://scenes/actors/player.tscn" id="7_qppoc"]
-[ext_resource type="PackedScene" uid="uid://c1v0tqqh2nfa5" path="res://scenes/actors/enemy_bourrin.tscn" id="8_a4ges"]
-[ext_resource type="PackedScene" uid="uid://dygx4p6tgp465" path="res://scenes/actors/enemy_assassin.tscn" id="10_o4mma"]
-[ext_resource type="PackedScene" uid="uid://bxd0v1wymn05u" path="res://scenes/ui/info_message_ui.tscn" id="10_qa8p0"]
-[ext_resource type="PackedScene" uid="uid://c5mkv72mwdf1m" path="res://scenes/actors/enemy_chelou.tscn" id="11_r428h"]
-[ext_resource type="PackedScene" uid="uid://bly5qwucu3w3c" path="res://scenes/actors/enemy_cornichon.tscn" id="12_vr16c"]
-[ext_resource type="PackedScene" uid="uid://di40nd36u435f" path="res://scenes/warp_zone.tscn" id="14_4r5e0"]
-[ext_resource type="PackedScene" uid="uid://cs15hy7ubikhu" path="res://audio_manager.tscn" id="14_5osqt"]
-[ext_resource type="PackedScene" uid="uid://c57ttid6qs2wq" path="res://scenes/ui/lives_ui.tscn" id="15_0da7m"]
-[ext_resource type="Texture2D" uid="uid://b1yi440iyutka" path="res://icon.svg" id="15_ita6m"]
+[ext_resource type="Script" path="res://level.gd" id="1_tf7gw"]
+[ext_resource type="Texture2D" uid="uid://dovjlefqdodmg" path="res://assets/tiles.png" id="2_0l17p"]
+[ext_resource type="PackedScene" uid="uid://bxko3dru3t24k" path="res://scenes/ai/enemies_timers.tscn" id="3_ebyhf"]
+[ext_resource type="PackedScene" uid="uid://b1mdnhyr4s07r" path="res://scenes/actors/player.tscn" id="4_u33na"]
+[ext_resource type="PackedScene" uid="uid://c1v0tqqh2nfa5" path="res://scenes/actors/enemy_bourrin.tscn" id="5_wdac3"]
+[ext_resource type="PackedScene" uid="uid://c5mkv72mwdf1m" path="res://scenes/actors/enemy_chelou.tscn" id="6_nnfob"]
+[ext_resource type="PackedScene" uid="uid://dygx4p6tgp465" path="res://scenes/actors/enemy_assassin.tscn" id="7_j7gpi"]
+[ext_resource type="PackedScene" uid="uid://bly5qwucu3w3c" path="res://scenes/actors/enemy_cornichon.tscn" id="8_imlpq"]
+[ext_resource type="PackedScene" uid="uid://d35gi8b3l2nhh" path="res://scenes/pellets.tscn" id="9_soaal"]
+[ext_resource type="PackedScene" uid="uid://c4s65vdj85p3j" path="res://scenes/pickables/pellet.tscn" id="10_km4qh"]
+[ext_resource type="PackedScene" uid="uid://bpsnuln5keu2o" path="res://scenes/pickables/power_pellet.tscn" id="11_7tp22"]
+[ext_resource type="PackedScene" path="res://scenes/pickables/bonus_item.tscn" id="12_84nb6"]
+[ext_resource type="PackedScene" uid="uid://di40nd36u435f" path="res://scenes/warp_zone.tscn" id="13_y6vvr"]
+[ext_resource type="PackedScene" uid="uid://bxd0v1wymn05u" path="res://scenes/ui/info_message_ui.tscn" id="14_86j3b"]
+[ext_resource type="PackedScene" uid="uid://c57ttid6qs2wq" path="res://scenes/ui/lives_ui.tscn" id="15_4lnah"]
+[ext_resource type="Texture2D" uid="uid://b1yi440iyutka" path="res://icon.svg" id="16_nlhoh"]
+[ext_resource type="PackedScene" uid="uid://cs15hy7ubikhu" path="res://audio_manager.tscn" id="17_jqn07"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_uf2fb"]
 vertices = PackedVector2Array(1, -1, 24, -1, 24, 1, 1, 1, 1, 24, -1, 24, -1, 1, -1, -1, -24, 1, -24, -1, 1, -24, -1, -24)
@@ -26,7 +26,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1ivle"]
-texture = ExtResource("3_jyd1d")
+texture = ExtResource("2_0l17p")
 texture_region_size = Vector2i(48, 48)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -323,8 +323,8 @@ custom_data_layer_0/name = "walkable"
 custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_1ivle")
 
-[node name="World" type="Node2D"]
-script = ExtResource("1_dg45b")
+[node name="Level" type="Node2D"]
+script = ExtResource("1_tf7gw")
 
 [node name="TileMap" type="TileMap" parent="."]
 modulate = Color(0, 0.219608, 0.113725, 1)
@@ -350,112 +350,112 @@ position = Vector2(960, 552)
 [node name="Marker2D4" type="Marker2D" parent="EnemiesSpawnPoints"]
 position = Vector2(1031, 552)
 
-[node name="EnemiesTimers" parent="." instance=ExtResource("3_i7vv4")]
+[node name="EnemiesTimers" parent="." instance=ExtResource("3_ebyhf")]
 
 [node name="Actors" type="Node" parent="."]
 
 [node name="Players" type="Node" parent="Actors"]
 
-[node name="Player" parent="Actors/Players" node_paths=PackedStringArray("spawn_point") instance=ExtResource("7_qppoc")]
+[node name="Player" parent="Actors/Players" node_paths=PackedStringArray("spawn_point") instance=ExtResource("4_u33na")]
 position = Vector2(792, 459)
 spawn_point = NodePath("../../../PlayerSpawnPoint")
 
 [node name="Enemies" type="Node" parent="Actors"]
 
-[node name="EnemyBourrin" parent="Actors/Enemies" node_paths=PackedStringArray("spawn_point") instance=ExtResource("8_a4ges")]
+[node name="EnemyBourrin" parent="Actors/Enemies" node_paths=PackedStringArray("spawn_point") instance=ExtResource("5_wdac3")]
 position = Vector2(960, 459)
 spawn_point = NodePath("../../../EnemiesSpawnPoints/Marker2D")
 
-[node name="EnemyChelou" parent="Actors/Enemies" node_paths=PackedStringArray("spawn_point") instance=ExtResource("11_r428h")]
+[node name="EnemyChelou" parent="Actors/Enemies" node_paths=PackedStringArray("spawn_point") instance=ExtResource("6_nnfob")]
 position = Vector2(888, 552)
 spawn_point = NodePath("../../../EnemiesSpawnPoints/Marker2D2")
 
-[node name="EnemyAssassin" parent="Actors/Enemies" node_paths=PackedStringArray("spawn_point") instance=ExtResource("10_o4mma")]
+[node name="EnemyAssassin" parent="Actors/Enemies" node_paths=PackedStringArray("spawn_point") instance=ExtResource("7_j7gpi")]
 position = Vector2(960, 552)
 spawn_point = NodePath("../../../EnemiesSpawnPoints/Marker2D3")
 
-[node name="EnemyCornichon" parent="Actors/Enemies" node_paths=PackedStringArray("spawn_point") instance=ExtResource("12_vr16c")]
+[node name="EnemyCornichon" parent="Actors/Enemies" node_paths=PackedStringArray("spawn_point") instance=ExtResource("8_imlpq")]
 position = Vector2(1031, 552)
 spawn_point = NodePath("../../../EnemiesSpawnPoints/Marker2D4")
 
 [node name="Pickables" type="Node" parent="."]
 
-[node name="Pellets" parent="Pickables" instance=ExtResource("3_2jn3a")]
+[node name="Pellets" parent="Pickables" instance=ExtResource("9_soaal")]
 
-[node name="Pellet" parent="Pickables/Pellets/Normal" index="0" instance=ExtResource("5_mcs5t")]
+[node name="Pellet" parent="Pickables/Pellets/Normal" index="0" instance=ExtResource("10_km4qh")]
 position = Vector2(313, 207)
 
-[node name="Pellet2" parent="Pickables/Pellets/Normal" index="1" instance=ExtResource("5_mcs5t")]
+[node name="Pellet2" parent="Pickables/Pellets/Normal" index="1" instance=ExtResource("10_km4qh")]
 position = Vector2(266, 266)
 
-[node name="Pellet3" parent="Pickables/Pellets/Normal" index="2" instance=ExtResource("5_mcs5t")]
+[node name="Pellet3" parent="Pickables/Pellets/Normal" index="2" instance=ExtResource("10_km4qh")]
 position = Vector2(313, 266)
 
-[node name="Pellet4" parent="Pickables/Pellets/Normal" index="3" instance=ExtResource("5_mcs5t")]
+[node name="Pellet4" parent="Pickables/Pellets/Normal" index="3" instance=ExtResource("10_km4qh")]
 position = Vector2(361, 266)
 
-[node name="Pellet5" parent="Pickables/Pellets/Normal" index="4" instance=ExtResource("5_mcs5t")]
+[node name="Pellet5" parent="Pickables/Pellets/Normal" index="4" instance=ExtResource("10_km4qh")]
 position = Vector2(409, 266)
 
-[node name="Pellet6" parent="Pickables/Pellets/Normal" index="5" instance=ExtResource("5_mcs5t")]
+[node name="Pellet6" parent="Pickables/Pellets/Normal" index="5" instance=ExtResource("10_km4qh")]
 position = Vector2(458, 266)
 
-[node name="Pellet7" parent="Pickables/Pellets/Normal" index="6" instance=ExtResource("5_mcs5t")]
+[node name="Pellet7" parent="Pickables/Pellets/Normal" index="6" instance=ExtResource("10_km4qh")]
 position = Vector2(504, 266)
 
-[node name="Pellet8" parent="Pickables/Pellets/Normal" index="7" instance=ExtResource("5_mcs5t")]
+[node name="Pellet8" parent="Pickables/Pellets/Normal" index="7" instance=ExtResource("10_km4qh")]
 position = Vector2(552, 266)
 
-[node name="Pellet9" parent="Pickables/Pellets/Normal" index="8" instance=ExtResource("5_mcs5t")]
+[node name="Pellet9" parent="Pickables/Pellets/Normal" index="8" instance=ExtResource("10_km4qh")]
 position = Vector2(601, 266)
 
-[node name="Pellet10" parent="Pickables/Pellets/Normal" index="9" instance=ExtResource("5_mcs5t")]
+[node name="Pellet10" parent="Pickables/Pellets/Normal" index="9" instance=ExtResource("10_km4qh")]
 position = Vector2(648, 266)
 
-[node name="Pellet11" parent="Pickables/Pellets/Normal" index="10" instance=ExtResource("5_mcs5t")]
+[node name="Pellet11" parent="Pickables/Pellets/Normal" index="10" instance=ExtResource("10_km4qh")]
 position = Vector2(696, 266)
 
-[node name="Pellet12" parent="Pickables/Pellets/Normal" index="11" instance=ExtResource("5_mcs5t")]
+[node name="Pellet12" parent="Pickables/Pellets/Normal" index="11" instance=ExtResource("10_km4qh")]
 position = Vector2(744, 266)
 
-[node name="Pellet13" parent="Pickables/Pellets/Normal" index="12" instance=ExtResource("5_mcs5t")]
+[node name="Pellet13" parent="Pickables/Pellets/Normal" index="12" instance=ExtResource("10_km4qh")]
 position = Vector2(792, 266)
 
-[node name="Pellet14" parent="Pickables/Pellets/Normal" index="13" instance=ExtResource("5_mcs5t")]
+[node name="Pellet14" parent="Pickables/Pellets/Normal" index="13" instance=ExtResource("10_km4qh")]
 position = Vector2(841, 266)
 
-[node name="Pellet15" parent="Pickables/Pellets/Normal" index="14" instance=ExtResource("5_mcs5t")]
+[node name="Pellet15" parent="Pickables/Pellets/Normal" index="14" instance=ExtResource("10_km4qh")]
 position = Vector2(887, 266)
 
-[node name="Pellet16" parent="Pickables/Pellets/Normal" index="15" instance=ExtResource("5_mcs5t")]
+[node name="Pellet16" parent="Pickables/Pellets/Normal" index="15" instance=ExtResource("10_km4qh")]
 position = Vector2(935, 266)
 
-[node name="Pellet17" parent="Pickables/Pellets/Normal" index="16" instance=ExtResource("5_mcs5t")]
+[node name="Pellet17" parent="Pickables/Pellets/Normal" index="16" instance=ExtResource("10_km4qh")]
 position = Vector2(984, 266)
 
-[node name="Pellet18" parent="Pickables/Pellets/Normal" index="17" instance=ExtResource("5_mcs5t")]
+[node name="Pellet18" parent="Pickables/Pellets/Normal" index="17" instance=ExtResource("10_km4qh")]
 position = Vector2(1031, 266)
 
-[node name="PowerPellet" parent="Pickables/Pellets/Power" index="0" instance=ExtResource("4_6kjkp")]
+[node name="PowerPellet" parent="Pickables/Pellets/Power" index="0" instance=ExtResource("11_7tp22")]
 position = Vector2(166, 266)
 
-[node name="PowerPellet2" parent="Pickables/Pellets/Power" index="1" instance=ExtResource("4_6kjkp")]
+[node name="PowerPellet2" parent="Pickables/Pellets/Power" index="1" instance=ExtResource("11_7tp22")]
 position = Vector2(215, 266)
 
 [node name="BonusItems" type="Node" parent="Pickables"]
 
-[node name="BonusItem" parent="Pickables/BonusItems" instance=ExtResource("6_652p7")]
+[node name="BonusItem" parent="Pickables/BonusItems" instance=ExtResource("12_84nb6")]
 position = Vector2(960, 459)
 
 [node name="WarpZones" type="Node" parent="."]
 
 [node name="Zones" type="Node" parent="WarpZones"]
 
-[node name="WarpZone" parent="WarpZones/Zones" node_paths=PackedStringArray("warp_destination_node") instance=ExtResource("14_4r5e0")]
+[node name="WarpZone" parent="WarpZones/Zones" node_paths=PackedStringArray("warp_destination_node") instance=ExtResource("13_y6vvr")]
 position = Vector2(-48, 552)
 warp_destination_node = NodePath("../../Destinations/WarpZoneDestination")
 
-[node name="WarpZone2" parent="WarpZones/Zones" node_paths=PackedStringArray("warp_destination_node") instance=ExtResource("14_4r5e0")]
+[node name="WarpZone2" parent="WarpZones/Zones" node_paths=PackedStringArray("warp_destination_node") instance=ExtResource("13_y6vvr")]
 position = Vector2(1968, 552)
 warp_destination_node = NodePath("../../Destinations/WarpZoneDestination2")
 
@@ -537,9 +537,9 @@ position = Vector2(218, 266)
 
 [node name="InGameUI" type="CanvasLayer" parent="."]
 
-[node name="InfoMessageUI" parent="InGameUI" instance=ExtResource("10_qa8p0")]
+[node name="InfoMessageUI" parent="InGameUI" instance=ExtResource("14_86j3b")]
 
-[node name="LivesUI" parent="InGameUI" instance=ExtResource("15_0da7m")]
+[node name="LivesUI" parent="InGameUI" instance=ExtResource("15_4lnah")]
 offset_left = 399.0
 offset_top = 19.0
 offset_right = 522.0
@@ -568,42 +568,42 @@ theme_override_constants/separation = 6
 
 [node name="TextureRect" type="TextureRect" parent="InGameUI/Panel2/BonusItemsUI"]
 layout_mode = 2
-texture = ExtResource("15_ita6m")
+texture = ExtResource("16_nlhoh")
 expand_mode = 2
 
 [node name="TextureRect2" type="TextureRect" parent="InGameUI/Panel2/BonusItemsUI"]
 layout_mode = 2
-texture = ExtResource("15_ita6m")
+texture = ExtResource("16_nlhoh")
 expand_mode = 2
 
 [node name="TextureRect3" type="TextureRect" parent="InGameUI/Panel2/BonusItemsUI"]
 layout_mode = 2
-texture = ExtResource("15_ita6m")
+texture = ExtResource("16_nlhoh")
 expand_mode = 2
 
 [node name="TextureRect4" type="TextureRect" parent="InGameUI/Panel2/BonusItemsUI"]
 layout_mode = 2
-texture = ExtResource("15_ita6m")
+texture = ExtResource("16_nlhoh")
 expand_mode = 2
 
 [node name="TextureRect5" type="TextureRect" parent="InGameUI/Panel2/BonusItemsUI"]
 layout_mode = 2
-texture = ExtResource("15_ita6m")
+texture = ExtResource("16_nlhoh")
 expand_mode = 2
 
 [node name="TextureRect6" type="TextureRect" parent="InGameUI/Panel2/BonusItemsUI"]
 layout_mode = 2
-texture = ExtResource("15_ita6m")
+texture = ExtResource("16_nlhoh")
 expand_mode = 2
 
 [node name="TextureRect7" type="TextureRect" parent="InGameUI/Panel2/BonusItemsUI"]
 layout_mode = 2
-texture = ExtResource("15_ita6m")
+texture = ExtResource("16_nlhoh")
 expand_mode = 2
 
 [node name="TextureRect8" type="TextureRect" parent="InGameUI/Panel2/BonusItemsUI"]
 layout_mode = 2
-texture = ExtResource("15_ita6m")
+texture = ExtResource("16_nlhoh")
 expand_mode = 2
 
 [node name="Label" type="Label" parent="InGameUI/Panel2/BonusItemsUI"]
@@ -614,6 +614,6 @@ text = "x 000"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="AudioManager" parent="." instance=ExtResource("14_5osqt")]
+[node name="AudioManager" parent="." instance=ExtResource("17_jqn07")]
 
 [editable path="Pickables/Pellets"]
