@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://jfsi42m0xthe"]
 
-[ext_resource type="Theme" uid="uid://cmkbdaor5icii" path="res://resources/main_theme.tres" id="1_a1ygh"]
 [ext_resource type="Texture2D" uid="uid://b1yi440iyutka" path="res://icon.svg" id="1_o4b15"]
+[ext_resource type="PackedScene" uid="uid://327u7e7176bo" path="res://scenes/ui/version_label.tscn" id="3_dl4c7"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -10,7 +10,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_a1ygh")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
@@ -143,3 +142,17 @@ size_flags_vertical = 1
 text = "Nickname Name"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="VersionLabel" parent="." instance=ExtResource("3_dl4c7")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -437.0
+offset_top = -105.0
+offset_right = 437.0
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 0

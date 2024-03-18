@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxd0v1wymn05u"]
+[gd_scene load_steps=2 format=3 uid="uid://bxd0v1wymn05u"]
 
 [ext_resource type="Script" path="res://scripts/ui/info_message_ui.gd" id="1_8m0gf"]
-[ext_resource type="Theme" uid="uid://cmkbdaor5icii" path="res://resources/main_theme.tres" id="1_lxyoh"]
 
 [node name="InfoMessageUI" type="Panel"]
 anchors_preset = 8
@@ -15,7 +14,6 @@ offset_right = 288.0
 offset_bottom = 93.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_lxyoh")
 script = ExtResource("1_8m0gf")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
