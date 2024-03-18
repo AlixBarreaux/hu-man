@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c10oph44lhfvg"]
 
 [ext_resource type="PackedScene" uid="uid://do2h587y4oc35" path="res://scenes/ui/character_info.tscn" id="1_0f7be"]
-[ext_resource type="Script" path="res://scripts/ui/character_info_list.gd" id="1_p41xs"]
+[ext_resource type="Script" path="res://scripts/ui/character_info_list.gd" id="1_7k4cy"]
 
 [node name="CharacterInfoList" type="VBoxContainer"]
 anchors_preset = 8
@@ -17,7 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme_override_constants/separation = 30
-script = ExtResource("1_p41xs")
+script = ExtResource("1_7k4cy")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
