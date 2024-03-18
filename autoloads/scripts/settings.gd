@@ -2,5 +2,5 @@ extends Node
 #class_name Settings
 
 
-func _read() -> void:
+func _ready() -> void:
 	TranslationServer.set_locale(OS.get_locale())
