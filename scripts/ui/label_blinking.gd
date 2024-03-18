@@ -2,7 +2,7 @@ extends Label
 class_name LabelBlinking
 
 
-var modulation_alpha: int = self.modulate.a
+var modulation_alpha: float = self.modulate.a
 var use_full_opacity: bool = true
 @onready var tween: Tween = null
 
