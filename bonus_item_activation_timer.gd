@@ -56,10 +56,25 @@ func on_pellet_picked_up(_value: int) -> void:
 	remaining_pellets_cap = int(pellets_node.total_remaining_pellets_count * remaining_pellets_percentage)
 
 
-func on_bonus_item_picked_up(_value: int) -> void:
-	self.stop()
+func check_if_should_queue_free() -> void:
 	if remaining_activations_count <= 0:
 		bonus_item.queue_free()
+
+
+func on_bonus_item_picked_up(_value: int) -> void:
+	self.stop()
+	check_if_should_queue_free()
+
+
+func on_player_died() -> void:
+	bonus_item.disable()
+	check_if_should_queue_free()
+	self.stop()
+
+
+func on_game_over() -> void:
+	bonus_item.queue_free()
+	self.stop()
 
 
 func _initialize_asserts() -> void:
@@ -80,11 +95,12 @@ func _ready() -> void:
 	
 	pellets_node.pellet_picked_up.connect(on_pellet_picked_up)
 	bonus_item.picked_up.connect(on_bonus_item_picked_up)
+	Global.player_died.connect(on_player_died)
+	Global.game_over.connect(on_game_over)
 	
 	randomize()
 
 
 func _on_timeout() -> void:
 	bonus_item.disable()
-	if remaining_activations_count <= 0:
-		bonus_item.queue_free()
+	check_if_should_queue_free()
