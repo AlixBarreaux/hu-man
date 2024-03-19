@@ -20,7 +20,7 @@ class_name BonusItemActivationTimer
 
 # PackedFloat32 adds more unecessary numbers after decimals so use 64 instead
 ## Percentages must be between 0.0 and 1.0 (both of these values aren't included)
-@export var pellet_cap_percentages_tiers: PackedFloat64Array = [0.29, 0.70]
+var pellet_cap_percentages_tiers: PackedFloat64Array = [0.29, 0.70]
 
 var remaining_activations_count: int = pellet_cap_percentages_tiers.size()
 @onready var pellets_node: Pellets = get_tree().get_root().get_node("Level/Pickables/Pellets")
@@ -80,6 +80,22 @@ func on_game_over() -> void:
 func _initialize_asserts() -> void:
 	assert(bonus_item != null)
 	assert(min_rand_wait_time < max_rand_wait_time)
+	
+	# pellet_cap_percentages_tiers checks
+	var last_percentage: float = 0.0
+	var first_iteration: bool = true
+	
+	for percentage in pellet_cap_percentages_tiers:
+		assert(percentage > 0.0)
+		assert(percentage < 1.0)
+		
+		if first_iteration:
+			first_iteration = false
+			last_percentage = percentage
+			continue
+		
+		assert(percentage > last_percentage)
+		last_percentage = percentage
 
 
 func _ready() -> void:
