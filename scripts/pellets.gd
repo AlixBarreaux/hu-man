@@ -17,8 +17,6 @@ func on_scene_tree_exited_by_pellet() -> void:
 			Global.level_cleared.emit()
 
 
-signal initialized
-
 func _ready() -> void:
 	var current_callable_on_pellet_picked_up: Callable = Callable()
 	var callable_on_normal_pellet_picked_up: Callable = on_normal_pellet_picked_up
@@ -42,7 +40,6 @@ func _ready() -> void:
 	assert(total_remaining_pellets_count > 0)
 	
 	remaining_pellets_count = total_remaining_pellets_count
-	initialized.emit()
 
 
 signal pellet_picked_up(value: int)

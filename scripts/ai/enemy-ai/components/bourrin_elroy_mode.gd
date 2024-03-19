@@ -17,7 +17,7 @@ var tier_1_pellet_count_treshold: int = 0
 var tier_2_pellet_count_treshold: int = 0
 
 
-func on_pellets_node_initialized() -> void:
+func initialize_tiers_and_remaining_pellets() -> void:
 	remaining_pellets_count = pellets_node.remaining_pellets_count
 	
 	tier_1_pellet_count_treshold = round(remaining_pellets_count * percentage_tier_1)
@@ -48,10 +48,11 @@ func _ready() -> void:
 	assert(enemy_ai != null)
 	assert(enemy_ai_to_wait_enable_ai_timer != null)
 	
-	pellets_node.initialized.connect(on_pellets_node_initialized)
 	pellets_node.pellet_picked_up.connect(on_pellet_picked_up)
 	Global.player_died.connect(on_player_died)
 	enemy_ai_to_wait_enable_ai_timer.timeout.connect(on_enemy_to_wait_went_out)
+	
+	initialize_tiers_and_remaining_pellets()
 
 
 func check_if_should_enable_elroy_mode() -> void:
