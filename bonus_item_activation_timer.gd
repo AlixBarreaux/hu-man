@@ -4,12 +4,12 @@ class_name BonusItemActivationTimer
 ## Timer enabling a choosen BonusItem after a random amount of time
 ## when certain conditions are met.
 ##
-## A list of percentages caps tier is provided.
-## Each element of this list represents a percentage of the total pellets amount.
+## A list of percentages caps tier is provided.[br]
+## Each element of this list represents a percentage of the total pellets amount.[br]
 ## Each of these percentages then serve to define how much pellets are required
-## to enable the timer. This defined amount is a cap.
-## At each cap, the timer starts if it wasn't stopped.
-## During that time the BonusItem is enabled. Then it's disabled.
+## to enable the timer. This defined amount is a cap.[br]
+## At each cap, the timer starts if it wasn't stopped.[br]
+## During that time the BonusItem is enabled. Then it's disabled.[br]
 ## When all caps have been reached, the BonusItem is then queue freed after the 
 ## BonusItem is disabled for the last time.
 
