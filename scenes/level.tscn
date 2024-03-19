@@ -426,7 +426,7 @@ position = Vector2(960, 459)
 [node name="Players" type="Node" parent="Actors"]
 
 [node name="Player" parent="Actors/Players" node_paths=PackedStringArray("spawn_point") instance=ExtResource("4_u33na")]
-position = Vector2(792, 459)
+position = Vector2(600, 456)
 spawn_point = NodePath("../../../PlayerSpawnPoint")
 
 [node name="Enemies" type="Node" parent="Actors"]
