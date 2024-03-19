@@ -77,3 +77,8 @@ func _ready() -> void:
 			sprite_2d.set_texture(load(image_path_list[7]))
 		_:
 			printerr(self.name, ": Error: Unrecognized tier type!")
+
+
+func _on_area_entered(_area: Area2D) -> void:
+	self.picked_up.emit(self.score_value)
+	self.disable()
