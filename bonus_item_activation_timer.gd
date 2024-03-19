@@ -25,8 +25,8 @@ class_name BonusItemActivationTimer
 var remaining_activations_count: int = pellet_cap_percentages_tiers.size()
 @onready var pellets_node: Pellets = get_tree().get_root().get_node("Level/Pickables/Pellets")
 
-@onready var remaining_pellets_percentage: float = pellet_cap_percentages_tiers[pellet_cap_percentages_tiers.size() - 1]
-@onready var remaining_pellets_cap: int = int(pellets_node.total_remaining_pellets_count * remaining_pellets_percentage)
+@onready var remaining_pellets_percentage: float = 0.0
+@onready var remaining_pellets_cap: int = 0
 
 
 func on_pellet_picked_up(_value: int) -> void:
@@ -62,9 +62,21 @@ func on_bonus_item_picked_up(_value: int) -> void:
 		bonus_item.queue_free()
 
 
-func _ready() -> void:
+func _initialize_asserts() -> void:
 	assert(bonus_item != null)
 	assert(min_rand_wait_time < max_rand_wait_time)
+
+
+func _ready() -> void:
+	# If no cap to reach is given, queue free
+	if pellet_cap_percentages_tiers.size() == 0:
+		bonus_item.queue_free()
+		return
+	
+	remaining_pellets_percentage = pellet_cap_percentages_tiers[pellet_cap_percentages_tiers.size() - 1]
+	remaining_pellets_cap = int(pellets_node.total_remaining_pellets_count * remaining_pellets_percentage)
+	
+	self._initialize_asserts()
 	
 	pellets_node.pellet_picked_up.connect(on_pellet_picked_up)
 	bonus_item.picked_up.connect(on_bonus_item_picked_up)
