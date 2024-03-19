@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cvinvy67ghvhb"]
+[gd_scene load_steps=5 format=3 uid="uid://dvuq0cwe1u16o"]
 
 [ext_resource type="PackedScene" uid="uid://if2sysuqsw11" path="res://scenes/pickables/pickable.tscn" id="1_bdm0x"]
 [ext_resource type="Script" path="res://scripts/pickables/bonus_item.gd" id="2_141uv"]
+[ext_resource type="PackedScene" uid="uid://bc0lb44346l8s" path="res://bonus_item_activation_timer.tscn" id="3_asn4e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tld2l"]
 radius = 24.0
@@ -11,3 +12,6 @@ script = ExtResource("2_141uv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 shape = SubResource("CircleShape2D_tld2l")
+
+[node name="BonusItemActivationTimer" parent="." index="2" node_paths=PackedStringArray("bonus_item") instance=ExtResource("3_asn4e")]
+bonus_item = NodePath("..")

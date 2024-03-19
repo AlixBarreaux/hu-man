@@ -32,16 +32,20 @@ const image_path_list: PackedStringArray = [
 
 
 func enable() -> void:
+	print("Enable!")
 	self.collision_shape_2d.call_deferred("set_disabled", false)
-	self.show()
+	self.sprite_2d.show()
 
 
 func disable() -> void:
+	print("Disable!")
 	self.collision_shape_2d.call_deferred("set_disabled", true)
-	self.hide()
-	
+	self.sprite_2d.hide()
+
 
 func _ready() -> void:
+	self.disable()
+	
 	# Each image to load from the list should exist
 	for image_file in self.image_path_list:
 		assert(FileAccess.file_exists(image_file))
@@ -73,9 +77,3 @@ func _ready() -> void:
 			sprite_2d.set_texture(load(image_path_list[7]))
 		_:
 			printerr(self.name, ": Error: Unrecognized tier type!")
-
-
-func _on_area_entered(_area: Area2D) -> void:
-	self.picked_up.emit(score_value)
-	self.disable()
-	self.queue_free()
