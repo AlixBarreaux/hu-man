@@ -6,7 +6,7 @@
 
 [node name="EnemyAIBourrin" instance=ExtResource("1_wrwpu")]
 script = ExtResource("2_ki7b2")
-scatter_points_node_path_string = "World/AIWaypoints/ScatterPoints"
+scatter_points_node_path_string = "Level/AIWaypoints/ScatterPoints"
 
 [node name="BourrinElroyMode" parent="." index="2" node_paths=PackedStringArray("enemy_ai") instance=ExtResource("3_dmwkk")]
 enemy_ai = NodePath("..")

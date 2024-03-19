@@ -5,4 +5,4 @@
 
 [node name="EnemyAIChelou" instance=ExtResource("1_kj8q0")]
 script = ExtResource("2_x11nh")
-scatter_points_node_path_string = "World/AIWaypoints/ScatterPoints3"
+scatter_points_node_path_string = "Level/AIWaypoints/ScatterPoints3"
