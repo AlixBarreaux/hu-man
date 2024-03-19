@@ -94,8 +94,8 @@ func set_destination_position_to_chase_target_position() -> void:
 	set_destination_position(chase_target_position)
 
 
-@export var scatter_points_node_path_string: String = ""
-@onready var scatter_points_node: Node2D = get_tree().get_root().get_node(scatter_points_node_path_string)
+@export var scatter_points_node_name: String = ""
+@onready var scatter_points_node = get_tree().get_root().get_node("Level/AIWaypoints/" + scatter_points_node_name)
 @onready var scatter_point_target_position: Vector2 = Vector2(0.0, 0.0)
 
 @onready var scatter_points: PackedVector2Array = []

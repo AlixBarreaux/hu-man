@@ -6,7 +6,7 @@
 
 [node name="EnemyAICornichon" instance=ExtResource("1_6fvwv")]
 script = ExtResource("2_fau5h")
-scatter_points_node_path_string = "Level/AIWaypoints/ScatterPoints4"
+scatter_points_node_name = "ScatterPoints3"
 
 [node name="EnableAITimer" parent="." index="2" node_paths=PackedStringArray("enemy_ai") instance=ExtResource("3_7giiy")]
 wait_time = 4.0
