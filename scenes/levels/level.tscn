@@ -327,6 +327,11 @@ sources/0 = SubResource("TileSetAtlasSource_1ivle")
 [node name="Level" type="Node2D"]
 script = ExtResource("1_tf7gw")
 id = 1
+next_level_to_load_file_path = "res://scenes/ui/main_menu_ui.tscn"
+
+[node name="SwitchToNextLevelTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
 
 [node name="TileMap" type="TileMap" parent="."]
 modulate = Color(0, 0.219608, 0.113725, 1)
@@ -550,6 +555,8 @@ offset_bottom = 67.0
 [node name="BonusItemsUI" parent="InGameUI" instance=ExtResource("16_05h1i")]
 
 [node name="AudioManager" parent="." instance=ExtResource("17_jqn07")]
+
+[connection signal="timeout" from="SwitchToNextLevelTimer" to="." method="_on_switch_to_next_level_timer_timeout"]
 
 [editable path="Pickables/Pellets"]
 [editable path="Pickables/BonusItems"]
