@@ -42,8 +42,11 @@ var texture_file_path: String = ""
 
 
 func setup_children() -> void:
-	# TODO: Set the tier depending on the number of the level
-	#current_tier = 
+	# TODO: Set the current_tier depending on the id of the level
+	# and keep track of the collected items between the levels
+	# Remove this line when this is done
+	current_tier = 1
+	
 	assert(current_tier > 0 and current_tier <= total_tiers_count)
 	
 	self.score_value = score_value_list[current_tier - 1]
