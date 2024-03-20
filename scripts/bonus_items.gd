@@ -33,6 +33,7 @@ var total_tiers_count: int = score_value_list.size()
 
 
 func on_bonus_item_picked_up(value: int, texture: Texture2D) -> void:
+	Global.increase_score(value)
 	self.item_picked_up.emit(value, texture)
 
 
