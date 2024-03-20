@@ -28,7 +28,7 @@ const image_file_path_list: PackedStringArray = [
 
 @onready var level: Level = get_tree().get_root().get_node("Level")
 ## A tier to define each time a new level is loaded
-@onready var current_tier: int = 3
+@onready var current_tier: int = 0
 var total_tiers_count: int = score_value_list.size()
 
 
@@ -39,6 +39,7 @@ func on_bonus_item_picked_up(value: int, texture: Texture2D) -> void:
 # Values to inject
 var score_value: int = 0
 var texture_file_path: String = ""
+
 
 func setup_children() -> void:
 	# TODO: Set the tier depending on the number of the level
