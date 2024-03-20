@@ -1,0 +1,74 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlhrc3i31nciu"]
+
+[ext_resource type="Texture2D" uid="uid://b1yi440iyutka" path="res://icon.svg" id="1_c2n0k"]
+[ext_resource type="Script" path="res://scripts/ui/bonus_items_ui.gd" id="1_vki3f"]
+
+[node name="BonusItemsUI" type="Panel"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -542.0
+offset_top = 19.0
+offset_right = -28.0
+offset_bottom = 67.0
+grow_horizontal = 0
+mouse_filter = 1
+script = ExtResource("1_vki3f")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 6
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_c2n0k")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_c2n0k")
+expand_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_c2n0k")
+expand_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_c2n0k")
+expand_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_c2n0k")
+expand_mode = 2
+
+[node name="TextureRect6" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_c2n0k")
+expand_mode = 2
+
+[node name="TextureRect7" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_c2n0k")
+expand_mode = 2
+
+[node name="TextureRect8" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_c2n0k")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "x 000"
+horizontal_alignment = 2
+vertical_alignment = 1

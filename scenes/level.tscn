@@ -7,11 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://c1v0tqqh2nfa5" path="res://scenes/actors/enemy_bourrin.tscn" id="5_wdac3"]
 [ext_resource type="PackedScene" uid="uid://c5mkv72mwdf1m" path="res://scenes/actors/enemy_chelou.tscn" id="6_nnfob"]
 [ext_resource type="PackedScene" uid="uid://dygx4p6tgp465" path="res://scenes/actors/enemy_assassin.tscn" id="7_j7gpi"]
+[ext_resource type="PackedScene" uid="uid://cvamjms4o581j" path="res://bonus_items.tscn" id="7_nks3j"]
 [ext_resource type="PackedScene" uid="uid://bly5qwucu3w3c" path="res://scenes/actors/enemy_cornichon.tscn" id="8_imlpq"]
 [ext_resource type="PackedScene" uid="uid://d35gi8b3l2nhh" path="res://scenes/pellets.tscn" id="9_soaal"]
 [ext_resource type="PackedScene" uid="uid://c4s65vdj85p3j" path="res://scenes/pickables/pellet.tscn" id="10_km4qh"]
 [ext_resource type="PackedScene" uid="uid://bpsnuln5keu2o" path="res://scenes/pickables/power_pellet.tscn" id="11_7tp22"]
-[ext_resource type="PackedScene" uid="uid://dvuq0cwe1u16o" path="res://scenes/pickables/bonus_item.tscn" id="12_84nb6"]
 [ext_resource type="PackedScene" uid="uid://di40nd36u435f" path="res://scenes/warp_zone.tscn" id="13_y6vvr"]
 [ext_resource type="PackedScene" uid="uid://bxd0v1wymn05u" path="res://scenes/ui/info_message_ui.tscn" id="14_86j3b"]
 [ext_resource type="PackedScene" uid="uid://c57ttid6qs2wq" path="res://scenes/ui/lives_ui.tscn" id="15_4lnah"]
@@ -416,17 +416,14 @@ position = Vector2(166, 266)
 [node name="PowerPellet2" parent="Pickables/Pellets/Power" index="1" instance=ExtResource("11_7tp22")]
 position = Vector2(215, 266)
 
-[node name="BonusItems" type="Node" parent="Pickables"]
-
-[node name="BonusItem" parent="Pickables/BonusItems" instance=ExtResource("12_84nb6")]
-position = Vector2(960, 459)
+[node name="BonusItems" parent="Pickables" instance=ExtResource("7_nks3j")]
 
 [node name="Actors" type="Node" parent="."]
 
 [node name="Players" type="Node" parent="Actors"]
 
 [node name="Player" parent="Actors/Players" node_paths=PackedStringArray("spawn_point") instance=ExtResource("4_u33na")]
-position = Vector2(600, 456)
+position = Vector2(696, 360)
 spawn_point = NodePath("../../../PlayerSpawnPoint")
 
 [node name="Enemies" type="Node" parent="Actors"]
@@ -550,3 +547,4 @@ offset_bottom = 67.0
 [node name="AudioManager" parent="." instance=ExtResource("17_jqn07")]
 
 [editable path="Pickables/Pellets"]
+[editable path="Pickables/BonusItems"]
