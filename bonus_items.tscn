@@ -1,10 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvamjms4o581j"]
+[gd_scene load_steps=2 format=3 uid="uid://cvamjms4o581j"]
 
 [ext_resource type="Script" path="res://bonus_items.gd" id="1_dkg6d"]
-[ext_resource type="PackedScene" uid="uid://dvuq0cwe1u16o" path="res://scenes/pickables/bonus_item.tscn" id="1_i7djf"]
 
 [node name="BonusItems" type="Node"]
 script = ExtResource("1_dkg6d")
-
-[node name="BonusItem" parent="." instance=ExtResource("1_i7djf")]
-position = Vector2(600, 216)

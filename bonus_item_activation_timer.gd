@@ -61,7 +61,7 @@ func check_if_should_queue_free() -> void:
 		bonus_item.queue_free()
 
 
-func on_bonus_item_picked_up(_value: int) -> void:
+func on_bonus_item_picked_up(_value: int, _texture: Texture2D) -> void:
 	self.stop()
 	check_if_should_queue_free()
 
