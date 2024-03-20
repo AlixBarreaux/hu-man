@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://bc0lb44346l8s"]
 
-[ext_resource type="Script" path="res://scripts/bonus_item_activation_timer.gd" id="1_q3c7o"]
+[ext_resource type="Script" path="res://scripts/bonus_item_activation_timer.gd" id="1_dfbsu"]
 
 [node name="BonusItemActivationTimer" type="Timer"]
 one_shot = true
-script = ExtResource("1_q3c7o")
+script = ExtResource("1_dfbsu")
 
 [connection signal="timeout" from="." to="." method="_on_timeout"]
