@@ -2,7 +2,7 @@ extends Node
 class_name BonusItems
 
 
-signal item_picked_up(value: int)
+signal item_picked_up(value: int, texture: Texture2D)
 
 const score_value_list: PackedInt32Array = [
 	100,
@@ -36,7 +36,7 @@ func on_bonus_item_picked_up(value: int, texture: Texture2D) -> void:
 	self.item_picked_up.emit(value, texture)
 
 
-# Values to inject
+# Values to inject. Set later.
 var score_value: int = 0
 var texture_file_path: String = ""
 
