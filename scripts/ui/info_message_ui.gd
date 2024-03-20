@@ -33,7 +33,7 @@ func on_game_over() -> void:
 
 
 func on_level_cleared() -> void:
-	var text: String = "Level cleared! Thanks for playing!"
+	var text: String = "Level cleared!\nThanks for playing!"
 	self.set_text_with_color(text, self.level_cleared_color)
 
 
