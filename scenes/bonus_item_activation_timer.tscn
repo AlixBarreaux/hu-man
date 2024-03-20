@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bc0lb44346l8s"]
 
-[ext_resource type="Script" path="res://bonus_item_activation_timer.gd" id="1_q3c7o"]
+[ext_resource type="Script" path="res://scripts/bonus_item_activation_timer.gd" id="1_q3c7o"]
 
 [node name="BonusItemActivationTimer" type="Timer"]
 one_shot = true

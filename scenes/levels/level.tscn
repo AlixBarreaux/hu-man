@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c1v0tqqh2nfa5" path="res://scenes/actors/enemy_bourrin.tscn" id="5_wdac3"]
 [ext_resource type="PackedScene" uid="uid://c5mkv72mwdf1m" path="res://scenes/actors/enemy_chelou.tscn" id="6_nnfob"]
 [ext_resource type="PackedScene" uid="uid://dygx4p6tgp465" path="res://scenes/actors/enemy_assassin.tscn" id="7_j7gpi"]
-[ext_resource type="PackedScene" uid="uid://cvamjms4o581j" path="res://bonus_items.tscn" id="7_nks3j"]
+[ext_resource type="PackedScene" uid="uid://cvamjms4o581j" path="res://scenes/bonus_items.tscn" id="7_nks3j"]
 [ext_resource type="PackedScene" uid="uid://bly5qwucu3w3c" path="res://scenes/actors/enemy_cornichon.tscn" id="8_imlpq"]
 [ext_resource type="PackedScene" uid="uid://dvuq0cwe1u16o" path="res://scenes/pickables/bonus_item.tscn" id="8_wkukv"]
 [ext_resource type="PackedScene" uid="uid://d35gi8b3l2nhh" path="res://scenes/pellets.tscn" id="9_soaal"]

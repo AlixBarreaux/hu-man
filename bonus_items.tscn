@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cvamjms4o581j"]
-
-[ext_resource type="Script" path="res://bonus_items.gd" id="1_dkg6d"]
-
-[node name="BonusItems" type="Node"]
-script = ExtResource("1_dkg6d")
