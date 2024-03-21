@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c57ttid6qs2wq"]
 
-[ext_resource type="Texture2D" uid="uid://b1yi440iyutka" path="res://icon.svg" id="1_pnk1w"]
 [ext_resource type="Script" path="res://scripts/ui/lives_ui.gd" id="1_qnhpc"]
+[ext_resource type="Texture2D" uid="uid://d34krmdm73l53" path="res://resources/atlas-textures/heart_texture.tres" id="2_q1d5x"]
 
 [node name="LivesUI" type="Panel"]
 offset_right = 123.0
@@ -20,7 +20,7 @@ grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("1_pnk1w")
+texture = ExtResource("2_q1d5x")
 expand_mode = 2
 
 [node name="Label" type="Label" parent="HBoxContainer"]

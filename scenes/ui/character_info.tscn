@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://do2h587y4oc35"]
 
-[ext_resource type="Texture2D" uid="uid://b1yi440iyutka" path="res://icon.svg" id="1_3d3qx"]
 [ext_resource type="Script" path="res://scripts/ui/character_info.gd" id="1_6adst"]
+[ext_resource type="Texture2D" uid="uid://8n405r5kcoif" path="res://resources/atlas-textures/enemy_texture.tres" id="2_gadyd"]
 
 [node name="CharacterInfo" type="HBoxContainer"]
 mouse_filter = 2
@@ -14,7 +14,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
-texture = ExtResource("1_3d3qx")
+texture = ExtResource("2_gadyd")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
