@@ -56,33 +56,36 @@ func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 		Global.player_finished_dying.emit()
 
 
+func on_game_ready() -> void:
+	animation_tree.set("parameters/idle/blend_position", next_direction)
+	anim_node_sm_playback.travel("idle")
+
+
 func on_game_started() -> void:
 	self.enable()
 
 
 func on_level_cleared() -> void:
 	self.disable()
-	#anim_node_sm_playback.travel("Victory Animation")
+	animation_tree.set("parameters/idle/blend_position", next_direction)
+	anim_node_sm_playback.travel("idle")
 
 
 func on_finished_dying() -> void:
 	if Global.is_game_over: return
 	self.set_global_position(self.spawn_position)
-	#anim_node_sm_playback.travel("idle")
 
 
 func _ready() -> void:
 	assert(spawn_point != null)
 	
+	Global.game_ready.connect(on_game_ready)
 	Global.game_started.connect(on_game_started)
 	Global.level_cleared.connect(on_level_cleared)
 	Global.player_finished_dying.connect(on_finished_dying)
 	
 	animation_tree.active = true
 	self.disable()
-	
-	animation_tree.set("parameters/move/blend_position", velocity)
-	animation_tree.set("parameters/idle/blend_position", next_direction)
 
 
 @onready var next_direction_rotator: Node2D = $NextDirectionRotator
