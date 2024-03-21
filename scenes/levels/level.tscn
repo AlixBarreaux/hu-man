@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://cbv40bjrx6t5h"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_tf7gw"]
-[ext_resource type="Texture2D" uid="uid://dovjlefqdodmg" path="res://assets/tiles.png" id="2_0l17p"]
+[ext_resource type="Texture2D" uid="uid://dovjlefqdodmg" path="res://assets/sprites/tiles.png" id="2_s7s8c"]
 [ext_resource type="PackedScene" uid="uid://bxko3dru3t24k" path="res://scenes/ai/enemies_timers.tscn" id="3_ebyhf"]
 [ext_resource type="PackedScene" uid="uid://b1mdnhyr4s07r" path="res://scenes/actors/player.tscn" id="4_u33na"]
 [ext_resource type="PackedScene" uid="uid://c1v0tqqh2nfa5" path="res://scenes/actors/enemy_bourrin.tscn" id="5_wdac3"]
@@ -27,7 +27,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1ivle"]
-texture = ExtResource("2_0l17p")
+texture = ExtResource("2_s7s8c")
 texture_region_size = Vector2i(48, 48)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -334,7 +334,7 @@ wait_time = 5.0
 one_shot = true
 
 [node name="TileMap" type="TileMap" parent="."]
-modulate = Color(0.188235, 0.188235, 0.188235, 1)
+modulate = Color(0.305882, 0.305882, 0.305882, 1)
 tile_set = SubResource("TileSet_1x555")
 rendering_quadrant_size = 48
 format = 2
