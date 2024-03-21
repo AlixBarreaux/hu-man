@@ -1,12 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://c4s65vdj85p3j"]
+[gd_scene load_steps=4 format=3 uid="uid://c4s65vdj85p3j"]
 
 [ext_resource type="PackedScene" uid="uid://if2sysuqsw11" path="res://scenes/pickables/pickable.tscn" id="1_mxeax"]
+[ext_resource type="Texture2D" uid="uid://fw48lc8il87r" path="res://resources/atlas-textures/pellet_texture.tres" id="2_p2sk3"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_5w6lj"]
-radius = 24.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_d8ows"]
+radius = 6.0
 
 [node name="Pellet" instance=ExtResource("1_mxeax")]
 score_value = 10
 
+[node name="Sprite2D" parent="." index="0"]
+modulate = Color(0.643439, 0.0615972, 0.962822, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_p2sk3")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
-shape = SubResource("CircleShape2D_5w6lj")
+shape = SubResource("CircleShape2D_d8ows")
