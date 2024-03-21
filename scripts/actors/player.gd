@@ -80,8 +80,9 @@ func _ready() -> void:
 	
 	animation_tree.active = true
 	self.disable()
+	
+	animation_tree.set("parameters/move/blend_position", velocity)
 	animation_tree.set("parameters/idle/blend_position", next_direction)
-	anim_node_sm_playback.travel("idle")
 
 
 @onready var next_direction_rotator: Node2D = $NextDirectionRotator
