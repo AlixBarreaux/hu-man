@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://b1mdnhyr4s07r"]
+[gd_scene load_steps=35 format=3 uid="uid://b1mdnhyr4s07r"]
 
 [ext_resource type="Script" path="res://scripts/actors/player.gd" id="1_okgwv"]
 [ext_resource type="Texture2D" uid="uid://bbuaqyqmhbpyi" path="res://assets/characters_animations.png" id="2_dwyyd"]
@@ -338,6 +338,8 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_faoq6"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jmhig"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ly228"]
 states/End/position = Vector2(709, 100)
 states/die/node = SubResource("AnimationNodeAnimation_vkh1q")
@@ -346,7 +348,7 @@ states/idle/node = SubResource("AnimationNodeBlendSpace2D_1wbw7")
 states/idle/position = Vector2(325, 100)
 states/move/node = SubResource("AnimationNodeBlendSpace2D_og2fg")
 states/move/position = Vector2(444, 176)
-transitions = ["move", "die", SubResource("AnimationNodeStateMachineTransition_iixye"), "die", "End", SubResource("AnimationNodeStateMachineTransition_6stom"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_o7fmg"), "idle", "move", SubResource("AnimationNodeStateMachineTransition_1yq2r"), "idle", "die", SubResource("AnimationNodeStateMachineTransition_faoq6")]
+transitions = ["move", "die", SubResource("AnimationNodeStateMachineTransition_iixye"), "die", "End", SubResource("AnimationNodeStateMachineTransition_6stom"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_o7fmg"), "idle", "move", SubResource("AnimationNodeStateMachineTransition_1yq2r"), "idle", "die", SubResource("AnimationNodeStateMachineTransition_faoq6"), "move", "idle", SubResource("AnimationNodeStateMachineTransition_jmhig")]
 graph_offset = Vector2(-190, 44)
 
 [node name="Player" type="CharacterBody2D"]
