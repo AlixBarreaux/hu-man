@@ -16,4 +16,4 @@ func _ready() -> void:
 	if text_color == empty_color:
 		return
 	
-	label.set_modulate(text_color)
+	self.set_modulate(text_color)
