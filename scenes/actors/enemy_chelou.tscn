@@ -9,4 +9,5 @@
 enemy = NodePath("..")
 
 [node name="Sprite2D" parent="." index="1"]
-frame = 0
+modulate = Color(0, 0.72549, 0.72549, 1)
+frame = 37
