@@ -8,6 +8,7 @@ class_name Enemy
 
 @export var initial_direction: Vector2 = Vector2(0.0, 1.0)
 var direction: Vector2 = self.initial_direction
+var velocity: Vector2 = self.direction
 
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var anim_node_sm_playback: AnimationNodeStateMachinePlayback = animation_tree.get("parameters/playback")
@@ -58,7 +59,7 @@ func on_player_finished_dying() -> void:
 	if Global.is_game_over: return
 	self.set_global_position(spawn_position)
 	self.direction = initial_direction
-	animation_tree.set("parameters/Move/blend_position", self.direction)
+	animation_tree.set("parameters/move/blend_position", self.direction)
 
 
 func _initialize_signals() -> void:
@@ -74,12 +75,22 @@ func _ready() -> void:
 	self.disable()
 	self._initialize_signals()
 	self.direction = self.initial_direction
+	
 	animation_tree.active = true
-	animation_tree.set("parameters/Move/blend_position", self.direction)
+	animation_tree.set("parameters/move/blend_position", Vector2(0.0, 0.0))
+	animation_tree.set("parameters/idle/blend_position", self.direction)
 
 
 var can_move: bool = true
 
 func _physics_process(_delta: float) -> void:
-	if can_move: self.global_position += direction * speed
-	animation_tree.set("parameters/Move/blend_position", direction)
+	if can_move:
+		velocity = direction * speed
+		self.global_position += velocity
+	
+	if velocity != Vector2(0.0, 0.0):
+		animation_tree.set("parameters/move/blend_position", direction)
+		anim_node_sm_playback.travel("move")
+	else:
+		animation_tree.set("parameters/idle/blend_position", direction)
+		anim_node_sm_playback.travel("idle")
