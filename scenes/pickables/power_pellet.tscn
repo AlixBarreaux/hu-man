@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c4s65vdj85p3j" path="res://scenes/pickables/pellet.tscn" id="1_h7xwl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_optiv"]
-radius = 12.0416
+radius = 12.0
 
 [node name="PowerPellet" instance=ExtResource("1_h7xwl")]
 score_value = 50

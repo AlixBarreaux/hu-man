@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cd27qhiewkw3a" path="res://numbers_displayer.tscn" id="4_ur7np"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tld2l"]
-radius = 24.0
+radius = 12.0
 
 [node name="BonusItem" instance=ExtResource("1_bdm0x")]
 script = ExtResource("2_141uv")
