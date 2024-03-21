@@ -16,10 +16,10 @@ const score_value_list: PackedInt32Array = [
 ]
 
 const image_file_path_list: PackedStringArray = [
-	"res://assets/player_walk.png",
-	"res://assets/zombie_walk.png",
-	"res://assets/tiles.png",
-	"res://icon.svg",
+	"res://resources/atlas-textures/emerald_texture.tres",
+	"res://resources/atlas-textures/book_texture.tres",
+	"res://resources/atlas-textures/diamond_texture.tres",
+	"res://resources/atlas-textures/cookie_texture.tres",
 	"res://icon.svg",
 	"res://icon.svg",
 	"res://icon.svg",
