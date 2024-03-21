@@ -364,7 +364,7 @@ position = Vector2(1031, 552)
 [node name="Pellets" parent="Pickables" instance=ExtResource("9_soaal")]
 
 [node name="Pellet" parent="Pickables/Pellets/Normal" index="0" instance=ExtResource("10_km4qh")]
-position = Vector2(313, 207)
+position = Vector2(216, 264)
 
 [node name="Pellet2" parent="Pickables/Pellets/Normal" index="1" instance=ExtResource("10_km4qh")]
 position = Vector2(266, 266)
@@ -421,7 +421,7 @@ position = Vector2(1031, 266)
 position = Vector2(166, 266)
 
 [node name="PowerPellet2" parent="Pickables/Pellets/Power" index="1" instance=ExtResource("11_7tp22")]
-position = Vector2(215, 266)
+position = Vector2(312, 216)
 
 [node name="BonusItems" parent="Pickables" instance=ExtResource("7_eb02v")]
 
