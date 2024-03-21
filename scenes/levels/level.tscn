@@ -346,7 +346,7 @@ position = Vector2(959, 648)
 [node name="EnemiesSpawnPoints" type="Node" parent="."]
 
 [node name="Marker2D" type="Marker2D" parent="EnemiesSpawnPoints"]
-position = Vector2(960, 459)
+position = Vector2(960, 456)
 
 [node name="Marker2D2" type="Marker2D" parent="EnemiesSpawnPoints"]
 position = Vector2(888, 552)
@@ -355,7 +355,7 @@ position = Vector2(888, 552)
 position = Vector2(960, 552)
 
 [node name="Marker2D4" type="Marker2D" parent="EnemiesSpawnPoints"]
-position = Vector2(1031, 552)
+position = Vector2(1032, 552)
 
 [node name="EnemiesTimers" parent="." instance=ExtResource("3_ebyhf")]
 
@@ -367,58 +367,58 @@ position = Vector2(1031, 552)
 position = Vector2(216, 264)
 
 [node name="Pellet2" parent="Pickables/Pellets/Normal" index="1" instance=ExtResource("10_km4qh")]
-position = Vector2(266, 266)
+position = Vector2(264, 264)
 
 [node name="Pellet3" parent="Pickables/Pellets/Normal" index="2" instance=ExtResource("10_km4qh")]
-position = Vector2(313, 266)
+position = Vector2(312, 264)
 
 [node name="Pellet4" parent="Pickables/Pellets/Normal" index="3" instance=ExtResource("10_km4qh")]
-position = Vector2(361, 266)
+position = Vector2(360, 264)
 
 [node name="Pellet5" parent="Pickables/Pellets/Normal" index="4" instance=ExtResource("10_km4qh")]
-position = Vector2(409, 266)
+position = Vector2(408, 264)
 
 [node name="Pellet6" parent="Pickables/Pellets/Normal" index="5" instance=ExtResource("10_km4qh")]
-position = Vector2(458, 266)
+position = Vector2(456, 264)
 
 [node name="Pellet7" parent="Pickables/Pellets/Normal" index="6" instance=ExtResource("10_km4qh")]
-position = Vector2(504, 266)
+position = Vector2(504, 264)
 
 [node name="Pellet8" parent="Pickables/Pellets/Normal" index="7" instance=ExtResource("10_km4qh")]
-position = Vector2(552, 266)
+position = Vector2(552, 264)
 
 [node name="Pellet9" parent="Pickables/Pellets/Normal" index="8" instance=ExtResource("10_km4qh")]
-position = Vector2(601, 266)
+position = Vector2(600, 264)
 
 [node name="Pellet10" parent="Pickables/Pellets/Normal" index="9" instance=ExtResource("10_km4qh")]
-position = Vector2(648, 266)
+position = Vector2(648, 264)
 
 [node name="Pellet11" parent="Pickables/Pellets/Normal" index="10" instance=ExtResource("10_km4qh")]
-position = Vector2(696, 266)
+position = Vector2(696, 264)
 
 [node name="Pellet12" parent="Pickables/Pellets/Normal" index="11" instance=ExtResource("10_km4qh")]
-position = Vector2(744, 266)
+position = Vector2(744, 264)
 
 [node name="Pellet13" parent="Pickables/Pellets/Normal" index="12" instance=ExtResource("10_km4qh")]
-position = Vector2(792, 266)
+position = Vector2(792, 264)
 
 [node name="Pellet14" parent="Pickables/Pellets/Normal" index="13" instance=ExtResource("10_km4qh")]
-position = Vector2(841, 266)
+position = Vector2(840, 264)
 
 [node name="Pellet15" parent="Pickables/Pellets/Normal" index="14" instance=ExtResource("10_km4qh")]
-position = Vector2(887, 266)
+position = Vector2(888, 264)
 
 [node name="Pellet16" parent="Pickables/Pellets/Normal" index="15" instance=ExtResource("10_km4qh")]
-position = Vector2(935, 266)
+position = Vector2(936, 264)
 
 [node name="Pellet17" parent="Pickables/Pellets/Normal" index="16" instance=ExtResource("10_km4qh")]
-position = Vector2(984, 266)
+position = Vector2(984, 264)
 
 [node name="Pellet18" parent="Pickables/Pellets/Normal" index="17" instance=ExtResource("10_km4qh")]
-position = Vector2(1031, 266)
+position = Vector2(1032, 264)
 
 [node name="PowerPellet" parent="Pickables/Pellets/Power" index="0" instance=ExtResource("11_7tp22")]
-position = Vector2(166, 266)
+position = Vector2(168, 264)
 
 [node name="PowerPellet2" parent="Pickables/Pellets/Power" index="1" instance=ExtResource("11_7tp22")]
 position = Vector2(312, 216)
@@ -439,7 +439,7 @@ spawn_point = NodePath("../../../PlayerSpawnPoint")
 [node name="Enemies" type="Node" parent="Actors"]
 
 [node name="EnemyBourrin" parent="Actors/Enemies" node_paths=PackedStringArray("spawn_point") instance=ExtResource("5_wdac3")]
-position = Vector2(960, 459)
+position = Vector2(960, 456)
 spawn_point = NodePath("../../../EnemiesSpawnPoints/Marker2D")
 
 [node name="EnemyChelou" parent="Actors/Enemies" node_paths=PackedStringArray("spawn_point") instance=ExtResource("6_nnfob")]
@@ -451,7 +451,7 @@ position = Vector2(960, 552)
 spawn_point = NodePath("../../../EnemiesSpawnPoints/Marker2D3")
 
 [node name="EnemyCornichon" parent="Actors/Enemies" node_paths=PackedStringArray("spawn_point") instance=ExtResource("8_imlpq")]
-position = Vector2(1031, 552)
+position = Vector2(1032, 552)
 spawn_point = NodePath("../../../EnemiesSpawnPoints/Marker2D4")
 
 [node name="WarpZones" type="Node" parent="."]
@@ -486,16 +486,16 @@ metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
 [node name="Marker2D" type="Marker2D" parent="AIWaypoints/ScatterPoints"]
-position = Vector2(504, 266)
+position = Vector2(504, 264)
 
 [node name="Marker2D2" type="Marker2D" parent="AIWaypoints/ScatterPoints"]
-position = Vector2(504, 123)
+position = Vector2(504, 120)
 
 [node name="Marker2D3" type="Marker2D" parent="AIWaypoints/ScatterPoints"]
-position = Vector2(168, 123)
+position = Vector2(168, 120)
 
 [node name="Marker2D4" type="Marker2D" parent="AIWaypoints/ScatterPoints"]
-position = Vector2(168, 266)
+position = Vector2(168, 264)
 
 [node name="ScatterPoints2" type="Node2D" parent="AIWaypoints"]
 position = Vector2(1250, 0)
@@ -503,16 +503,16 @@ metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
 [node name="Marker2D" type="Marker2D" parent="AIWaypoints/ScatterPoints2"]
-position = Vector2(168, 266)
+position = Vector2(166, 264)
 
 [node name="Marker2D2" type="Marker2D" parent="AIWaypoints/ScatterPoints2"]
-position = Vector2(168, 123)
+position = Vector2(166, 120)
 
 [node name="Marker2D3" type="Marker2D" parent="AIWaypoints/ScatterPoints2"]
-position = Vector2(502, 123)
+position = Vector2(502, 120)
 
 [node name="Marker2D4" type="Marker2D" parent="AIWaypoints/ScatterPoints2"]
-position = Vector2(502, 266)
+position = Vector2(502, 264)
 
 [node name="ScatterPoints3" type="Node2D" parent="AIWaypoints"]
 position = Vector2(0, 767)
@@ -520,13 +520,13 @@ metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
 [node name="Marker2D" type="Marker2D" parent="AIWaypoints/ScatterPoints3"]
-position = Vector2(361, 74)
+position = Vector2(360, 73)
 
 [node name="Marker2D2" type="Marker2D" parent="AIWaypoints/ScatterPoints3"]
-position = Vector2(168, 266)
+position = Vector2(168, 265)
 
 [node name="Marker2D3" type="Marker2D" parent="AIWaypoints/ScatterPoints3"]
-position = Vector2(504, 266)
+position = Vector2(504, 265)
 
 [node name="ScatterPoints4" type="Node2D" parent="AIWaypoints"]
 position = Vector2(1197, 767)
@@ -534,13 +534,13 @@ metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
 [node name="Marker2D" type="Marker2D" parent="AIWaypoints/ScatterPoints4"]
-position = Vector2(361, 74)
+position = Vector2(363, 73)
 
 [node name="Marker2D2" type="Marker2D" parent="AIWaypoints/ScatterPoints4"]
-position = Vector2(554, 266)
+position = Vector2(555, 265)
 
 [node name="Marker2D3" type="Marker2D" parent="AIWaypoints/ScatterPoints4"]
-position = Vector2(218, 266)
+position = Vector2(219, 265)
 
 [node name="InGameUI" type="CanvasLayer" parent="."]
 
