@@ -81,3 +81,4 @@ move={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.560784, 0.690196, 0.133333, 1)
