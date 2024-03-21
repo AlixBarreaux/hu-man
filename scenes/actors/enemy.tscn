@@ -1,7 +1,7 @@
 [gd_scene load_steps=31 format=3 uid="uid://b8ju6rj3bx3w2"]
 
 [ext_resource type="Script" path="res://scripts/actors/enemy.gd" id="1_umwy5"]
-[ext_resource type="Texture2D" uid="uid://bbuaqyqmhbpyi" path="res://assets/characters_animations.png" id="2_230t5"]
+[ext_resource type="Texture2D" uid="uid://bbuaqyqmhbpyi" path="res://assets/sprites/characters_animations.png" id="2_dhxas"]
 [ext_resource type="PackedScene" uid="uid://c3bwqlncgf64g" path="res://scenes/hurtbox.tscn" id="4_54mgl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3asyl"]
@@ -330,7 +330,7 @@ metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -6)
-texture = ExtResource("2_230t5")
+texture = ExtResource("2_dhxas")
 flip_h = true
 hframes = 36
 vframes = 2
@@ -349,6 +349,7 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+active = false
 libraries = {
 "": SubResource("AnimationLibrary_utmai")
 }
