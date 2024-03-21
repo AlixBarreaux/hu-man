@@ -80,40 +80,34 @@ func _ready() -> void:
 	
 	animation_tree.active = true
 	self.disable()
+	animation_tree.set("parameters/idle/blend_position", next_direction)
+	anim_node_sm_playback.travel("idle")
 
 
 @onready var next_direction_rotator: Node2D = $NextDirectionRotator
 
 func _physics_process(_delta: float) -> void:
-	animation_tree.set("parameters/move/blend_position", direction)
-	
-	#if direction.x == -1.0:
-		#$Sprite2D.set_rotation(deg_to_rad(0.0))
-		#$Sprite2D.set_flip_h(true)
-	#elif direction.x == 1.0:
-		#$Sprite2D.set_rotation(deg_to_rad(0.0))
-		#$Sprite2D.set_flip_h(false)
-	#elif direction.y == -1.0:
-		#$Sprite2D.set_rotation(deg_to_rad(90.0))
-		#$Sprite2D.set_flip_h(true)
-	#elif direction.y == 1.0:
-		#$Sprite2D.set_rotation(deg_to_rad(90.0))
-		#$Sprite2D.set_flip_h(false)
-	
 	if can_go_in_next_direction():
 		direction = next_direction
 	
 	if movement_input_vector != Vector2(0.0, 0.0):
 		next_direction = movement_input_vector
+
+		if next_direction.x == -1.0:
+			next_direction_rotator.set_rotation(deg_to_rad(180.0))
+		elif next_direction.x == 1.0:
+			next_direction_rotator.set_rotation(deg_to_rad(0.0))
+		elif next_direction.y == -1.0:
+			next_direction_rotator.set_rotation(deg_to_rad(-90.0))
+		elif next_direction.y == 1.0:
+			next_direction_rotator.set_rotation(deg_to_rad(90.0))
 	
-	if next_direction.x == -1.0:
-		next_direction_rotator.set_rotation(deg_to_rad(180.0))
-	elif next_direction.x == 1.0:
-		next_direction_rotator.set_rotation(deg_to_rad(0.0))
-	elif next_direction.y == -1.0:
-		next_direction_rotator.set_rotation(deg_to_rad(-90.0))
-	elif next_direction.y == 1.0:
-		next_direction_rotator.set_rotation(deg_to_rad(90.0))
+	if velocity != Vector2(0.0, 0.0):
+		animation_tree.set("parameters/move/blend_position", velocity)
+		anim_node_sm_playback.travel("move")
+	else:
+		animation_tree.set("parameters/idle/blend_position", next_direction)
+		anim_node_sm_playback.travel("idle")
 	
 	self.velocity = direction * speed
 	self.move_and_slide()
