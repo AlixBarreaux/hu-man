@@ -4,6 +4,7 @@ extends Node
 
 signal level_cleared
 signal game_over
+signal new_game_started
 
 signal lives_changed
 signal score_changed
@@ -113,6 +114,10 @@ func load_game() -> void:
 	self.set_high_score(game_save_to_load.high_score)
 
 
+func on_new_game_started() -> void:
+	self.reset()
+
+
 func on_player_died() -> void:
 	# Keep progression even if the game didn't end
 	self.save_game()
@@ -127,6 +132,7 @@ func on_level_cleared() -> void:
 
 
 func _ready() -> void:
+	self.new_game_started.connect(on_new_game_started)
 	self.player_died.connect(on_player_died)
 	self.game_over.connect(on_game_over)
 	self.level_cleared.connect(on_level_cleared)
