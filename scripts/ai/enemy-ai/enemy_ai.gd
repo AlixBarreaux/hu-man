@@ -18,6 +18,10 @@ var chase_speed: float = initial_chase_speed
 @export var eaten_speed: float = 2.0
 @export var frightened_speed: float = 1.0
 
+
+var in_home: bool = true
+
+
 func on_chasing() -> void:
 	enemy.set_hurt_box_disabled(true)
 	enemy.set_hit_box_disabled(false)
@@ -209,6 +213,7 @@ func on_navigation_finished() -> void:
 @onready var pellets: Pellets = get_tree().get_root().get_node("Level/Pickables/Pellets")
 
 func on_power_pellet_picked_up(_value: int) -> void:
+	if self.in_home: return
 	self.set_state(States.FRIGHTENED)
 
 
@@ -268,6 +273,7 @@ func enable() -> void:
 	self.set_physics_process(true)
 	pathfinding_update_timer.start()
 	enemy.can_move = true
+	self.in_home = false
 
 
 func on_enemy_died() -> void:
