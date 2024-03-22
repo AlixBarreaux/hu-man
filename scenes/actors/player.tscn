@@ -1,8 +1,9 @@
-[gd_scene load_steps=35 format=3 uid="uid://b1mdnhyr4s07r"]
+[gd_scene load_steps=36 format=3 uid="uid://b1mdnhyr4s07r"]
 
 [ext_resource type="Script" path="res://scripts/actors/player.gd" id="1_okgwv"]
 [ext_resource type="Texture2D" uid="uid://bbuaqyqmhbpyi" path="res://assets/sprites/characters_animations.png" id="2_dwyyd"]
 [ext_resource type="PackedScene" uid="uid://c3bwqlncgf64g" path="res://scenes/hurt_box.tscn" id="3_6ff6p"]
+[ext_resource type="AudioStream" uid="uid://yomyyxjdkb7k" path="res://assets/audio/player_death.wav" id="4_88moy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_14xon"]
 radius = 22.0
@@ -66,7 +67,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_00ij2"]
 resource_name = "die"
-length = 1.5
+length = 2.0
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -99,10 +100,10 @@ tracks/2/path = NodePath("Sprite2D:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, 6.28319, 12.5664, 18.8496]
+"values": [0.0, 6.28319, 12.5664, 18.8496, 25.1327]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -111,11 +112,26 @@ tracks/3/path = NodePath("Sprite2D:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.5),
+"times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_88moy")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/4/use_blend = true
 
 [sub_resource type="Animation" id="Animation_gp6x5"]
 resource_name = "idle_down"
@@ -681,6 +697,8 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("CircleShape2D_jf374")
 debug_color = Color(1, 0.321569, 0.290196, 0.419608)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

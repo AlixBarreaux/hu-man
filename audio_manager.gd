@@ -2,8 +2,8 @@ extends Node
 class_name AudioManager
 
 
-const GAME_READY_STREAM: AudioStream = preload("res://assets/audio/game_ready.ogg")
-const HIGH_SCORE_BEAT_STREAM: AudioStream = preload("res://assets/audio/high_score_beat.wav")
+const GAME_READY_STREAM: AudioStream = preload("res://assets/audio/game_ready.wav")
+const HIGH_SCORE_BEAT_STREAM: AudioStream = preload("res://assets/audio/high_score_beaten.wav")
 
 
 @onready var music_player: AudioStreamPlayer = $Music
