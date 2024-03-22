@@ -1,11 +1,8 @@
-[gd_scene load_steps=31 format=3 uid="uid://b8ju6rj3bx3w2"]
+[gd_scene load_steps=30 format=3 uid="uid://b8ju6rj3bx3w2"]
 
 [ext_resource type="Script" path="res://scripts/actors/enemy.gd" id="1_umwy5"]
 [ext_resource type="Texture2D" uid="uid://bbuaqyqmhbpyi" path="res://assets/sprites/characters_animations.png" id="2_dhxas"]
 [ext_resource type="PackedScene" uid="uid://c3bwqlncgf64g" path="res://scenes/hurtbox.tscn" id="4_54mgl"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_3asyl"]
-radius = 22.0
 
 [sub_resource type="Animation" id="Animation_l74b6"]
 resource_name = "RESET"
@@ -360,13 +357,6 @@ texture = ExtResource("2_dhxas")
 hframes = 36
 vframes = 2
 frame = 48
-
-[node name="CollisionZone" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionZone"]
-shape = SubResource("CircleShape2D_3asyl")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
