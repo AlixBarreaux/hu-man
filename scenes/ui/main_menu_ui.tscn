@@ -89,6 +89,7 @@ theme_type_variation = &"PanelOpaque"
 theme_override_styles/panel = SubResource("StyleBoxFlat_byrh5")
 script = ExtResource("1_1t5tc")
 scene_to_load = ExtResource("2_ulu5h")
+start_game_sound = "res://assets/audio/pellet_picked_up.wav"
 
 [node name="CharacterInfoList" parent="." instance=ExtResource("3_aiv61")]
 layout_mode = 1
@@ -109,6 +110,7 @@ text_color = Color(0, 0.72549, 0.72549, 1)
 text_color = Color(1, 0.662745, 0, 1)
 
 [node name="ScoreInfoList" parent="." instance=ExtResource("4_6pf6j")]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
