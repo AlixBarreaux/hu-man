@@ -19,6 +19,11 @@ var chase_speed: float = initial_chase_speed
 @export var frightened_speed: float = 1.0
 
 
+@export_file("*.ogg", "*.wav") var frightened_sound_file_path: String = ""
+@export_file("*.ogg", "*.wav") var eaten_sound_file_path: String = ""
+@export_file("*.ogg", "*.wav") var enemy_going_home_sound_file_path: String = ""
+
+
 var in_home: bool = true
 
 
@@ -27,6 +32,7 @@ func on_chasing() -> void:
 	enemy.set_hit_box_disabled(false)
 	set_destination_location(DestinationLocations.CHASE_TARGET)
 	enemy.speed = chase_speed
+	AudioManager.stop_track(AudioManager.TRACK_TYPES.ENEMIES)
 
 
 func on_scattered() -> void:
@@ -35,6 +41,7 @@ func on_scattered() -> void:
 	set_destination_location(DestinationLocations.SCATTER_AREA)
 	go_to_first_scatter_point()
 	enemy.speed = scatter_speed
+	AudioManager.stop_track(AudioManager.TRACK_TYPES.ENEMIES)
 
 
 func on_eaten() -> void:
@@ -42,6 +49,9 @@ func on_eaten() -> void:
 	enemy.set_hit_box_disabled(true)
 	set_destination_location(DestinationLocations.ENEMIES_HOME)
 	enemy.speed = eaten_speed
+	AudioManager.play_sound_file(eaten_sound_file_path, AudioManager.TRACK_TYPES.ENEMIES)
+	await AudioManager.enemies_player.finished
+	AudioManager.play_sound_file(enemy_going_home_sound_file_path, AudioManager.TRACK_TYPES.ENEMIES)
 
 
 func on_frightened() -> void:
@@ -50,6 +60,8 @@ func on_frightened() -> void:
 	set_destination_location(DestinationLocations.RANDOM_LOCATION)
 	frightened_timer.start()
 	enemy.speed = frightened_speed
+	print("Play frigthened")
+	AudioManager.play_sound_file(frightened_sound_file_path, AudioManager.TRACK_TYPES.ENEMIES)
 
 
 enum States {

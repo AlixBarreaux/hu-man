@@ -7,7 +7,7 @@ const LEVEL_CLEARED_STREAM: AudioStream = preload("res://assets/audio/level_clea
 
 @onready var music_player: AudioStreamPlayer = $Music
 @onready var pickups_player: AudioStreamPlayer = $Pickups
-@onready var emies_player: AudioStreamPlayer = $Enemies
+@onready var enemies_player: AudioStreamPlayer = $Enemies
 
 
 func _initialize_asserts() -> void:
@@ -31,6 +31,7 @@ func on_game_ready() -> void:
 
 
 func on_level_cleared() -> void:
+	self.stop_all_tracks()
 	self.music_player.set_stream(LEVEL_CLEARED_STREAM)
 	self.music_player.play()
 
@@ -40,23 +41,42 @@ func _initialize_signals() -> void:
 	Global.level_cleared.connect(on_level_cleared)
 
 
-enum AUDIO_STREAM_TYPES {
+enum TRACK_TYPES {
 	MUSIC,
 	PICKUPS,
 	ENEMIES
 }
 
-func play_sound_file(sound_file: String, audio_stream_type: AUDIO_STREAM_TYPES) -> void:
-	match audio_stream_type:
-		AUDIO_STREAM_TYPES.MUSIC:
+func play_sound_file(sound_file: String, track_type: TRACK_TYPES) -> void:
+	match track_type:
+		TRACK_TYPES.MUSIC:
 			self.music_player.set_stream(load(sound_file))
 			self.music_player.play()
-		AUDIO_STREAM_TYPES.PICKUPS:
+		TRACK_TYPES.PICKUPS:
 			self.pickups_player.set_stream(load(sound_file))
 			self.pickups_player.play()
-		AUDIO_STREAM_TYPES.ENEMIES:
+		TRACK_TYPES.ENEMIES:
 			self.enemies_player.set_stream(load(sound_file))
 			self.enemies_player.play()
+		_:
+			printerr("(!) ERROR: In: " + self.get_name() + ": Unandled case in play_sound_file()!")
+
+
+func stop_track(track_type: TRACK_TYPES) -> void:
+	match track_type:
+		TRACK_TYPES.MUSIC:
+			self.music_player.stop()
+		TRACK_TYPES.PICKUPS:
+			self.pickups_player.stop()
+		TRACK_TYPES.ENEMIES:
+			self.enemies_player.stop()
+		_:
+			printerr("(!) ERROR: In: " + self.get_name() + ": Unandled case in stop_track()!")
+
+
+func stop_all_tracks() -> void:
+	for node in self.get_children():
+		node.stop()
 
 
 func _ready() -> void:

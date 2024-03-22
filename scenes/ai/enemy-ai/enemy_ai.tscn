@@ -4,6 +4,9 @@
 
 [node name="EnemyAI" type="Node2D"]
 script = ExtResource("1_at6rc")
+frightened_sound_file_path = "res://assets/audio/enemy_frightened.wav"
+eaten_sound_file_path = "res://assets/audio/enemy_eaten.wav"
+enemy_going_home_sound_file_path = "res://assets/audio/enemy_going_home.wav"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 4.0

@@ -25,6 +25,7 @@ buses/default_bus_layout="res://resources/audio-bus-layouts/main_audio_bus_layou
 Settings="*res://autoloads/scripts/settings.gd"
 Global="*res://autoloads/scripts/global.gd"
 ScoringUi="*res://autoloads/scenes/scoring_ui.tscn"
+AudioManager="*res://autoloads/scenes/audio_manager.tscn"
 
 [display]
 
