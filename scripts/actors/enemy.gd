@@ -100,8 +100,3 @@ func _physics_process(_delta: float) -> void:
 		else:
 			animation_tree.set("parameters/idle/blend_position", direction)
 			anim_node_sm_playback.travel("idle")
-	
-	#if self.name == "EnemyCornichon":
-		#print(velocity)
-	
-	

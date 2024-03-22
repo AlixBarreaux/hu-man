@@ -60,7 +60,6 @@ func on_frightened() -> void:
 	set_destination_location(DestinationLocations.RANDOM_LOCATION)
 	frightened_timer.start()
 	enemy.speed = frightened_speed
-	print("Play frigthened")
 	AudioManager.play_sound_file(frightened_sound_file_path, AudioManager.TRACK_TYPES.ENEMIES)
 
 
