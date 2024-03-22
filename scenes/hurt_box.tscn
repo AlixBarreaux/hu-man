@@ -1,10 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://c3bwqlncgf64g"]
 
-[ext_resource type="Script" path="res://scripts/hurtbox.gd" id="1_nftda"]
+[ext_resource type="Script" path="res://scripts/hurtbox.gd" id="1_m4cti"]
 
 [node name="HurtBox" type="Area2D"]
 collision_layer = 0
 collision_mask = 0
-script = ExtResource("1_nftda")
+script = ExtResource("1_m4cti")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

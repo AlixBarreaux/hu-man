@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/actors/player.gd" id="1_okgwv"]
 [ext_resource type="Texture2D" uid="uid://bbuaqyqmhbpyi" path="res://assets/sprites/characters_animations.png" id="2_dwyyd"]
-[ext_resource type="PackedScene" uid="uid://c3bwqlncgf64g" path="res://scenes/hurtbox.tscn" id="3_ablg5"]
+[ext_resource type="PackedScene" uid="uid://c3bwqlncgf64g" path="res://scenes/hurt_box.tscn" id="3_6ff6p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_14xon"]
 radius = 22.0
@@ -666,19 +666,19 @@ position = Vector2(21, 22)
 rotation = -1.57079
 target_position = Vector2(-0.000238426, 10)
 
-[node name="Hurtbox" parent="." node_paths=PackedStringArray("actor_to_hurt") instance=ExtResource("3_ablg5")]
+[node name="HurtBox" parent="." node_paths=PackedStringArray("actor_to_hurt") instance=ExtResource("3_6ff6p")]
 collision_mask = 4
 actor_to_hurt = NodePath("..")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("CapsuleShape2D_etcpm")
 debug_color = Color(0.45098, 0.47451, 1, 0.419608)
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="HitBox" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("CircleShape2D_jf374")
 debug_color = Color(1, 0.321569, 0.290196, 0.419608)
 

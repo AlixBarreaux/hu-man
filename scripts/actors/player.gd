@@ -31,7 +31,7 @@ func can_go_in_next_direction() -> bool:
 @onready var anim_node_sm_playback: AnimationNodeStateMachinePlayback = animation_tree.get("parameters/playback")
 
 
-@onready var hurt_box: HurtBox = $Hurtbox
+@onready var hurt_box: HurtBox = $HurtBox
 
 func enable() -> void:
 	self.set_physics_process(true)

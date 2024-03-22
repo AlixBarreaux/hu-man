@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/actors/enemy.gd" id="1_umwy5"]
 [ext_resource type="Texture2D" uid="uid://bbuaqyqmhbpyi" path="res://assets/sprites/characters_animations.png" id="2_dhxas"]
-[ext_resource type="PackedScene" uid="uid://c3bwqlncgf64g" path="res://scenes/hurtbox.tscn" id="4_54mgl"]
+[ext_resource type="PackedScene" uid="uid://c3bwqlncgf64g" path="res://scenes/hurt_box.tscn" id="3_cjgj1"]
 
 [sub_resource type="Animation" id="Animation_l74b6"]
 resource_name = "RESET"
@@ -373,7 +373,7 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/idle/blend_position = Vector2(0, 0)
 parameters/move/blend_position = Vector2(0, 0)
 
-[node name="HurtBox" parent="." node_paths=PackedStringArray("actor_to_hurt") instance=ExtResource("4_54mgl")]
+[node name="HurtBox" parent="." node_paths=PackedStringArray("actor_to_hurt") instance=ExtResource("3_cjgj1")]
 collision_mask = 2
 actor_to_hurt = NodePath("..")
 
