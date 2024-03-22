@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvuq0cwe1u16o"]
+[gd_scene load_steps=6 format=3 uid="uid://d2ybva0trn51"]
 
 [ext_resource type="PackedScene" uid="uid://if2sysuqsw11" path="res://scenes/pickables/pickable.tscn" id="1_bdm0x"]
 [ext_resource type="Script" path="res://scripts/pickables/bonus_item.gd" id="2_141uv"]
@@ -10,6 +10,7 @@ radius = 12.0
 
 [node name="BonusItem" instance=ExtResource("1_bdm0x")]
 script = ExtResource("2_141uv")
+sound_file_path = "res://assets/audio/bonus_item_picked_up.wav"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 shape = SubResource("CircleShape2D_tld2l")

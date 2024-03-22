@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cvamjms4o581j" path="res://scenes/bonus_items.tscn" id="7_eb02v"]
 [ext_resource type="PackedScene" uid="uid://dygx4p6tgp465" path="res://scenes/actors/enemy_assassin.tscn" id="7_j7gpi"]
 [ext_resource type="PackedScene" uid="uid://bly5qwucu3w3c" path="res://scenes/actors/enemy_cornichon.tscn" id="8_imlpq"]
-[ext_resource type="PackedScene" uid="uid://dvuq0cwe1u16o" path="res://scenes/pickables/bonus_item.tscn" id="8_wkukv"]
+[ext_resource type="PackedScene" uid="uid://d2ybva0trn51" path="res://scenes/pickables/bonus_item.tscn" id="8_wkukv"]
 [ext_resource type="PackedScene" uid="uid://d35gi8b3l2nhh" path="res://scenes/pellets.tscn" id="9_soaal"]
 [ext_resource type="PackedScene" uid="uid://c4s65vdj85p3j" path="res://scenes/pickables/pellet.tscn" id="10_km4qh"]
 [ext_resource type="PackedScene" uid="uid://bpsnuln5keu2o" path="res://scenes/pickables/power_pellet.tscn" id="11_7tp22"]
@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://bxd0v1wymn05u" path="res://scenes/ui/info_message_ui.tscn" id="14_86j3b"]
 [ext_resource type="PackedScene" uid="uid://c57ttid6qs2wq" path="res://scenes/ui/lives_ui.tscn" id="15_4lnah"]
 [ext_resource type="PackedScene" uid="uid://dlhrc3i31nciu" path="res://scenes/ui/bonus_items_ui.tscn" id="16_05h1i"]
-[ext_resource type="PackedScene" uid="uid://cs15hy7ubikhu" path="res://audio_manager.tscn" id="17_jqn07"]
+[ext_resource type="PackedScene" uid="uid://cs15hy7ubikhu" path="res://autoloads/scenes/audio_manager.tscn" id="17_jqn07"]
 [ext_resource type="PackedScene" uid="uid://dlo622cpqxke0" path="res://scenes/ui/pause_menu_ui.tscn" id="18_h5lr1"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_uf2fb"]
@@ -422,12 +422,12 @@ position = Vector2(1032, 264)
 position = Vector2(168, 264)
 
 [node name="PowerPellet2" parent="Pickables/Pellets/Power" index="1" instance=ExtResource("11_7tp22")]
-position = Vector2(840, 360)
+position = Vector2(792, 360)
 
 [node name="BonusItems" parent="Pickables" instance=ExtResource("7_eb02v")]
 
 [node name="BonusItem" parent="Pickables/BonusItems" instance=ExtResource("8_wkukv")]
-position = Vector2(600, 216)
+position = Vector2(696, 312)
 
 [node name="Actors" type="Node" parent="."]
 
