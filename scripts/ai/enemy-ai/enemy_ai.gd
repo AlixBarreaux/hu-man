@@ -360,6 +360,9 @@ func _initialize():
 
 func _ready() -> void:
 	self.disable()
+	assert(FileAccess.file_exists(frightened_sound_file_path))
+	assert(FileAccess.file_exists(eaten_sound_file_path))
+	assert(FileAccess.file_exists(enemy_going_home_sound_file_path))
 	self._initialize_signals()
 	call_deferred("_initialize")
 
