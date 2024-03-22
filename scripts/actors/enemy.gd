@@ -22,6 +22,11 @@ func disable() -> void:
 	set_physics_process(false)
 
 
+func on_game_ready() -> void:
+	animation_tree.set("parameters/move/blend_position", Vector2(0.0, 0.0))
+	animation_tree.set("parameters/idle/blend_position", self.direction)
+
+
 func on_game_started() -> void:
 	self.enable()
 
@@ -53,6 +58,9 @@ func die() -> void:
 
 func on_player_died() -> void:
 	self.disable()
+	
+	animation_tree.set("parameters/idle/blend_position", direction)
+	anim_node_sm_playback.travel("idle")
 
 
 func on_player_finished_dying() -> void:
@@ -63,6 +71,7 @@ func on_player_finished_dying() -> void:
 
 
 func _initialize_signals() -> void:
+	Global.game_ready.connect(on_game_ready)
 	Global.game_started.connect(on_game_started)
 	Global.level_cleared.connect(on_level_cleared)
 	Global.player_died.connect(on_player_died)
@@ -75,10 +84,7 @@ func _ready() -> void:
 	self.disable()
 	self._initialize_signals()
 	self.direction = self.initial_direction
-	
 	animation_tree.active = true
-	animation_tree.set("parameters/move/blend_position", Vector2(0.0, 0.0))
-	animation_tree.set("parameters/idle/blend_position", self.direction)
 
 
 var can_move: bool = true
@@ -87,10 +93,15 @@ func _physics_process(_delta: float) -> void:
 	if can_move:
 		velocity = direction * speed
 		self.global_position += velocity
+		
+		if velocity != Vector2(0.0, 0.0):
+			animation_tree.set("parameters/move/blend_position", direction)
+			anim_node_sm_playback.travel("move")
+		else:
+			animation_tree.set("parameters/idle/blend_position", direction)
+			anim_node_sm_playback.travel("idle")
 	
-	if velocity != Vector2(0.0, 0.0):
-		animation_tree.set("parameters/move/blend_position", direction)
-		anim_node_sm_playback.travel("move")
-	else:
-		animation_tree.set("parameters/idle/blend_position", direction)
-		anim_node_sm_playback.travel("idle")
+	#if self.name == "EnemyCornichon":
+		#print(velocity)
+	
+	
