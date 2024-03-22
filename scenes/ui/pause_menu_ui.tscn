@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlo622cpqxke0"]
+
+[ext_resource type="Script" path="res://scripts/ui/pause_menu_ui.gd" id="1_ksyub"]
+[ext_resource type="PackedScene" uid="uid://bghenf8f6uhd3" path="res://scenes/ui/SceneSwitcherButton.tscn" id="1_t1key"]
+[ext_resource type="PackedScene" uid="uid://c53qsppmlwiwb" path="res://scenes/ui/quit_to_desktop_button.tscn" id="3_kh0kt"]
+
+[node name="PauseMenuUi" type="Panel"]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 492.0
+offset_top = 230.0
+offset_right = -492.0
+offset_bottom = -230.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_type_variation = &"PanelOpaque"
+script = ExtResource("1_ksyub")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 68.0
+offset_top = 45.0
+offset_right = -68.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Game Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 60
+
+[node name="ResumeButton" type="Button" parent="VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Resume"
+
+[node name="QuitToMainMenuButton" parent="VBoxContainer2/VBoxContainer" instance=ExtResource("1_t1key")]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Quit to Main Menu"
+
+[node name="QuitToDesktopButton" parent="VBoxContainer2/VBoxContainer" instance=ExtResource("3_kh0kt")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="pressed" from="VBoxContainer2/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
