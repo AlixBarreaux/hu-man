@@ -27,5 +27,5 @@ func _ready() -> void:
 
 func _on_area_entered(_area: Area2D) -> void:
 	self.picked_up.emit(self.score_value, self.sprite_2d.get_texture())
-	AudioManager.play_sound_file(sound_file_path, AudioManager.TRACK_TYPES.PICKUPS)
+	AudioManager.play_sound_file(sound_file_path, AudioManager.TrackTypes.PICKUPS)
 	self.disable()

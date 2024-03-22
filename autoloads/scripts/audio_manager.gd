@@ -41,34 +41,34 @@ func _initialize_signals() -> void:
 	Global.level_cleared.connect(on_level_cleared)
 
 
-enum TRACK_TYPES {
+enum TrackTypes {
 	MUSIC,
 	PICKUPS,
 	ENEMIES
 }
 
-func play_sound_file(sound_file: String, track_type: TRACK_TYPES) -> void:
+func play_sound_file(sound_file: String, track_type: TrackTypes) -> void:
 	match track_type:
-		TRACK_TYPES.MUSIC:
+		TrackTypes.MUSIC:
 			self.music_player.set_stream(load(sound_file))
 			self.music_player.play()
-		TRACK_TYPES.PICKUPS:
+		TrackTypes.PICKUPS:
 			self.pickups_player.set_stream(load(sound_file))
 			self.pickups_player.play()
-		TRACK_TYPES.ENEMIES:
+		TrackTypes.ENEMIES:
 			self.enemies_player.set_stream(load(sound_file))
 			self.enemies_player.play()
 		_:
 			printerr("(!) ERROR: In: " + self.get_name() + ": Unandled case in play_sound_file()!")
 
 
-func stop_track(track_type: TRACK_TYPES) -> void:
+func stop_track(track_type: TrackTypes) -> void:
 	match track_type:
-		TRACK_TYPES.MUSIC:
+		TrackTypes.MUSIC:
 			self.music_player.stop()
-		TRACK_TYPES.PICKUPS:
+		TrackTypes.PICKUPS:
 			self.pickups_player.stop()
-		TRACK_TYPES.ENEMIES:
+		TrackTypes.ENEMIES:
 			self.enemies_player.stop()
 		_:
 			printerr("(!) ERROR: In: " + self.get_name() + ": Unandled case in stop_track()!")

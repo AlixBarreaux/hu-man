@@ -22,7 +22,7 @@ func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		gui_input_enabled = false
 		accept_event()
-		AudioManager.play_sound_file(start_game_sound, AudioManager.TRACK_TYPES.PICKUPS)
+		AudioManager.play_sound_file(start_game_sound, AudioManager.TrackTypes.PICKUPS)
 		await AudioManager.pickups_player.finished
 		Global.new_game_started.emit()
 		get_tree().change_scene_to_packed(scene_to_load)
@@ -32,7 +32,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	set_process_unhandled_key_input(false)
 	if event is InputEventJoypadButton or event is InputEventKey:
 		accept_event()
-		AudioManager.play_sound_file(start_game_sound, AudioManager.TRACK_TYPES.PICKUPS)
+		AudioManager.play_sound_file(start_game_sound, AudioManager.TrackTypes.PICKUPS)
 		await AudioManager.pickups_player.finished
 		Global.new_game_started.emit()
 		get_tree().change_scene_to_packed(scene_to_load)
