@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 
 [audio]
 
-buses/default_bus_layout="res://resources/main_audio_bus_layout.tres"
+buses/default_bus_layout="res://resources/audio-bus-layouts/main_audio_bus_layout.tres"
 
 [autoload]
 
@@ -36,7 +36,7 @@ window/stretch/mode="viewport"
 
 [gui]
 
-theme/custom="res://resources/main_theme.tres"
+theme/custom="res://resources/themes/main_theme.tres"
 
 [input]
 
