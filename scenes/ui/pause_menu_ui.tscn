@@ -54,6 +54,7 @@ text = "Resume"
 layout_mode = 2
 size_flags_vertical = 3
 text = "Quit to Main Menu"
+scene_to_load_file_path = "res://scenes/ui/main_menu_ui.tscn"
 
 [node name="QuitToDesktopButton" parent="VBoxContainer2/VBoxContainer" instance=ExtResource("3_kh0kt")]
 layout_mode = 2
