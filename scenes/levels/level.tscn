@@ -335,7 +335,7 @@ wait_time = 5.0
 one_shot = true
 
 [node name="TileMap" type="TileMap" parent="."]
-modulate = Color(0.305882, 0.305882, 0.305882, 1)
+modulate = Color(0, 0.360784, 0.376471, 1)
 tile_set = SubResource("TileSet_1x555")
 rendering_quadrant_size = 48
 format = 2
