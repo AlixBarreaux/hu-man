@@ -17,5 +17,7 @@ shape = SubResource("CircleShape2D_tld2l")
 
 [node name="BonusItemActivationTimer" parent="." index="2" node_paths=PackedStringArray("bonus_item") instance=ExtResource("3_rkjkm")]
 bonus_item = NodePath("..")
+min_rand_wait_time = 11
+max_rand_wait_time = 14
 
 [node name="NumbersDisplayer" parent="." index="3" instance=ExtResource("4_ur7np")]
