@@ -1,16 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://cs15hy7ubikhu"]
+[gd_scene load_steps=2 format=3 uid="uid://cs15hy7ubikhu"]
 
 [ext_resource type="Script" path="res://autoloads/scripts/audio_manager.gd" id="1_7gm4n"]
-
-[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_nuu5w"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_7gm4n")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 autoplay = true
+bus = &"Music"
 
 [node name="Pickups" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStreamPolyphonic_nuu5w")
+bus = &"Sound Effects"
 
 [node name="Enemies" type="AudioStreamPlayer" parent="."]
+bus = &"Sound Effects"
