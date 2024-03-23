@@ -6,11 +6,11 @@
 script = ExtResource("1_401w5")
 
 [node name="ScatterDurationTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 15.0
 one_shot = true
 
 [node name="ChaseDurationTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 15.0
 one_shot = true
 
 [node name="FrightenedDurationTimer" type="Timer" parent="."]
