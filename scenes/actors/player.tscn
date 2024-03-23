@@ -678,7 +678,7 @@ rotation = -1.57079
 target_position = Vector2(-0.000238426, 10)
 
 [node name="RayCast2DRight" type="RayCast2D" parent="NextDirectionRotator/NextDirectionDetector"]
-position = Vector2(21, 22)
+position = Vector2(20, 22)
 rotation = -1.57079
 target_position = Vector2(-0.000238426, 10)
 
