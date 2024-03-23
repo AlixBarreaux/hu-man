@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://vda6whr1obyj"]
 
-[ext_resource type="Texture2D" uid="uid://b1yi440iyutka" path="res://icon.svg" id="1_a4sb5"]
 [ext_resource type="Script" path="res://scripts/ui/score_info.gd" id="1_gxo18"]
+[ext_resource type="Texture2D" uid="uid://fw48lc8il87r" path="res://resources/atlas-textures/pellet_texture.tres" id="2_sjbbl"]
 
 [node name="ScoreInfo" type="HBoxContainer"]
 size_flags_vertical = 3
@@ -11,7 +11,7 @@ script = ExtResource("1_gxo18")
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
 mouse_filter = 2
-texture = ExtResource("1_a4sb5")
+texture = ExtResource("2_sjbbl")
 expand_mode = 2
 
 [node name="Label" type="Label" parent="."]

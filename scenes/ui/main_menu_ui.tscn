@@ -121,6 +121,12 @@ offset_right = 135.0
 offset_bottom = 303.0
 grow_horizontal = 2
 
+[node name="ScoreInfo" parent="ScoreInfoList" index="0"]
+texture_modulation_color = Color(0.643137, 0.0627451, 0.964706, 1)
+
+[node name="ScoreInfo2" parent="ScoreInfoList" index="1"]
+texture_modulation_color = Color(0.156863, 0.619608, 0.760784, 1)
+
 [node name="LabelBlinking" parent="." instance=ExtResource("5_08ayx")]
 layout_mode = 1
 anchors_preset = 7
