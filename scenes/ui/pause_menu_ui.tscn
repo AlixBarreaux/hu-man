@@ -48,7 +48,7 @@ theme_override_constants/separation = 60
 [node name="ResumeButton" type="Button" parent="VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Resume"
+text = "Resume Game"
 
 [node name="QuitToMainMenuButton" parent="VBoxContainer2/VBoxContainer" instance=ExtResource("1_t1key")]
 layout_mode = 2

@@ -1,0 +1,98 @@
+# LANGUAGE translation for Zep Man for the following files:
+# res://scenes/ui/character_info_list.tscn
+# res://scenes/ui/info_message_ui.tscn
+# res://scenes/ui/label_blinking.tscn
+# res://scenes/ui/main_menu_ui.tscn
+# res://scenes/ui/pause_menu_ui.tscn
+# res://scenes/ui/quit_to_desktop_button.tscn
+# res://scenes/ui/SceneSwitcherButton.tscn
+# res://scenes/ui/score_info.tscn
+# res://scenes/ui/version_label.tscn
+# res://scenes/ui/scoring_ui.tscn
+#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Zep Man\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"X-Generator: Poedit 3.2.2\n"
+
+#: scenes/ui/character_info_list.tscn
+msgid "Your enemies:"
+msgstr "Twoi wrogowie:"
+
+#: scenes/ui/info_message_ui.tscn
+msgid "Get ready!"
+msgstr "Przygotuj!"
+
+#: scenes/ui/info_message_ui.tscn
+msgid "You died!"
+msgstr "Umarłeś!"
+
+#: scenes/ui/info_message_ui.tscn
+msgid "Game over!"
+msgstr "Koniec gry!"
+
+#: scenes/ui/info_message_ui.tscn
+msgid ""
+"Level completed!\n"
+"Thanks for playing!"
+msgstr ""
+"Poziom ukończony!\n"
+"Dzięki za grę!"
+
+#: scenes/ui/info_message_ui.tscn
+msgid "DEFAULT Message!"
+msgstr ""
+
+#: scenes/ui/label_blinking.tscn
+msgid "Press any key to start!"
+msgstr "Naciśnij dowolny, aby rozpocząć!"
+
+#: scenes/ui/pause_menu_ui.tscn
+msgid "Game Paused"
+msgstr "Gra wstrzymana"
+
+#: scenes/ui/pause_menu_ui.tscn
+msgid "Resume Game"
+msgstr "Wznów grę"
+
+#: scenes/ui/quit_to_desktop_button.tscn
+msgid "Quit to Desktop"
+msgstr "Wyjdź do pulpitu"
+
+#: scenes/ui/score_info.tscn
+msgid "%d point"
+msgid_plural "%d points"
+msgstr[0] "%d punkt"
+msgstr[1] "%d punkty"
+msgstr[2] "%d punktów"
+
+#: scenes/ui/score_info.tscn
+msgid "000 Points"
+msgstr ""
+
+#: scenes/ui/version_label.tscn
+msgid "Version: "
+msgstr "Wersja: "
+
+#: scenes/ui/version_label.tscn
+msgid "Version: 0.0.0"
+msgstr ""
+
+#: scenes/ui/scoring_ui.tscn
+msgid "Score:\n"
+msgstr "Wynik:\n"
+
+#: scenes/ui/scoring_ui.tscn
+msgid "High Score:\n"
+msgstr "Wysoki wynik:\n"

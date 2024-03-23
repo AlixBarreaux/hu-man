@@ -1,0 +1,96 @@
+# LANGUAGE translation for Zep Man for the following files:
+# res://scenes/ui/character_info_list.tscn
+# res://scenes/ui/info_message_ui.tscn
+# res://scenes/ui/label_blinking.tscn
+# res://scenes/ui/main_menu_ui.tscn
+# res://scenes/ui/pause_menu_ui.tscn
+# res://scenes/ui/quit_to_desktop_button.tscn
+# res://scenes/ui/SceneSwitcherButton.tscn
+# res://scenes/ui/score_info.tscn
+# res://scenes/ui/version_label.tscn
+# res://scenes/ui/scoring_ui.tscn
+#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Zep Man\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.2.2\n"
+
+#: scenes/ui/character_info_list.tscn
+msgid "Your enemies:"
+msgstr "你的敌人:"
+
+#: scenes/ui/info_message_ui.tscn
+msgid "Get ready!"
+msgstr "准备好！"
+
+#: scenes/ui/info_message_ui.tscn
+msgid "You died!"
+msgstr "你死了！"
+
+#: scenes/ui/info_message_ui.tscn
+msgid "Game over!"
+msgstr "游戏结束！"
+
+#: scenes/ui/info_message_ui.tscn
+msgid ""
+"Level completed!\n"
+"Thanks for playing!"
+msgstr ""
+"关卡完成！\n"
+"感谢您的参与！"
+
+#: scenes/ui/info_message_ui.tscn
+msgid "DEFAULT Message!"
+msgstr ""
+
+#: scenes/ui/label_blinking.tscn
+msgid "Press any key to start!"
+msgstr "按任意键开始！"
+
+#: scenes/ui/pause_menu_ui.tscn
+msgid "Game Paused"
+msgstr "游戏已暂停"
+
+#: scenes/ui/pause_menu_ui.tscn
+msgid "Resume Game"
+msgstr "恢复游戏"
+
+#: scenes/ui/quit_to_desktop_button.tscn
+msgid "Quit to Desktop"
+msgstr "退出到桌面"
+
+#: scenes/ui/score_info.tscn
+msgid "%d point"
+msgid_plural "%d points"
+msgstr[0] "%d 积分"
+
+#: scenes/ui/score_info.tscn
+msgid "000 Points"
+msgstr ""
+
+#: scenes/ui/version_label.tscn
+msgid "Version: "
+msgstr "版本： "
+
+#: scenes/ui/version_label.tscn
+msgid "Version: 0.0.0"
+msgstr ""
+
+#: scenes/ui/scoring_ui.tscn
+msgid "Score:\n"
+msgstr "得分：\n"
+
+#: scenes/ui/scoring_ui.tscn
+msgid "High Score:\n"
+msgstr "高分：\n"
