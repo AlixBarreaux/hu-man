@@ -20,10 +20,10 @@ const image_file_path_list: PackedStringArray = [
 	"res://resources/atlas-textures/book_texture.tres",
 	"res://resources/atlas-textures/diamond_texture.tres",
 	"res://resources/atlas-textures/cookie_texture.tres",
-	"res://icon.svg",
-	"res://icon.svg",
-	"res://icon.svg",
-	"res://icon.svg"
+	"res://resources/atlas-textures/cookie_texture.tres",
+	"res://resources/atlas-textures/cookie_texture.tres",
+	"res://resources/atlas-textures/cookie_texture.tres",
+	"res://resources/atlas-textures/cookie_texture.tres"
 ]
 
 @onready var level: Level = get_tree().get_root().get_node("Level")
