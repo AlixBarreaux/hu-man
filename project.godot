@@ -14,7 +14,9 @@ config/name="Zep Man"
 config/version="0.1.0"
 run/main_scene="res://scenes/ui/main_menu_ui.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://miscellaneous/icons/icon_512x512.png"
+config/macos_native_icon="res://miscellaneous/icons/icon_512x512.icns"
+config/windows_native_icon="res://miscellaneous/icons/icon_512x512.ico"
 
 [audio]
 
