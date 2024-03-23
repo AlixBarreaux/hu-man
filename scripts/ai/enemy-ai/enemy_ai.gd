@@ -12,16 +12,19 @@ class_name EnemyAI
 
 # END TODO
 
-@export var initial_chase_speed: float = 1.0
-var chase_speed: float = initial_chase_speed
-@export var scatter_speed: float = 1.0
-@export var eaten_speed: float = 2.0
-@export var frightened_speed: float = 1.0
+@export_group("Speeds")
+@export var base_speed: float = 2.35
+var chase_speed: float = base_speed
+@export var scatter_speed: float = base_speed
+@export var eaten_speed: float = base_speed * 2
+@export var frightened_speed: float = base_speed / 1.5
 
 
+@export_group("Sound Files")
 @export_file("*.ogg", "*.wav") var frightened_sound_file_path: String = ""
 @export_file("*.ogg", "*.wav") var eaten_sound_file_path: String = ""
 @export_file("*.ogg", "*.wav") var enemy_going_home_sound_file_path: String = ""
+@export_group("")
 
 
 var in_home: bool = true

@@ -68,10 +68,10 @@ func enable_elroy_mode(go_faster_than_player: bool) -> void:
 	enemy_ai.elroy_mode_enabled = true
 	
 	if not go_faster_than_player:
-		enemy_ai.chase_speed = enemy_ai.initial_chase_speed * 2.0
+		enemy_ai.chase_speed = enemy_ai.base_speed * 1.08
 	else:
 		# ~ as fast as Player
-		enemy_ai.chase_speed = enemy_ai.initial_chase_speed * 2.7
+		enemy_ai.chase_speed = enemy_ai.base_speed * 1.2
 	
 	
 	if enemy_ai.current_state == enemy_ai.States.CHASE:
@@ -85,5 +85,5 @@ func enable_elroy_mode(go_faster_than_player: bool) -> void:
 
 func disable_elroy_mode() -> void:
 	enemy_ai.elroy_mode_enabled = false
-	enemy_ai.chase_speed = enemy_ai.initial_chase_speed
+	enemy_ai.chase_speed = enemy_ai.base_speed
 	enemy_ai.set_state(enemy_ai.initial_state)
