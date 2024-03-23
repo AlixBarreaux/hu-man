@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://wn87v3qa0n0x"]
+
+[ext_resource type="Theme" uid="uid://cmkbdaor5icii" path="res://resources/themes/main_theme.tres" id="1_0wse0"]
+[ext_resource type="Script" path="res://autoloads/scripts/scoring_ui.gd" id="2_rag13"]
+
+[node name="ScoringUI" type="Panel"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 562.0
+offset_top = 7.0
+offset_right = -562.0
+offset_bottom = 80.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme = ExtResource("1_0wse0")
+script = ExtResource("2_rag13")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme = ExtResource("1_0wse0")
+alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+auto_translate = false
+text = "Score
+000000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HighScoreLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+auto_translate = false
+text = "High Score
+000000"
+horizontal_alignment = 1
+vertical_alignment = 1

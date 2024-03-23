@@ -11,7 +11,7 @@ var empty_color: Color = Color(0.0, 0.0, 0.0, 0.0)
 
 func _ready() -> void:
 	assert(character_name != "")
-	label.set_text(self.character_name)
+	label.set_text(tr(self.character_name))
 	
 	if text_color == empty_color:
 		return

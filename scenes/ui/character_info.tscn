@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://8n405r5kcoif" path="res://resources/atlas-textures/enemy_texture.tres" id="2_gadyd"]
 
 [node name="CharacterInfo" type="HBoxContainer"]
+auto_translate = false
 mouse_filter = 2
 theme_override_constants/separation = 50
 script = ExtResource("1_6adst")

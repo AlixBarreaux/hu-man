@@ -17,7 +17,7 @@ func set_text_with_color(txt: String, color: Color = self.default_color) -> void
 
 
 func on_game_ready() -> void:
-	self.set_text_with_color("Get ready!")
+	self.set_text_with_color(tr("Get ready!"))
 
 
 func on_game_started() -> void:
@@ -25,15 +25,15 @@ func on_game_started() -> void:
 
 
 func on_player_died() -> void:
-	self.set_text_with_color("You died!", self.player_died_color)
+	self.set_text_with_color(tr("You died!"), self.player_died_color)
 
 
 func on_game_over() -> void:
-	self.set_text_with_color("Game over!", self.game_over_color)
+	self.set_text_with_color(tr("Game over!"), self.game_over_color)
 
 
 func on_level_cleared() -> void:
-	var text: String = "Level cleared!\nThanks for playing!"
+	var text: String = tr("Level completed!\nThanks for playing!")
 	self.set_text_with_color(text, self.level_cleared_color)
 
 

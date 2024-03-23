@@ -7,4 +7,4 @@ class_name ScoreInfo
 
 
 func _ready() -> void:
-	label.set_text(str(score_value) + " points")
+	label.set_text(tr_n("%d point", "%d points", score_value) % score_value)
