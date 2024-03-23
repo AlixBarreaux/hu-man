@@ -93,8 +93,10 @@ start_game_sound = "res://assets/audio/pellet_picked_up.wav"
 
 [node name="CharacterInfoList" parent="." instance=ExtResource("3_aiv61")]
 layout_mode = 1
-offset_top = -397.0
-offset_bottom = 277.0
+offset_left = -167.0
+offset_top = -409.0
+offset_right = 168.0
+offset_bottom = 25.0
 theme_override_constants/separation = 50
 
 [node name="CharacterInfo" parent="CharacterInfoList" index="1"]
@@ -110,15 +112,14 @@ text_color = Color(0, 0.72549, 0.72549, 1)
 text_color = Color(1, 0.662745, 0, 1)
 
 [node name="ScoreInfoList" parent="." instance=ExtResource("4_6pf6j")]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -135.0
-offset_top = 113.0
+offset_top = 95.0
 offset_right = 135.0
-offset_bottom = 303.0
+offset_bottom = 285.0
 grow_horizontal = 2
 
 [node name="ScoreInfo" parent="ScoreInfoList" index="0"]
