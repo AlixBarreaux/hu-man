@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://d2ybva0trn51"]
+[gd_scene load_steps=5 format=3 uid="uid://d2ybva0trn51"]
 
 [ext_resource type="PackedScene" uid="uid://if2sysuqsw11" path="res://scenes/pickables/pickable.tscn" id="1_bdm0x"]
 [ext_resource type="Script" path="res://scripts/pickables/bonus_item.gd" id="2_141uv"]
 [ext_resource type="PackedScene" uid="uid://bc0lb44346l8s" path="res://scenes/bonus_item_activation_timer.tscn" id="3_rkjkm"]
-[ext_resource type="PackedScene" uid="uid://cd27qhiewkw3a" path="res://numbers_displayer.tscn" id="4_ur7np"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tld2l"]
 radius = 12.0
@@ -19,5 +18,3 @@ shape = SubResource("CircleShape2D_tld2l")
 bonus_item = NodePath("..")
 min_rand_wait_time = 11
 max_rand_wait_time = 14
-
-[node name="NumbersDisplayer" parent="." index="3" instance=ExtResource("4_ur7np")]
