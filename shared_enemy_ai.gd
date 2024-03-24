@@ -21,7 +21,7 @@ func build_walkable_tiles_list() -> void:
 @onready var chase_timer: Timer = enemies_timers.get_node("ChaseDurationTimer")
 #@onready var frightened_timer: Timer = enemies_timers.get_node("FrightenedDurationTimer")
 
-@onready var enemies: Node = get_tree().get_root().get_node("Level/Actors/Enemies")
+@onready var enemies: Enemies = get_tree().get_root().get_node("Level/Actors/Enemies")
 var enemy_ai_list: Array[EnemyAI] = []
 
 
@@ -45,6 +45,11 @@ func on_enemy_state_set(state: EnemyAI.States) -> void:
 					print("Score value x1.")
 				print("Score to add: ", enemy_score_value)
 				Global.increase_score(enemy_score_value)
+				total_enemies_eaten_count += 1
+				print("Cap / Current: ", total_enemies_eaten_count, " / ", enemies_to_eat_for_combo_bonus_cap)
+				if total_enemies_eaten_count >= enemies_to_eat_for_combo_bonus_cap:
+					print("BONUS AWARDED!")
+					Global.increase_score(combo_bonus_score_value)
 		EnemyAI.States.FRIGHTENED:
 			frightened_enemy_ais_count += 1
 			print(self.name, ": Frightened! Count++")
@@ -81,12 +86,17 @@ func on_game_started() -> void:
 				enemy_ai.background_state = enemy_ai.States.SCATTER
 				if not timer_started:
 					timer_started = true
-					enemy_ai.scatter_timer.start()
+					scatter_timer.start()
 			_:
 				printerr(("(!) ERROR: In: " + self.get_name() + ": Uhandled state on game started!"))
 				
 		enemy_ai.first_initialization = false
 
+
+@onready var pellets: Pellets = get_tree().get_root().get_node("Level/Pickables/Pellets")
+@onready var enemies_to_eat_for_combo_bonus_cap = pellets.initial_power_pellets_count * enemies.initial_enemies_count
+var total_enemies_eaten_count: int = 0
+var combo_bonus_score_value: int = 16000
 
 func _ready() -> void:
 	Global.game_ready.connect(on_game_started)
