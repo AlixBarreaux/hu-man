@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cvamjms4o581j" path="res://scenes/bonus_items.tscn" id="7_eb02v"]
 [ext_resource type="PackedScene" uid="uid://df7iwsowjq02v" path="res://enemies.tscn" id="8_v5yh8"]
 [ext_resource type="PackedScene" uid="uid://d2ybva0trn51" path="res://scenes/pickables/bonus_item.tscn" id="8_wkukv"]
-[ext_resource type="PackedScene" uid="uid://borrvnekx8vht" path="res://shared_enemy_ai.tscn" id="9_qqr5i"]
+[ext_resource type="PackedScene" uid="uid://borrvnekx8vht" path="res://scenes/shared_enemy_ai.tscn" id="9_qqr5i"]
 [ext_resource type="PackedScene" uid="uid://d35gi8b3l2nhh" path="res://scenes/pellets.tscn" id="9_soaal"]
 [ext_resource type="PackedScene" uid="uid://c1v0tqqh2nfa5" path="res://scenes/actors/enemy_bourrin.tscn" id="10_so184"]
 [ext_resource type="PackedScene" uid="uid://bpsnuln5keu2o" path="res://scenes/pickables/power_pellet.tscn" id="11_7tp22"]
