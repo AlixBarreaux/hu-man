@@ -96,7 +96,7 @@ func on_game_started() -> void:
 @onready var pellets: Pellets = get_tree().get_root().get_node("Level/Pickables/Pellets")
 @onready var enemies_to_eat_for_combo_bonus_cap = pellets.initial_power_pellets_count * enemies.initial_enemies_count
 var total_enemies_eaten_count: int = 0
-var combo_bonus_score_value: int = 16000
+var combo_bonus_score_value: int = 12000
 
 func _ready() -> void:
 	Global.game_ready.connect(on_game_started)
