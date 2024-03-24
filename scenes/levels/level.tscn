@@ -364,13 +364,1048 @@ position = Vector2(1032, 552)
 [node name="Pellets" parent="Pickables" instance=ExtResource("9_soaal")]
 
 [node name="Pellet" parent="Pickables/Pellets/Normal" index="0" instance=ExtResource("4_g8q31")]
-position = Vector2(888, 936)
+position = Vector2(168, 120)
 
-[node name="PowerPellet" parent="Pickables/Pellets/Power" index="0" instance=ExtResource("11_7tp22")]
+[node name="Pellet2" parent="Pickables/Pellets/Normal" index="1" instance=ExtResource("4_g8q31")]
+position = Vector2(216, 120)
+
+[node name="Pellet3" parent="Pickables/Pellets/Normal" index="2" instance=ExtResource("4_g8q31")]
+position = Vector2(264, 120)
+
+[node name="Pellet4" parent="Pickables/Pellets/Normal" index="3" instance=ExtResource("4_g8q31")]
+position = Vector2(312, 120)
+
+[node name="Pellet5" parent="Pickables/Pellets/Normal" index="4" instance=ExtResource("4_g8q31")]
+position = Vector2(360, 120)
+
+[node name="Pellet6" parent="Pickables/Pellets/Normal" index="5" instance=ExtResource("4_g8q31")]
+position = Vector2(408, 120)
+
+[node name="Pellet7" parent="Pickables/Pellets/Normal" index="6" instance=ExtResource("4_g8q31")]
+position = Vector2(456, 120)
+
+[node name="Pellet8" parent="Pickables/Pellets/Normal" index="7" instance=ExtResource("4_g8q31")]
+position = Vector2(504, 120)
+
+[node name="Pellet9" parent="Pickables/Pellets/Normal" index="8" instance=ExtResource("4_g8q31")]
+position = Vector2(600, 120)
+
+[node name="Pellet10" parent="Pickables/Pellets/Normal" index="9" instance=ExtResource("4_g8q31")]
+position = Vector2(648, 120)
+
+[node name="Pellet11" parent="Pickables/Pellets/Normal" index="10" instance=ExtResource("4_g8q31")]
+position = Vector2(696, 120)
+
+[node name="Pellet12" parent="Pickables/Pellets/Normal" index="11" instance=ExtResource("4_g8q31")]
+position = Vector2(744, 120)
+
+[node name="Pellet13" parent="Pickables/Pellets/Normal" index="12" instance=ExtResource("4_g8q31")]
+position = Vector2(792, 120)
+
+[node name="Pellet14" parent="Pickables/Pellets/Normal" index="13" instance=ExtResource("4_g8q31")]
+position = Vector2(840, 120)
+
+[node name="Pellet15" parent="Pickables/Pellets/Normal" index="14" instance=ExtResource("4_g8q31")]
+position = Vector2(888, 120)
+
+[node name="Pellet16" parent="Pickables/Pellets/Normal" index="15" instance=ExtResource("4_g8q31")]
+position = Vector2(1032, 120)
+
+[node name="Pellet17" parent="Pickables/Pellets/Normal" index="16" instance=ExtResource("4_g8q31")]
+position = Vector2(1080, 120)
+
+[node name="Pellet18" parent="Pickables/Pellets/Normal" index="17" instance=ExtResource("4_g8q31")]
+position = Vector2(1128, 120)
+
+[node name="Pellet19" parent="Pickables/Pellets/Normal" index="18" instance=ExtResource("4_g8q31")]
+position = Vector2(1176, 120)
+
+[node name="Pellet20" parent="Pickables/Pellets/Normal" index="19" instance=ExtResource("4_g8q31")]
+position = Vector2(1224, 120)
+
+[node name="Pellet21" parent="Pickables/Pellets/Normal" index="20" instance=ExtResource("4_g8q31")]
+position = Vector2(1272, 120)
+
+[node name="Pellet22" parent="Pickables/Pellets/Normal" index="21" instance=ExtResource("4_g8q31")]
+position = Vector2(1320, 120)
+
+[node name="Pellet23" parent="Pickables/Pellets/Normal" index="22" instance=ExtResource("4_g8q31")]
+position = Vector2(1416, 120)
+
+[node name="Pellet24" parent="Pickables/Pellets/Normal" index="23" instance=ExtResource("4_g8q31")]
+position = Vector2(1464, 120)
+
+[node name="Pellet25" parent="Pickables/Pellets/Normal" index="24" instance=ExtResource("4_g8q31")]
+position = Vector2(1512, 120)
+
+[node name="Pellet26" parent="Pickables/Pellets/Normal" index="25" instance=ExtResource("4_g8q31")]
+position = Vector2(1560, 120)
+
+[node name="Pellet27" parent="Pickables/Pellets/Normal" index="26" instance=ExtResource("4_g8q31")]
+position = Vector2(1608, 120)
+
+[node name="Pellet28" parent="Pickables/Pellets/Normal" index="27" instance=ExtResource("4_g8q31")]
+position = Vector2(1656, 120)
+
+[node name="Pellet29" parent="Pickables/Pellets/Normal" index="28" instance=ExtResource("4_g8q31")]
+position = Vector2(1704, 120)
+
+[node name="Pellet30" parent="Pickables/Pellets/Normal" index="29" instance=ExtResource("4_g8q31")]
+position = Vector2(1752, 120)
+
+[node name="Pellet31" parent="Pickables/Pellets/Normal" index="30" instance=ExtResource("4_g8q31")]
+position = Vector2(312, 168)
+
+[node name="Pellet32" parent="Pickables/Pellets/Normal" index="31" instance=ExtResource("4_g8q31")]
+position = Vector2(504, 168)
+
+[node name="Pellet33" parent="Pickables/Pellets/Normal" index="32" instance=ExtResource("4_g8q31")]
+position = Vector2(600, 168)
+
+[node name="Pellet34" parent="Pickables/Pellets/Normal" index="33" instance=ExtResource("4_g8q31")]
+position = Vector2(888, 168)
+
+[node name="Pellet35" parent="Pickables/Pellets/Normal" index="34" instance=ExtResource("4_g8q31")]
+position = Vector2(1032, 168)
+
+[node name="Pellet36" parent="Pickables/Pellets/Normal" index="35" instance=ExtResource("4_g8q31")]
+position = Vector2(1320, 168)
+
+[node name="Pellet37" parent="Pickables/Pellets/Normal" index="36" instance=ExtResource("4_g8q31")]
+position = Vector2(1416, 168)
+
+[node name="Pellet38" parent="Pickables/Pellets/Normal" index="37" instance=ExtResource("4_g8q31")]
+position = Vector2(1608, 168)
+
+[node name="Pellet39" parent="Pickables/Pellets/Normal" index="38" instance=ExtResource("4_g8q31")]
+position = Vector2(168, 216)
+
+[node name="Pellet40" parent="Pickables/Pellets/Normal" index="39" instance=ExtResource("4_g8q31")]
+position = Vector2(312, 216)
+
+[node name="Pellet41" parent="Pickables/Pellets/Normal" index="40" instance=ExtResource("4_g8q31")]
+position = Vector2(504, 216)
+
+[node name="Pellet42" parent="Pickables/Pellets/Normal" index="41" instance=ExtResource("4_g8q31")]
+position = Vector2(600, 216)
+
+[node name="Pellet43" parent="Pickables/Pellets/Normal" index="42" instance=ExtResource("4_g8q31")]
+position = Vector2(888, 216)
+
+[node name="Pellet44" parent="Pickables/Pellets/Normal" index="43" instance=ExtResource("4_g8q31")]
+position = Vector2(1032, 216)
+
+[node name="Pellet45" parent="Pickables/Pellets/Normal" index="44" instance=ExtResource("4_g8q31")]
+position = Vector2(1320, 216)
+
+[node name="Pellet46" parent="Pickables/Pellets/Normal" index="45" instance=ExtResource("4_g8q31")]
+position = Vector2(1416, 216)
+
+[node name="Pellet47" parent="Pickables/Pellets/Normal" index="46" instance=ExtResource("4_g8q31")]
+position = Vector2(1608, 216)
+
+[node name="Pellet48" parent="Pickables/Pellets/Normal" index="47" instance=ExtResource("4_g8q31")]
+position = Vector2(1752, 216)
+
+[node name="Pellet49" parent="Pickables/Pellets/Normal" index="48" instance=ExtResource("4_g8q31")]
+position = Vector2(168, 264)
+
+[node name="Pellet50" parent="Pickables/Pellets/Normal" index="49" instance=ExtResource("4_g8q31")]
+position = Vector2(216, 264)
+
+[node name="Pellet51" parent="Pickables/Pellets/Normal" index="50" instance=ExtResource("4_g8q31")]
+position = Vector2(264, 264)
+
+[node name="Pellet52" parent="Pickables/Pellets/Normal" index="51" instance=ExtResource("4_g8q31")]
+position = Vector2(312, 264)
+
+[node name="Pellet53" parent="Pickables/Pellets/Normal" index="52" instance=ExtResource("4_g8q31")]
+position = Vector2(360, 264)
+
+[node name="Pellet54" parent="Pickables/Pellets/Normal" index="53" instance=ExtResource("4_g8q31")]
+position = Vector2(408, 264)
+
+[node name="Pellet55" parent="Pickables/Pellets/Normal" index="54" instance=ExtResource("4_g8q31")]
+position = Vector2(456, 264)
+
+[node name="Pellet56" parent="Pickables/Pellets/Normal" index="55" instance=ExtResource("4_g8q31")]
+position = Vector2(504, 264)
+
+[node name="Pellet57" parent="Pickables/Pellets/Normal" index="56" instance=ExtResource("4_g8q31")]
+position = Vector2(552, 264)
+
+[node name="Pellet58" parent="Pickables/Pellets/Normal" index="57" instance=ExtResource("4_g8q31")]
+position = Vector2(600, 264)
+
+[node name="Pellet59" parent="Pickables/Pellets/Normal" index="58" instance=ExtResource("4_g8q31")]
+position = Vector2(648, 264)
+
+[node name="Pellet60" parent="Pickables/Pellets/Normal" index="59" instance=ExtResource("4_g8q31")]
+position = Vector2(696, 264)
+
+[node name="Pellet61" parent="Pickables/Pellets/Normal" index="60" instance=ExtResource("4_g8q31")]
+position = Vector2(744, 264)
+
+[node name="Pellet62" parent="Pickables/Pellets/Normal" index="61" instance=ExtResource("4_g8q31")]
+position = Vector2(792, 264)
+
+[node name="Pellet63" parent="Pickables/Pellets/Normal" index="62" instance=ExtResource("4_g8q31")]
+position = Vector2(840, 264)
+
+[node name="Pellet64" parent="Pickables/Pellets/Normal" index="63" instance=ExtResource("4_g8q31")]
+position = Vector2(888, 264)
+
+[node name="Pellet65" parent="Pickables/Pellets/Normal" index="64" instance=ExtResource("4_g8q31")]
+position = Vector2(936, 264)
+
+[node name="Pellet66" parent="Pickables/Pellets/Normal" index="65" instance=ExtResource("4_g8q31")]
+position = Vector2(984, 264)
+
+[node name="Pellet67" parent="Pickables/Pellets/Normal" index="66" instance=ExtResource("4_g8q31")]
+position = Vector2(1032, 264)
+
+[node name="Pellet68" parent="Pickables/Pellets/Normal" index="67" instance=ExtResource("4_g8q31")]
+position = Vector2(1080, 264)
+
+[node name="Pellet69" parent="Pickables/Pellets/Normal" index="68" instance=ExtResource("4_g8q31")]
+position = Vector2(1128, 264)
+
+[node name="Pellet70" parent="Pickables/Pellets/Normal" index="69" instance=ExtResource("4_g8q31")]
+position = Vector2(1176, 264)
+
+[node name="Pellet71" parent="Pickables/Pellets/Normal" index="70" instance=ExtResource("4_g8q31")]
+position = Vector2(1224, 264)
+
+[node name="Pellet72" parent="Pickables/Pellets/Normal" index="71" instance=ExtResource("4_g8q31")]
+position = Vector2(1272, 264)
+
+[node name="Pellet73" parent="Pickables/Pellets/Normal" index="72" instance=ExtResource("4_g8q31")]
+position = Vector2(1320, 264)
+
+[node name="Pellet74" parent="Pickables/Pellets/Normal" index="73" instance=ExtResource("4_g8q31")]
+position = Vector2(1368, 264)
+
+[node name="Pellet75" parent="Pickables/Pellets/Normal" index="74" instance=ExtResource("4_g8q31")]
+position = Vector2(1416, 264)
+
+[node name="Pellet76" parent="Pickables/Pellets/Normal" index="75" instance=ExtResource("4_g8q31")]
+position = Vector2(1464, 264)
+
+[node name="Pellet77" parent="Pickables/Pellets/Normal" index="76" instance=ExtResource("4_g8q31")]
+position = Vector2(1512, 264)
+
+[node name="Pellet78" parent="Pickables/Pellets/Normal" index="77" instance=ExtResource("4_g8q31")]
+position = Vector2(1560, 264)
+
+[node name="Pellet79" parent="Pickables/Pellets/Normal" index="78" instance=ExtResource("4_g8q31")]
+position = Vector2(1608, 264)
+
+[node name="Pellet80" parent="Pickables/Pellets/Normal" index="79" instance=ExtResource("4_g8q31")]
+position = Vector2(1656, 264)
+
+[node name="Pellet81" parent="Pickables/Pellets/Normal" index="80" instance=ExtResource("4_g8q31")]
+position = Vector2(1704, 264)
+
+[node name="Pellet82" parent="Pickables/Pellets/Normal" index="81" instance=ExtResource("4_g8q31")]
+position = Vector2(1752, 264)
+
+[node name="Pellet83" parent="Pickables/Pellets/Normal" index="82" instance=ExtResource("4_g8q31")]
+position = Vector2(168, 312)
+
+[node name="Pellet84" parent="Pickables/Pellets/Normal" index="83" instance=ExtResource("4_g8q31")]
+position = Vector2(312, 312)
+
+[node name="Pellet85" parent="Pickables/Pellets/Normal" index="84" instance=ExtResource("4_g8q31")]
+position = Vector2(408, 312)
+
+[node name="Pellet86" parent="Pickables/Pellets/Normal" index="85" instance=ExtResource("4_g8q31")]
+position = Vector2(696, 312)
+
+[node name="Pellet87" parent="Pickables/Pellets/Normal" index="86" instance=ExtResource("4_g8q31")]
+position = Vector2(792, 312)
+
+[node name="Pellet88" parent="Pickables/Pellets/Normal" index="87" instance=ExtResource("4_g8q31")]
+position = Vector2(1128, 312)
+
+[node name="Pellet89" parent="Pickables/Pellets/Normal" index="88" instance=ExtResource("4_g8q31")]
+position = Vector2(1224, 312)
+
+[node name="Pellet90" parent="Pickables/Pellets/Normal" index="89" instance=ExtResource("4_g8q31")]
+position = Vector2(1512, 312)
+
+[node name="Pellet91" parent="Pickables/Pellets/Normal" index="90" instance=ExtResource("4_g8q31")]
+position = Vector2(1608, 312)
+
+[node name="Pellet92" parent="Pickables/Pellets/Normal" index="91" instance=ExtResource("4_g8q31")]
+position = Vector2(1752, 312)
+
+[node name="Pellet93" parent="Pickables/Pellets/Normal" index="92" instance=ExtResource("4_g8q31")]
+position = Vector2(168, 360)
+
+[node name="Pellet94" parent="Pickables/Pellets/Normal" index="93" instance=ExtResource("4_g8q31")]
+position = Vector2(216, 360)
+
+[node name="Pellet95" parent="Pickables/Pellets/Normal" index="94" instance=ExtResource("4_g8q31")]
+position = Vector2(264, 360)
+
+[node name="Pellet96" parent="Pickables/Pellets/Normal" index="95" instance=ExtResource("4_g8q31")]
+position = Vector2(312, 360)
+
+[node name="Pellet97" parent="Pickables/Pellets/Normal" index="96" instance=ExtResource("4_g8q31")]
+position = Vector2(408, 360)
+
+[node name="Pellet98" parent="Pickables/Pellets/Normal" index="97" instance=ExtResource("4_g8q31")]
+position = Vector2(456, 360)
+
+[node name="Pellet99" parent="Pickables/Pellets/Normal" index="98" instance=ExtResource("4_g8q31")]
+position = Vector2(504, 360)
+
+[node name="Pellet100" parent="Pickables/Pellets/Normal" index="99" instance=ExtResource("4_g8q31")]
+position = Vector2(600, 360)
+
+[node name="Pellet101" parent="Pickables/Pellets/Normal" index="100" instance=ExtResource("4_g8q31")]
+position = Vector2(648, 360)
+
+[node name="Pellet102" parent="Pickables/Pellets/Normal" index="101" instance=ExtResource("4_g8q31")]
+position = Vector2(696, 360)
+
+[node name="Pellet103" parent="Pickables/Pellets/Normal" index="102" instance=ExtResource("4_g8q31")]
+position = Vector2(792, 360)
+
+[node name="Pellet104" parent="Pickables/Pellets/Normal" index="103" instance=ExtResource("4_g8q31")]
+position = Vector2(840, 360)
+
+[node name="Pellet105" parent="Pickables/Pellets/Normal" index="104" instance=ExtResource("4_g8q31")]
+position = Vector2(888, 360)
+
+[node name="Pellet106" parent="Pickables/Pellets/Normal" index="105" instance=ExtResource("4_g8q31")]
+position = Vector2(1032, 360)
+
+[node name="Pellet107" parent="Pickables/Pellets/Normal" index="106" instance=ExtResource("4_g8q31")]
+position = Vector2(1080, 360)
+
+[node name="Pellet108" parent="Pickables/Pellets/Normal" index="107" instance=ExtResource("4_g8q31")]
+position = Vector2(1128, 360)
+
+[node name="Pellet109" parent="Pickables/Pellets/Normal" index="108" instance=ExtResource("4_g8q31")]
+position = Vector2(1224, 360)
+
+[node name="Pellet110" parent="Pickables/Pellets/Normal" index="109" instance=ExtResource("4_g8q31")]
+position = Vector2(1272, 360)
+
+[node name="Pellet111" parent="Pickables/Pellets/Normal" index="110" instance=ExtResource("4_g8q31")]
+position = Vector2(1320, 360)
+
+[node name="Pellet112" parent="Pickables/Pellets/Normal" index="111" instance=ExtResource("4_g8q31")]
+position = Vector2(1416, 360)
+
+[node name="Pellet113" parent="Pickables/Pellets/Normal" index="112" instance=ExtResource("4_g8q31")]
+position = Vector2(1464, 360)
+
+[node name="Pellet114" parent="Pickables/Pellets/Normal" index="113" instance=ExtResource("4_g8q31")]
+position = Vector2(1512, 360)
+
+[node name="Pellet115" parent="Pickables/Pellets/Normal" index="114" instance=ExtResource("4_g8q31")]
+position = Vector2(1608, 360)
+
+[node name="Pellet116" parent="Pickables/Pellets/Normal" index="115" instance=ExtResource("4_g8q31")]
+position = Vector2(1656, 360)
+
+[node name="Pellet117" parent="Pickables/Pellets/Normal" index="116" instance=ExtResource("4_g8q31")]
+position = Vector2(1704, 360)
+
+[node name="Pellet118" parent="Pickables/Pellets/Normal" index="117" instance=ExtResource("4_g8q31")]
+position = Vector2(1752, 360)
+
+[node name="Pellet119" parent="Pickables/Pellets/Normal" index="118" instance=ExtResource("4_g8q31")]
+position = Vector2(312, 408)
+
+[node name="Pellet120" parent="Pickables/Pellets/Normal" index="119" instance=ExtResource("4_g8q31")]
+position = Vector2(408, 408)
+
+[node name="Pellet121" parent="Pickables/Pellets/Normal" index="120" instance=ExtResource("4_g8q31")]
+position = Vector2(504, 408)
+
+[node name="Pellet122" parent="Pickables/Pellets/Normal" index="121" instance=ExtResource("4_g8q31")]
+position = Vector2(600, 408)
+
+[node name="Pellet123" parent="Pickables/Pellets/Normal" index="122" instance=ExtResource("4_g8q31")]
+position = Vector2(888, 408)
+
+[node name="Pellet124" parent="Pickables/Pellets/Normal" index="123" instance=ExtResource("4_g8q31")]
+position = Vector2(1032, 408)
+
+[node name="Pellet125" parent="Pickables/Pellets/Normal" index="124" instance=ExtResource("4_g8q31")]
+position = Vector2(1320, 408)
+
+[node name="Pellet126" parent="Pickables/Pellets/Normal" index="125" instance=ExtResource("4_g8q31")]
+position = Vector2(1416, 408)
+
+[node name="Pellet127" parent="Pickables/Pellets/Normal" index="126" instance=ExtResource("4_g8q31")]
+position = Vector2(1512, 408)
+
+[node name="Pellet128" parent="Pickables/Pellets/Normal" index="127" instance=ExtResource("4_g8q31")]
+position = Vector2(1608, 408)
+
+[node name="Pellet129" parent="Pickables/Pellets/Normal" index="128" instance=ExtResource("4_g8q31")]
+position = Vector2(312, 456)
+
+[node name="Pellet130" parent="Pickables/Pellets/Normal" index="129" instance=ExtResource("4_g8q31")]
+position = Vector2(408, 456)
+
+[node name="Pellet131" parent="Pickables/Pellets/Normal" index="130" instance=ExtResource("4_g8q31")]
+position = Vector2(504, 456)
+
+[node name="Pellet132" parent="Pickables/Pellets/Normal" index="131" instance=ExtResource("4_g8q31")]
+position = Vector2(552, 456)
+
+[node name="Pellet133" parent="Pickables/Pellets/Normal" index="132" instance=ExtResource("4_g8q31")]
+position = Vector2(600, 456)
+
+[node name="Pellet134" parent="Pickables/Pellets/Normal" index="133" instance=ExtResource("4_g8q31")]
+position = Vector2(648, 456)
+
+[node name="Pellet135" parent="Pickables/Pellets/Normal" index="134" instance=ExtResource("4_g8q31")]
+position = Vector2(696, 456)
+
+[node name="Pellet136" parent="Pickables/Pellets/Normal" index="135" instance=ExtResource("4_g8q31")]
+position = Vector2(1224, 456)
+
+[node name="Pellet137" parent="Pickables/Pellets/Normal" index="136" instance=ExtResource("4_g8q31")]
+position = Vector2(1272, 456)
+
+[node name="Pellet138" parent="Pickables/Pellets/Normal" index="137" instance=ExtResource("4_g8q31")]
+position = Vector2(1320, 456)
+
+[node name="Pellet139" parent="Pickables/Pellets/Normal" index="138" instance=ExtResource("4_g8q31")]
+position = Vector2(1368, 456)
+
+[node name="Pellet140" parent="Pickables/Pellets/Normal" index="139" instance=ExtResource("4_g8q31")]
+position = Vector2(1416, 456)
+
+[node name="Pellet141" parent="Pickables/Pellets/Normal" index="140" instance=ExtResource("4_g8q31")]
+position = Vector2(1512, 456)
+
+[node name="Pellet142" parent="Pickables/Pellets/Normal" index="141" instance=ExtResource("4_g8q31")]
+position = Vector2(1608, 456)
+
+[node name="Pellet143" parent="Pickables/Pellets/Normal" index="142" instance=ExtResource("4_g8q31")]
+position = Vector2(312, 504)
+
+[node name="Pellet144" parent="Pickables/Pellets/Normal" index="143" instance=ExtResource("4_g8q31")]
+position = Vector2(408, 504)
+
+[node name="Pellet145" parent="Pickables/Pellets/Normal" index="144" instance=ExtResource("4_g8q31")]
+position = Vector2(504, 504)
+
+[node name="Pellet146" parent="Pickables/Pellets/Normal" index="145" instance=ExtResource("4_g8q31")]
+position = Vector2(696, 504)
+
+[node name="Pellet147" parent="Pickables/Pellets/Normal" index="146" instance=ExtResource("4_g8q31")]
+position = Vector2(1224, 504)
+
+[node name="Pellet148" parent="Pickables/Pellets/Normal" index="147" instance=ExtResource("4_g8q31")]
+position = Vector2(1416, 504)
+
+[node name="Pellet149" parent="Pickables/Pellets/Normal" index="148" instance=ExtResource("4_g8q31")]
+position = Vector2(1512, 504)
+
+[node name="Pellet150" parent="Pickables/Pellets/Normal" index="149" instance=ExtResource("4_g8q31")]
+position = Vector2(1608, 504)
+
+[node name="Pellet151" parent="Pickables/Pellets/Normal" index="150" instance=ExtResource("4_g8q31")]
+position = Vector2(312, 552)
+
+[node name="Pellet152" parent="Pickables/Pellets/Normal" index="151" instance=ExtResource("4_g8q31")]
+position = Vector2(360, 552)
+
+[node name="Pellet153" parent="Pickables/Pellets/Normal" index="152" instance=ExtResource("4_g8q31")]
+position = Vector2(408, 552)
+
+[node name="Pellet154" parent="Pickables/Pellets/Normal" index="153" instance=ExtResource("4_g8q31")]
+position = Vector2(456, 552)
+
+[node name="Pellet155" parent="Pickables/Pellets/Normal" index="154" instance=ExtResource("4_g8q31")]
+position = Vector2(504, 552)
+
+[node name="Pellet156" parent="Pickables/Pellets/Normal" index="155" instance=ExtResource("4_g8q31")]
+position = Vector2(600, 552)
+
+[node name="Pellet157" parent="Pickables/Pellets/Normal" index="156" instance=ExtResource("4_g8q31")]
+position = Vector2(648, 552)
+
+[node name="Pellet158" parent="Pickables/Pellets/Normal" index="157" instance=ExtResource("4_g8q31")]
+position = Vector2(696, 552)
+
+[node name="Pellet159" parent="Pickables/Pellets/Normal" index="158" instance=ExtResource("4_g8q31")]
+position = Vector2(744, 552)
+
+[node name="Pellet160" parent="Pickables/Pellets/Normal" index="159" instance=ExtResource("4_g8q31")]
+position = Vector2(1176, 552)
+
+[node name="Pellet161" parent="Pickables/Pellets/Normal" index="160" instance=ExtResource("4_g8q31")]
+position = Vector2(1224, 552)
+
+[node name="Pellet162" parent="Pickables/Pellets/Normal" index="161" instance=ExtResource("4_g8q31")]
+position = Vector2(1272, 552)
+
+[node name="Pellet163" parent="Pickables/Pellets/Normal" index="162" instance=ExtResource("4_g8q31")]
+position = Vector2(1320, 552)
+
+[node name="Pellet164" parent="Pickables/Pellets/Normal" index="163" instance=ExtResource("4_g8q31")]
+position = Vector2(1416, 552)
+
+[node name="Pellet165" parent="Pickables/Pellets/Normal" index="164" instance=ExtResource("4_g8q31")]
+position = Vector2(1464, 552)
+
+[node name="Pellet166" parent="Pickables/Pellets/Normal" index="165" instance=ExtResource("4_g8q31")]
+position = Vector2(1512, 552)
+
+[node name="Pellet167" parent="Pickables/Pellets/Normal" index="166" instance=ExtResource("4_g8q31")]
+position = Vector2(1560, 552)
+
+[node name="Pellet168" parent="Pickables/Pellets/Normal" index="167" instance=ExtResource("4_g8q31")]
+position = Vector2(1608, 552)
+
+[node name="Pellet169" parent="Pickables/Pellets/Normal" index="168" instance=ExtResource("4_g8q31")]
+position = Vector2(312, 600)
+
+[node name="Pellet170" parent="Pickables/Pellets/Normal" index="169" instance=ExtResource("4_g8q31")]
+position = Vector2(408, 600)
+
+[node name="Pellet171" parent="Pickables/Pellets/Normal" index="170" instance=ExtResource("4_g8q31")]
+position = Vector2(600, 600)
+
+[node name="Pellet172" parent="Pickables/Pellets/Normal" index="171" instance=ExtResource("4_g8q31")]
+position = Vector2(1320, 600)
+
+[node name="Pellet173" parent="Pickables/Pellets/Normal" index="172" instance=ExtResource("4_g8q31")]
+position = Vector2(1512, 600)
+
+[node name="Pellet174" parent="Pickables/Pellets/Normal" index="173" instance=ExtResource("4_g8q31")]
+position = Vector2(1608, 600)
+
+[node name="Pellet175" parent="Pickables/Pellets/Normal" index="174" instance=ExtResource("4_g8q31")]
+position = Vector2(312, 648)
+
+[node name="Pellet176" parent="Pickables/Pellets/Normal" index="175" instance=ExtResource("4_g8q31")]
+position = Vector2(408, 648)
+
+[node name="Pellet177" parent="Pickables/Pellets/Normal" index="176" instance=ExtResource("4_g8q31")]
+position = Vector2(456, 648)
+
+[node name="Pellet178" parent="Pickables/Pellets/Normal" index="177" instance=ExtResource("4_g8q31")]
+position = Vector2(504, 648)
+
+[node name="Pellet179" parent="Pickables/Pellets/Normal" index="178" instance=ExtResource("4_g8q31")]
+position = Vector2(552, 648)
+
+[node name="Pellet180" parent="Pickables/Pellets/Normal" index="179" instance=ExtResource("4_g8q31")]
+position = Vector2(600, 648)
+
+[node name="Pellet181" parent="Pickables/Pellets/Normal" index="180" instance=ExtResource("4_g8q31")]
+position = Vector2(648, 648)
+
+[node name="Pellet182" parent="Pickables/Pellets/Normal" index="181" instance=ExtResource("4_g8q31")]
+position = Vector2(696, 648)
+
+[node name="Pellet183" parent="Pickables/Pellets/Normal" index="182" instance=ExtResource("4_g8q31")]
+position = Vector2(1224, 648)
+
+[node name="Pellet184" parent="Pickables/Pellets/Normal" index="183" instance=ExtResource("4_g8q31")]
+position = Vector2(1272, 648)
+
+[node name="Pellet185" parent="Pickables/Pellets/Normal" index="184" instance=ExtResource("4_g8q31")]
+position = Vector2(1320, 648)
+
+[node name="Pellet186" parent="Pickables/Pellets/Normal" index="185" instance=ExtResource("4_g8q31")]
+position = Vector2(1368, 648)
+
+[node name="Pellet187" parent="Pickables/Pellets/Normal" index="186" instance=ExtResource("4_g8q31")]
+position = Vector2(1416, 648)
+
+[node name="Pellet188" parent="Pickables/Pellets/Normal" index="187" instance=ExtResource("4_g8q31")]
+position = Vector2(1464, 648)
+
+[node name="Pellet189" parent="Pickables/Pellets/Normal" index="188" instance=ExtResource("4_g8q31")]
+position = Vector2(1512, 648)
+
+[node name="Pellet190" parent="Pickables/Pellets/Normal" index="189" instance=ExtResource("4_g8q31")]
+position = Vector2(1608, 648)
+
+[node name="Pellet191" parent="Pickables/Pellets/Normal" index="190" instance=ExtResource("4_g8q31")]
+position = Vector2(312, 696)
+
+[node name="Pellet192" parent="Pickables/Pellets/Normal" index="191" instance=ExtResource("4_g8q31")]
+position = Vector2(408, 696)
+
+[node name="Pellet193" parent="Pickables/Pellets/Normal" index="192" instance=ExtResource("4_g8q31")]
+position = Vector2(696, 696)
+
+[node name="Pellet194" parent="Pickables/Pellets/Normal" index="193" instance=ExtResource("4_g8q31")]
 position = Vector2(792, 696)
 
+[node name="Pellet195" parent="Pickables/Pellets/Normal" index="194" instance=ExtResource("4_g8q31")]
+position = Vector2(1128, 696)
+
+[node name="Pellet196" parent="Pickables/Pellets/Normal" index="195" instance=ExtResource("4_g8q31")]
+position = Vector2(1224, 696)
+
+[node name="Pellet197" parent="Pickables/Pellets/Normal" index="196" instance=ExtResource("4_g8q31")]
+position = Vector2(1512, 696)
+
+[node name="Pellet198" parent="Pickables/Pellets/Normal" index="197" instance=ExtResource("4_g8q31")]
+position = Vector2(1608, 696)
+
+[node name="Pellet199" parent="Pickables/Pellets/Normal" index="198" instance=ExtResource("4_g8q31")]
+position = Vector2(168, 744)
+
+[node name="Pellet200" parent="Pickables/Pellets/Normal" index="199" instance=ExtResource("4_g8q31")]
+position = Vector2(216, 744)
+
+[node name="Pellet201" parent="Pickables/Pellets/Normal" index="200" instance=ExtResource("4_g8q31")]
+position = Vector2(264, 744)
+
+[node name="Pellet202" parent="Pickables/Pellets/Normal" index="201" instance=ExtResource("4_g8q31")]
+position = Vector2(312, 744)
+
+[node name="Pellet203" parent="Pickables/Pellets/Normal" index="202" instance=ExtResource("4_g8q31")]
+position = Vector2(360, 744)
+
+[node name="Pellet204" parent="Pickables/Pellets/Normal" index="203" instance=ExtResource("4_g8q31")]
+position = Vector2(408, 744)
+
+[node name="Pellet205" parent="Pickables/Pellets/Normal" index="204" instance=ExtResource("4_g8q31")]
+position = Vector2(456, 744)
+
+[node name="Pellet206" parent="Pickables/Pellets/Normal" index="205" instance=ExtResource("4_g8q31")]
+position = Vector2(504, 744)
+
+[node name="Pellet207" parent="Pickables/Pellets/Normal" index="206" instance=ExtResource("4_g8q31")]
+position = Vector2(600, 744)
+
+[node name="Pellet208" parent="Pickables/Pellets/Normal" index="207" instance=ExtResource("4_g8q31")]
+position = Vector2(648, 744)
+
+[node name="Pellet209" parent="Pickables/Pellets/Normal" index="208" instance=ExtResource("4_g8q31")]
+position = Vector2(696, 744)
+
+[node name="Pellet210" parent="Pickables/Pellets/Normal" index="209" instance=ExtResource("4_g8q31")]
+position = Vector2(744, 744)
+
+[node name="Pellet211" parent="Pickables/Pellets/Normal" index="210" instance=ExtResource("4_g8q31")]
+position = Vector2(792, 744)
+
+[node name="Pellet212" parent="Pickables/Pellets/Normal" index="211" instance=ExtResource("4_g8q31")]
+position = Vector2(840, 744)
+
+[node name="Pellet213" parent="Pickables/Pellets/Normal" index="212" instance=ExtResource("4_g8q31")]
+position = Vector2(888, 744)
+
+[node name="Pellet214" parent="Pickables/Pellets/Normal" index="213" instance=ExtResource("4_g8q31")]
+position = Vector2(1032, 744)
+
+[node name="Pellet215" parent="Pickables/Pellets/Normal" index="214" instance=ExtResource("4_g8q31")]
+position = Vector2(1080, 744)
+
+[node name="Pellet216" parent="Pickables/Pellets/Normal" index="215" instance=ExtResource("4_g8q31")]
+position = Vector2(1128, 744)
+
+[node name="Pellet217" parent="Pickables/Pellets/Normal" index="216" instance=ExtResource("4_g8q31")]
+position = Vector2(1176, 744)
+
+[node name="Pellet218" parent="Pickables/Pellets/Normal" index="217" instance=ExtResource("4_g8q31")]
+position = Vector2(1224, 744)
+
+[node name="Pellet219" parent="Pickables/Pellets/Normal" index="218" instance=ExtResource("4_g8q31")]
+position = Vector2(1272, 744)
+
+[node name="Pellet220" parent="Pickables/Pellets/Normal" index="219" instance=ExtResource("4_g8q31")]
+position = Vector2(1320, 744)
+
+[node name="Pellet221" parent="Pickables/Pellets/Normal" index="220" instance=ExtResource("4_g8q31")]
+position = Vector2(1416, 744)
+
+[node name="Pellet222" parent="Pickables/Pellets/Normal" index="221" instance=ExtResource("4_g8q31")]
+position = Vector2(1464, 744)
+
+[node name="Pellet223" parent="Pickables/Pellets/Normal" index="222" instance=ExtResource("4_g8q31")]
+position = Vector2(1512, 744)
+
+[node name="Pellet224" parent="Pickables/Pellets/Normal" index="223" instance=ExtResource("4_g8q31")]
+position = Vector2(1560, 744)
+
+[node name="Pellet225" parent="Pickables/Pellets/Normal" index="224" instance=ExtResource("4_g8q31")]
+position = Vector2(1608, 744)
+
+[node name="Pellet226" parent="Pickables/Pellets/Normal" index="225" instance=ExtResource("4_g8q31")]
+position = Vector2(1656, 744)
+
+[node name="Pellet227" parent="Pickables/Pellets/Normal" index="226" instance=ExtResource("4_g8q31")]
+position = Vector2(1704, 744)
+
+[node name="Pellet228" parent="Pickables/Pellets/Normal" index="227" instance=ExtResource("4_g8q31")]
+position = Vector2(1752, 744)
+
+[node name="Pellet229" parent="Pickables/Pellets/Normal" index="228" instance=ExtResource("4_g8q31")]
+position = Vector2(312, 792)
+
+[node name="Pellet230" parent="Pickables/Pellets/Normal" index="229" instance=ExtResource("4_g8q31")]
+position = Vector2(504, 792)
+
+[node name="Pellet231" parent="Pickables/Pellets/Normal" index="230" instance=ExtResource("4_g8q31")]
+position = Vector2(600, 792)
+
+[node name="Pellet232" parent="Pickables/Pellets/Normal" index="231" instance=ExtResource("4_g8q31")]
+position = Vector2(888, 792)
+
+[node name="Pellet233" parent="Pickables/Pellets/Normal" index="232" instance=ExtResource("4_g8q31")]
+position = Vector2(1032, 792)
+
+[node name="Pellet234" parent="Pickables/Pellets/Normal" index="233" instance=ExtResource("4_g8q31")]
+position = Vector2(1320, 792)
+
+[node name="Pellet235" parent="Pickables/Pellets/Normal" index="234" instance=ExtResource("4_g8q31")]
+position = Vector2(1416, 792)
+
+[node name="Pellet236" parent="Pickables/Pellets/Normal" index="235" instance=ExtResource("4_g8q31")]
+position = Vector2(1608, 792)
+
+[node name="Pellet237" parent="Pickables/Pellets/Normal" index="236" instance=ExtResource("4_g8q31")]
+position = Vector2(168, 840)
+
+[node name="Pellet238" parent="Pickables/Pellets/Normal" index="237" instance=ExtResource("4_g8q31")]
+position = Vector2(216, 840)
+
+[node name="Pellet239" parent="Pickables/Pellets/Normal" index="238" instance=ExtResource("4_g8q31")]
+position = Vector2(312, 840)
+
+[node name="Pellet240" parent="Pickables/Pellets/Normal" index="239" instance=ExtResource("4_g8q31")]
+position = Vector2(360, 840)
+
+[node name="Pellet241" parent="Pickables/Pellets/Normal" index="240" instance=ExtResource("4_g8q31")]
+position = Vector2(408, 840)
+
+[node name="Pellet242" parent="Pickables/Pellets/Normal" index="241" instance=ExtResource("4_g8q31")]
+position = Vector2(456, 840)
+
+[node name="Pellet243" parent="Pickables/Pellets/Normal" index="242" instance=ExtResource("4_g8q31")]
+position = Vector2(504, 840)
+
+[node name="Pellet244" parent="Pickables/Pellets/Normal" index="243" instance=ExtResource("4_g8q31")]
+position = Vector2(552, 840)
+
+[node name="Pellet245" parent="Pickables/Pellets/Normal" index="244" instance=ExtResource("4_g8q31")]
+position = Vector2(600, 840)
+
+[node name="Pellet246" parent="Pickables/Pellets/Normal" index="245" instance=ExtResource("4_g8q31")]
+position = Vector2(648, 840)
+
+[node name="Pellet247" parent="Pickables/Pellets/Normal" index="246" instance=ExtResource("4_g8q31")]
+position = Vector2(696, 840)
+
+[node name="Pellet248" parent="Pickables/Pellets/Normal" index="247" instance=ExtResource("4_g8q31")]
+position = Vector2(744, 840)
+
+[node name="Pellet249" parent="Pickables/Pellets/Normal" index="248" instance=ExtResource("4_g8q31")]
+position = Vector2(792, 840)
+
+[node name="Pellet250" parent="Pickables/Pellets/Normal" index="249" instance=ExtResource("4_g8q31")]
+position = Vector2(840, 840)
+
+[node name="Pellet251" parent="Pickables/Pellets/Normal" index="250" instance=ExtResource("4_g8q31")]
+position = Vector2(888, 840)
+
+[node name="Pellet311" parent="Pickables/Pellets/Normal" index="251" instance=ExtResource("4_g8q31")]
+position = Vector2(168, 1032)
+
+[node name="Pellet312" parent="Pickables/Pellets/Normal" index="252" instance=ExtResource("4_g8q31")]
+position = Vector2(216, 1032)
+
+[node name="Pellet252" parent="Pickables/Pellets/Normal" index="253" instance=ExtResource("4_g8q31")]
+position = Vector2(1032, 840)
+
+[node name="Pellet253" parent="Pickables/Pellets/Normal" index="254" instance=ExtResource("4_g8q31")]
+position = Vector2(1080, 840)
+
+[node name="Pellet254" parent="Pickables/Pellets/Normal" index="255" instance=ExtResource("4_g8q31")]
+position = Vector2(1128, 840)
+
+[node name="Pellet255" parent="Pickables/Pellets/Normal" index="256" instance=ExtResource("4_g8q31")]
+position = Vector2(1176, 840)
+
+[node name="Pellet256" parent="Pickables/Pellets/Normal" index="257" instance=ExtResource("4_g8q31")]
+position = Vector2(1224, 840)
+
+[node name="Pellet257" parent="Pickables/Pellets/Normal" index="258" instance=ExtResource("4_g8q31")]
+position = Vector2(1272, 840)
+
+[node name="Pellet258" parent="Pickables/Pellets/Normal" index="259" instance=ExtResource("4_g8q31")]
+position = Vector2(1320, 840)
+
+[node name="Pellet259" parent="Pickables/Pellets/Normal" index="260" instance=ExtResource("4_g8q31")]
+position = Vector2(1368, 840)
+
+[node name="Pellet260" parent="Pickables/Pellets/Normal" index="261" instance=ExtResource("4_g8q31")]
+position = Vector2(1416, 840)
+
+[node name="Pellet261" parent="Pickables/Pellets/Normal" index="262" instance=ExtResource("4_g8q31")]
+position = Vector2(1464, 840)
+
+[node name="Pellet262" parent="Pickables/Pellets/Normal" index="263" instance=ExtResource("4_g8q31")]
+position = Vector2(1512, 840)
+
+[node name="Pellet263" parent="Pickables/Pellets/Normal" index="264" instance=ExtResource("4_g8q31")]
+position = Vector2(1560, 840)
+
+[node name="Pellet264" parent="Pickables/Pellets/Normal" index="265" instance=ExtResource("4_g8q31")]
+position = Vector2(1608, 840)
+
+[node name="Pellet265" parent="Pickables/Pellets/Normal" index="266" instance=ExtResource("4_g8q31")]
+position = Vector2(1704, 840)
+
+[node name="Pellet266" parent="Pickables/Pellets/Normal" index="267" instance=ExtResource("4_g8q31")]
+position = Vector2(1752, 840)
+
+[node name="Pellet267" parent="Pickables/Pellets/Normal" index="268" instance=ExtResource("4_g8q31")]
+position = Vector2(216, 888)
+
+[node name="Pellet268" parent="Pickables/Pellets/Normal" index="269" instance=ExtResource("4_g8q31")]
+position = Vector2(312, 888)
+
+[node name="Pellet269" parent="Pickables/Pellets/Normal" index="270" instance=ExtResource("4_g8q31")]
+position = Vector2(408, 888)
+
+[node name="Pellet270" parent="Pickables/Pellets/Normal" index="271" instance=ExtResource("4_g8q31")]
+position = Vector2(696, 888)
+
+[node name="Pellet271" parent="Pickables/Pellets/Normal" index="272" instance=ExtResource("4_g8q31")]
+position = Vector2(792, 888)
+
+[node name="Pellet272" parent="Pickables/Pellets/Normal" index="273" instance=ExtResource("4_g8q31")]
+position = Vector2(1128, 888)
+
+[node name="Pellet273" parent="Pickables/Pellets/Normal" index="274" instance=ExtResource("4_g8q31")]
+position = Vector2(1224, 888)
+
+[node name="Pellet274" parent="Pickables/Pellets/Normal" index="275" instance=ExtResource("4_g8q31")]
+position = Vector2(1512, 888)
+
+[node name="Pellet275" parent="Pickables/Pellets/Normal" index="276" instance=ExtResource("4_g8q31")]
+position = Vector2(1608, 888)
+
+[node name="Pellet276" parent="Pickables/Pellets/Normal" index="277" instance=ExtResource("4_g8q31")]
+position = Vector2(1704, 888)
+
+[node name="Pellet277" parent="Pickables/Pellets/Normal" index="278" instance=ExtResource("4_g8q31")]
+position = Vector2(168, 936)
+
+[node name="Pellet278" parent="Pickables/Pellets/Normal" index="279" instance=ExtResource("4_g8q31")]
+position = Vector2(216, 936)
+
+[node name="Pellet279" parent="Pickables/Pellets/Normal" index="280" instance=ExtResource("4_g8q31")]
+position = Vector2(264, 936)
+
+[node name="Pellet280" parent="Pickables/Pellets/Normal" index="281" instance=ExtResource("4_g8q31")]
+position = Vector2(312, 936)
+
+[node name="Pellet281" parent="Pickables/Pellets/Normal" index="282" instance=ExtResource("4_g8q31")]
+position = Vector2(408, 936)
+
+[node name="Pellet282" parent="Pickables/Pellets/Normal" index="283" instance=ExtResource("4_g8q31")]
+position = Vector2(456, 936)
+
+[node name="Pellet283" parent="Pickables/Pellets/Normal" index="284" instance=ExtResource("4_g8q31")]
+position = Vector2(504, 936)
+
+[node name="Pellet284" parent="Pickables/Pellets/Normal" index="285" instance=ExtResource("4_g8q31")]
+position = Vector2(600, 936)
+
+[node name="Pellet285" parent="Pickables/Pellets/Normal" index="286" instance=ExtResource("4_g8q31")]
+position = Vector2(648, 936)
+
+[node name="Pellet286" parent="Pickables/Pellets/Normal" index="287" instance=ExtResource("4_g8q31")]
+position = Vector2(696, 936)
+
+[node name="Pellet287" parent="Pickables/Pellets/Normal" index="288" instance=ExtResource("4_g8q31")]
+position = Vector2(792, 936)
+
+[node name="Pellet288" parent="Pickables/Pellets/Normal" index="289" instance=ExtResource("4_g8q31")]
+position = Vector2(840, 936)
+
+[node name="Pellet289" parent="Pickables/Pellets/Normal" index="290" instance=ExtResource("4_g8q31")]
+position = Vector2(888, 936)
+
+[node name="Pellet290" parent="Pickables/Pellets/Normal" index="291" instance=ExtResource("4_g8q31")]
+position = Vector2(1032, 936)
+
+[node name="Pellet291" parent="Pickables/Pellets/Normal" index="292" instance=ExtResource("4_g8q31")]
+position = Vector2(1080, 936)
+
+[node name="Pellet292" parent="Pickables/Pellets/Normal" index="293" instance=ExtResource("4_g8q31")]
+position = Vector2(1128, 936)
+
+[node name="Pellet293" parent="Pickables/Pellets/Normal" index="294" instance=ExtResource("4_g8q31")]
+position = Vector2(1224, 936)
+
+[node name="Pellet294" parent="Pickables/Pellets/Normal" index="295" instance=ExtResource("4_g8q31")]
+position = Vector2(1272, 936)
+
+[node name="Pellet295" parent="Pickables/Pellets/Normal" index="296" instance=ExtResource("4_g8q31")]
+position = Vector2(1320, 936)
+
+[node name="Pellet296" parent="Pickables/Pellets/Normal" index="297" instance=ExtResource("4_g8q31")]
+position = Vector2(1416, 936)
+
+[node name="Pellet297" parent="Pickables/Pellets/Normal" index="298" instance=ExtResource("4_g8q31")]
+position = Vector2(1464, 936)
+
+[node name="Pellet298" parent="Pickables/Pellets/Normal" index="299" instance=ExtResource("4_g8q31")]
+position = Vector2(1512, 936)
+
+[node name="Pellet299" parent="Pickables/Pellets/Normal" index="300" instance=ExtResource("4_g8q31")]
+position = Vector2(1608, 936)
+
+[node name="Pellet300" parent="Pickables/Pellets/Normal" index="301" instance=ExtResource("4_g8q31")]
+position = Vector2(1656, 936)
+
+[node name="Pellet301" parent="Pickables/Pellets/Normal" index="302" instance=ExtResource("4_g8q31")]
+position = Vector2(1704, 936)
+
+[node name="Pellet302" parent="Pickables/Pellets/Normal" index="303" instance=ExtResource("4_g8q31")]
+position = Vector2(1752, 936)
+
+[node name="Pellet303" parent="Pickables/Pellets/Normal" index="304" instance=ExtResource("4_g8q31")]
+position = Vector2(168, 984)
+
+[node name="Pellet304" parent="Pickables/Pellets/Normal" index="305" instance=ExtResource("4_g8q31")]
+position = Vector2(504, 984)
+
+[node name="Pellet305" parent="Pickables/Pellets/Normal" index="306" instance=ExtResource("4_g8q31")]
+position = Vector2(600, 984)
+
+[node name="Pellet306" parent="Pickables/Pellets/Normal" index="307" instance=ExtResource("4_g8q31")]
+position = Vector2(888, 984)
+
+[node name="Pellet307" parent="Pickables/Pellets/Normal" index="308" instance=ExtResource("4_g8q31")]
+position = Vector2(1032, 984)
+
+[node name="Pellet308" parent="Pickables/Pellets/Normal" index="309" instance=ExtResource("4_g8q31")]
+position = Vector2(1320, 984)
+
+[node name="Pellet309" parent="Pickables/Pellets/Normal" index="310" instance=ExtResource("4_g8q31")]
+position = Vector2(1416, 984)
+
+[node name="Pellet310" parent="Pickables/Pellets/Normal" index="311" instance=ExtResource("4_g8q31")]
+position = Vector2(1752, 984)
+
+[node name="Pellet313" parent="Pickables/Pellets/Normal" index="312" instance=ExtResource("4_g8q31")]
+position = Vector2(264, 1032)
+
+[node name="Pellet314" parent="Pickables/Pellets/Normal" index="313" instance=ExtResource("4_g8q31")]
+position = Vector2(312, 1032)
+
+[node name="Pellet315" parent="Pickables/Pellets/Normal" index="314" instance=ExtResource("4_g8q31")]
+position = Vector2(360, 1032)
+
+[node name="Pellet316" parent="Pickables/Pellets/Normal" index="315" instance=ExtResource("4_g8q31")]
+position = Vector2(408, 1032)
+
+[node name="Pellet317" parent="Pickables/Pellets/Normal" index="316" instance=ExtResource("4_g8q31")]
+position = Vector2(456, 1032)
+
+[node name="Pellet318" parent="Pickables/Pellets/Normal" index="317" instance=ExtResource("4_g8q31")]
+position = Vector2(504, 1032)
+
+[node name="Pellet319" parent="Pickables/Pellets/Normal" index="318" instance=ExtResource("4_g8q31")]
+position = Vector2(552, 1032)
+
+[node name="Pellet320" parent="Pickables/Pellets/Normal" index="319" instance=ExtResource("4_g8q31")]
+position = Vector2(600, 1032)
+
+[node name="Pellet321" parent="Pickables/Pellets/Normal" index="320" instance=ExtResource("4_g8q31")]
+position = Vector2(648, 1032)
+
+[node name="Pellet322" parent="Pickables/Pellets/Normal" index="321" instance=ExtResource("4_g8q31")]
+position = Vector2(696, 1032)
+
+[node name="Pellet323" parent="Pickables/Pellets/Normal" index="322" instance=ExtResource("4_g8q31")]
+position = Vector2(744, 1032)
+
+[node name="Pellet324" parent="Pickables/Pellets/Normal" index="323" instance=ExtResource("4_g8q31")]
+position = Vector2(792, 1032)
+
+[node name="Pellet325" parent="Pickables/Pellets/Normal" index="324" instance=ExtResource("4_g8q31")]
+position = Vector2(840, 1032)
+
+[node name="Pellet326" parent="Pickables/Pellets/Normal" index="325" instance=ExtResource("4_g8q31")]
+position = Vector2(888, 1032)
+
+[node name="Pellet327" parent="Pickables/Pellets/Normal" index="326" instance=ExtResource("4_g8q31")]
+position = Vector2(936, 1032)
+
+[node name="Pellet328" parent="Pickables/Pellets/Normal" index="327" instance=ExtResource("4_g8q31")]
+position = Vector2(984, 1032)
+
+[node name="Pellet329" parent="Pickables/Pellets/Normal" index="328" instance=ExtResource("4_g8q31")]
+position = Vector2(1032, 1032)
+
+[node name="Pellet330" parent="Pickables/Pellets/Normal" index="329" instance=ExtResource("4_g8q31")]
+position = Vector2(1080, 1032)
+
+[node name="Pellet331" parent="Pickables/Pellets/Normal" index="330" instance=ExtResource("4_g8q31")]
+position = Vector2(1128, 1032)
+
+[node name="Pellet332" parent="Pickables/Pellets/Normal" index="331" instance=ExtResource("4_g8q31")]
+position = Vector2(1176, 1032)
+
+[node name="Pellet333" parent="Pickables/Pellets/Normal" index="332" instance=ExtResource("4_g8q31")]
+position = Vector2(1224, 1032)
+
+[node name="Pellet334" parent="Pickables/Pellets/Normal" index="333" instance=ExtResource("4_g8q31")]
+position = Vector2(1272, 1032)
+
+[node name="Pellet335" parent="Pickables/Pellets/Normal" index="334" instance=ExtResource("4_g8q31")]
+position = Vector2(1320, 1032)
+
+[node name="Pellet336" parent="Pickables/Pellets/Normal" index="335" instance=ExtResource("4_g8q31")]
+position = Vector2(1368, 1032)
+
+[node name="Pellet337" parent="Pickables/Pellets/Normal" index="336" instance=ExtResource("4_g8q31")]
+position = Vector2(1416, 1032)
+
+[node name="Pellet338" parent="Pickables/Pellets/Normal" index="337" instance=ExtResource("4_g8q31")]
+position = Vector2(1464, 1032)
+
+[node name="Pellet339" parent="Pickables/Pellets/Normal" index="338" instance=ExtResource("4_g8q31")]
+position = Vector2(1512, 1032)
+
+[node name="Pellet340" parent="Pickables/Pellets/Normal" index="339" instance=ExtResource("4_g8q31")]
+position = Vector2(1560, 1032)
+
+[node name="Pellet341" parent="Pickables/Pellets/Normal" index="340" instance=ExtResource("4_g8q31")]
+position = Vector2(1608, 1032)
+
+[node name="Pellet342" parent="Pickables/Pellets/Normal" index="341" instance=ExtResource("4_g8q31")]
+position = Vector2(1656, 1032)
+
+[node name="Pellet343" parent="Pickables/Pellets/Normal" index="342" instance=ExtResource("4_g8q31")]
+position = Vector2(1704, 1032)
+
+[node name="Pellet344" parent="Pickables/Pellets/Normal" index="343" instance=ExtResource("4_g8q31")]
+position = Vector2(1752, 1032)
+
+[node name="PowerPellet" parent="Pickables/Pellets/Power" index="0" instance=ExtResource("11_7tp22")]
+position = Vector2(168, 168)
+
 [node name="PowerPellet2" parent="Pickables/Pellets/Power" index="1" instance=ExtResource("11_7tp22")]
-position = Vector2(744, 552)
+position = Vector2(1752, 168)
+
+[node name="PowerPellet3" parent="Pickables/Pellets/Power" index="2" instance=ExtResource("11_7tp22")]
+position = Vector2(168, 792)
+
+[node name="PowerPellet4" parent="Pickables/Pellets/Power" index="3" instance=ExtResource("11_7tp22")]
+position = Vector2(1752, 792)
 
 [node name="BonusItems" parent="Pickables" instance=ExtResource("7_eb02v")]
 
@@ -382,25 +1417,25 @@ position = Vector2(960, 648)
 [node name="Players" type="Node" parent="Actors"]
 
 [node name="Player" parent="Actors/Players" node_paths=PackedStringArray("spawn_point") instance=ExtResource("4_u33na")]
-position = Vector2(744, 744)
+position = Vector2(960, 840)
 spawn_point = NodePath("../../../PlayerSpawnPoint")
 
 [node name="Enemies" parent="Actors" instance=ExtResource("8_v5yh8")]
 
 [node name="EnemyBourrin" parent="Actors/Enemies" node_paths=PackedStringArray("spawn_point") instance=ExtResource("10_so184")]
-position = Vector2(912, 648)
+position = Vector2(960, 456)
 spawn_point = NodePath("../../../EnemiesSpawnPoints/Marker2D")
 
-[node name="EnemyAssassin" parent="Actors/Enemies" node_paths=PackedStringArray("spawn_point") instance=ExtResource("12_yei6x")]
-position = Vector2(936, 648)
+[node name="EnemyChelou" parent="Actors/Enemies" node_paths=PackedStringArray("spawn_point") instance=ExtResource("11_76jps")]
+position = Vector2(888, 552)
 spawn_point = NodePath("../../../EnemiesSpawnPoints/Marker2D2")
 
-[node name="EnemyChelou" parent="Actors/Enemies" node_paths=PackedStringArray("spawn_point") instance=ExtResource("11_76jps")]
-position = Vector2(960, 648)
+[node name="EnemyAssassin" parent="Actors/Enemies" node_paths=PackedStringArray("spawn_point") instance=ExtResource("12_yei6x")]
+position = Vector2(960, 552)
 spawn_point = NodePath("../../../EnemiesSpawnPoints/Marker2D3")
 
 [node name="EnemyCornichon" parent="Actors/Enemies" node_paths=PackedStringArray("spawn_point") instance=ExtResource("13_vj81d")]
-position = Vector2(984, 648)
+position = Vector2(1032, 552)
 spawn_point = NodePath("../../../EnemiesSpawnPoints/Marker2D4")
 
 [node name="SharedEnemyAI" parent="." instance=ExtResource("9_qqr5i")]
