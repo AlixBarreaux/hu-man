@@ -3,7 +3,7 @@ extends Node
 
 
 const GAME_READY_STREAM: AudioStream = preload("res://assets/audio/game_ready.wav")
-const LEVEL_CLEARED_STREAM: AudioStream = preload("res://assets/audio/level_cleared.wav")
+const LEVEL_CLEARED_STREAM: AudioStream = preload("res://assets/audio/success.wav")
 
 @onready var music_player: AudioStreamPlayer = $Music
 @onready var pickups_player: AudioStreamPlayer = $Pickups
