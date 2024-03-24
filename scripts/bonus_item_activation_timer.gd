@@ -53,7 +53,7 @@ func on_pellet_picked_up(_value: int) -> void:
 	
 	# Change pellets cap
 	remaining_pellets_percentage = pellet_cap_percentages_tiers[pellet_cap_percentages_tiers.size() - 1]
-	remaining_pellets_cap = int(pellets_node.total_remaining_pellets_count * remaining_pellets_percentage)
+	remaining_pellets_cap = int(pellets_node.initial_pellets_count * remaining_pellets_percentage)
 
 
 func check_if_should_queue_free() -> void:
@@ -105,7 +105,7 @@ func _ready() -> void:
 		return
 	
 	remaining_pellets_percentage = pellet_cap_percentages_tiers[pellet_cap_percentages_tiers.size() - 1]
-	remaining_pellets_cap = int(pellets_node.total_remaining_pellets_count * remaining_pellets_percentage)
+	remaining_pellets_cap = int(pellets_node.initial_pellets_count * remaining_pellets_percentage)
 	
 	self._initialize_asserts()
 	
