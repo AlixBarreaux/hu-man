@@ -300,9 +300,11 @@ func on_game_started() -> void:
 		States.CHASE:
 			background_state = States.CHASE
 			chase_timer.start()
-		_:
+		States.SCATTER:
 			background_state = States.SCATTER
 			scatter_timer.start()
+		_:
+			printerr(("(!) ERROR: In: " + self.get_name() + ": Uhandled state on game started!"))
 			
 	first_initialization = false
 	
