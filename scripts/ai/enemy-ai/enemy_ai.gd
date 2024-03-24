@@ -216,7 +216,8 @@ func on_power_pellet_picked_up(_value: int) -> void:
 	self.set_state(States.FRIGHTENED)
 
 
-@onready var enemies_timers: EnemiesTimer = get_tree().get_root().get_node("Level/EnemiesTimers")
+@onready var shared_ai: SharedEnemyAI = get_tree().get_root().get_node("Level/SharedEnemyAI")
+@onready var enemies_timers: EnemiesTimer = shared_ai.get_node("EnemiesTimers")
 @onready var scatter_timer: Timer = enemies_timers.get_node("ScatterDurationTimer")
 @onready var chase_timer: Timer = enemies_timers.get_node("ChaseDurationTimer")
 @onready var frightened_timer: Timer = enemies_timers.get_node("FrightenedDurationTimer")

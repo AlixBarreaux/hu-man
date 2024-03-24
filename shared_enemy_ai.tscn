@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://borrvnekx8vht"]
+[gd_scene load_steps=3 format=3 uid="uid://borrvnekx8vht"]
 
 [ext_resource type="Script" path="res://shared_enemy_ai.gd" id="1_lx544"]
+[ext_resource type="PackedScene" uid="uid://bxko3dru3t24k" path="res://scenes/ai/enemies_timers.tscn" id="2_tm14q"]
 
 [node name="SharedEnemyAI" type="Node"]
 script = ExtResource("1_lx544")
+
+[node name="EnemiesTimers" parent="." instance=ExtResource("2_tm14q")]
