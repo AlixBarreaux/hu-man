@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://borrvnekx8vht"]
+
+[ext_resource type="Script" path="res://shared_enemy_ai.gd" id="1_lx544"]
+
+[node name="SharedEnemyAI" type="Node"]
+script = ExtResource("1_lx544")

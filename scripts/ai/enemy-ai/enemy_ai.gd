@@ -136,7 +136,7 @@ func go_to_next_scatter_point() -> void:
 		current_scatter_point_index = 0
 
 
-@onready var enemies: Enemies = get_tree().get_root().get_node("Level/Actors/Enemies")
+@onready var enemies: Node = get_tree().get_root().get_node("Level/Actors/Enemies")
 
 func pick_random_destination_position() -> void:
 	randomize()
@@ -347,17 +347,17 @@ func _initialize_signals() -> void:
 
 var first_initialization: bool = true
 
+signal initialized
+var is_initialized: bool = false
+
 func _initialize():
-	#set_physics_process(true)
-	# Wait for the first physics frame so the NavigationServer can sync.
-	#await get_tree().physics_frame
-	# Now that the nav map is no longer empty, can use pathfinding
-	
-	#build_walkable_tiles_list()
 	build_scatter_points_list()
+	is_initialized = true
+	self.initialized.emit()
 
 
 func _ready() -> void:
+	assert(enemy != null)
 	self.disable()
 	assert(FileAccess.file_exists(frightened_sound_file_path))
 	assert(FileAccess.file_exists(eaten_sound_file_path))

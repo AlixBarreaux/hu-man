@@ -2,7 +2,7 @@ extends Node2D
 class_name Enemy
 
 
-@export var speed: float = 0.0
+var speed: float = 0.0
 @export var spawn_point: Marker2D = null
 @onready var spawn_position: Vector2 = spawn_point.global_position
 
@@ -12,6 +12,8 @@ var velocity: Vector2 = self.direction
 
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var anim_node_sm_playback: AnimationNodeStateMachinePlayback = animation_tree.get("parameters/playback")
+
+@export var enemy_ai: Node2D = null
 
 
 func enable() -> void:

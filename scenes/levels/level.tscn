@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cbv40bjrx6t5h"]
+[gd_scene load_steps=24 format=3 uid="uid://cbv40bjrx6t5h"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_tf7gw"]
 [ext_resource type="Texture2D" uid="uid://dovjlefqdodmg" path="res://assets/sprites/tiles.png" id="2_s7s8c"]
@@ -6,10 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://b1mdnhyr4s07r" path="res://scenes/actors/player.tscn" id="4_u33na"]
 [ext_resource type="PackedScene" uid="uid://cvamjms4o581j" path="res://scenes/bonus_items.tscn" id="7_eb02v"]
 [ext_resource type="PackedScene" uid="uid://d2ybva0trn51" path="res://scenes/pickables/bonus_item.tscn" id="8_wkukv"]
+[ext_resource type="PackedScene" uid="uid://borrvnekx8vht" path="res://shared_enemy_ai.tscn" id="9_qqr5i"]
 [ext_resource type="PackedScene" uid="uid://d35gi8b3l2nhh" path="res://scenes/pellets.tscn" id="9_soaal"]
-[ext_resource type="PackedScene" uid="uid://duk55jswka620" path="res://enemies.tscn" id="10_2hfnh"]
 [ext_resource type="PackedScene" uid="uid://c4s65vdj85p3j" path="res://scenes/pickables/pellet.tscn" id="10_km4qh"]
+[ext_resource type="PackedScene" uid="uid://c1v0tqqh2nfa5" path="res://scenes/actors/enemy_bourrin.tscn" id="10_so184"]
 [ext_resource type="PackedScene" uid="uid://bpsnuln5keu2o" path="res://scenes/pickables/power_pellet.tscn" id="11_7tp22"]
+[ext_resource type="PackedScene" uid="uid://c5mkv72mwdf1m" path="res://scenes/actors/enemy_chelou.tscn" id="11_76jps"]
+[ext_resource type="PackedScene" uid="uid://dygx4p6tgp465" path="res://scenes/actors/enemy_assassin.tscn" id="12_yei6x"]
+[ext_resource type="PackedScene" uid="uid://bly5qwucu3w3c" path="res://scenes/actors/enemy_cornichon.tscn" id="13_vj81d"]
 [ext_resource type="PackedScene" uid="uid://di40nd36u435f" path="res://scenes/warp_zone.tscn" id="13_y6vvr"]
 [ext_resource type="PackedScene" uid="uid://bxd0v1wymn05u" path="res://scenes/ui/info_message_ui.tscn" id="14_86j3b"]
 [ext_resource type="PackedScene" uid="uid://c57ttid6qs2wq" path="res://scenes/ui/lives_ui.tscn" id="15_4lnah"]
@@ -1439,19 +1443,25 @@ position = Vector2(960, 648)
 position = Vector2(960, 840)
 spawn_point = NodePath("../../../PlayerSpawnPoint")
 
-[node name="Enemies" parent="Actors" instance=ExtResource("10_2hfnh")]
+[node name="Enemies" type="Node" parent="Actors"]
 
-[node name="EnemyBourrin" parent="Actors/Enemies" index="0" node_paths=PackedStringArray("spawn_point")]
+[node name="EnemyBourrin" parent="Actors/Enemies" node_paths=PackedStringArray("spawn_point") instance=ExtResource("10_so184")]
+position = Vector2(960, 456)
 spawn_point = NodePath("../../../EnemiesSpawnPoints/Marker2D")
 
-[node name="EnemyChelou" parent="Actors/Enemies" index="1" node_paths=PackedStringArray("spawn_point")]
+[node name="EnemyChelou" parent="Actors/Enemies" node_paths=PackedStringArray("spawn_point") instance=ExtResource("11_76jps")]
+position = Vector2(888, 552)
 spawn_point = NodePath("../../../EnemiesSpawnPoints/Marker2D2")
 
-[node name="EnemyAssassin" parent="Actors/Enemies" index="2" node_paths=PackedStringArray("spawn_point")]
+[node name="EnemyAssassin" parent="Actors/Enemies" node_paths=PackedStringArray("spawn_point") instance=ExtResource("12_yei6x")]
+position = Vector2(960, 552)
 spawn_point = NodePath("../../../EnemiesSpawnPoints/Marker2D3")
 
-[node name="EnemyCornichon" parent="Actors/Enemies" index="3" node_paths=PackedStringArray("spawn_point")]
+[node name="EnemyCornichon" parent="Actors/Enemies" node_paths=PackedStringArray("spawn_point") instance=ExtResource("13_vj81d")]
+position = Vector2(1032, 552)
 spawn_point = NodePath("../../../EnemiesSpawnPoints/Marker2D4")
+
+[node name="SharedEnemyAI" parent="." instance=ExtResource("9_qqr5i")]
 
 [node name="WarpZones" type="Node" parent="."]
 
@@ -1570,4 +1580,3 @@ metadata/_edit_group_ = true
 
 [editable path="Pickables/Pellets"]
 [editable path="Pickables/BonusItems"]
-[editable path="Actors/Enemies"]
