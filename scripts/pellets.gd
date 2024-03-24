@@ -2,8 +2,14 @@ extends Node
 class_name Pellets
 
 
-var total_remaining_pellets_count: int = 0
+var initial_pellets_count: int = 0
 var remaining_pellets_count: int = 0
+
+var initial_normal_pellets_count: int = 0
+var remaining_normal_pellets_count: int = 0
+
+var initial_power_pellets_count: int = 0
+var remaining_power_pellets_count: int = 0
 
 
 func on_scene_tree_exited_by_pellet() -> void:
@@ -25,8 +31,12 @@ func _ready() -> void:
 	for pellet_type_group in self.get_children():
 		if pellet_type_group.get_name() == "Normal":
 			current_callable_on_pellet_picked_up = callable_on_normal_pellet_picked_up
+			for normal_pellet in pellet_type_group.get_children():
+				initial_normal_pellets_count += 1
 		elif pellet_type_group.get_name() == "Power":
 			current_callable_on_pellet_picked_up = callable_on_power_pellet_picked_up
+			for power_pellet in pellet_type_group.get_children():
+				initial_power_pellets_count += 1
 		else:
 			printerr("(!) ERROR! In: " + self.name + ": Unhandled pellet type!")
 		
@@ -35,11 +45,13 @@ func _ready() -> void:
 			pellet.picked_up.connect(current_callable_on_pellet_picked_up)
 			pellet.tree_exited.connect(on_scene_tree_exited_by_pellet)
 			
-			total_remaining_pellets_count += 1
+			initial_pellets_count += 1
 	
-	assert(total_remaining_pellets_count > 0)
+	assert(initial_pellets_count > 0)
 	
-	remaining_pellets_count = total_remaining_pellets_count
+	remaining_pellets_count = initial_pellets_count
+	remaining_normal_pellets_count = initial_normal_pellets_count
+	remaining_power_pellets_count = initial_power_pellets_count
 
 
 signal pellet_picked_up(value: int)
