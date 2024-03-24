@@ -1,11 +1,11 @@
 [gd_scene load_steps=24 format=3 uid="uid://cbv40bjrx6t5h"]
 
-[ext_resource type="Script" path="res://level.gd" id="1_tf7gw"]
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_tf7gw"]
 [ext_resource type="Texture2D" uid="uid://dovjlefqdodmg" path="res://assets/sprites/tiles.png" id="2_s7s8c"]
 [ext_resource type="PackedScene" uid="uid://c4s65vdj85p3j" path="res://scenes/pickables/pellet.tscn" id="4_g8q31"]
 [ext_resource type="PackedScene" uid="uid://b1mdnhyr4s07r" path="res://scenes/actors/player.tscn" id="4_u33na"]
 [ext_resource type="PackedScene" uid="uid://cvamjms4o581j" path="res://scenes/bonus_items.tscn" id="7_eb02v"]
-[ext_resource type="PackedScene" uid="uid://df7iwsowjq02v" path="res://enemies.tscn" id="8_v5yh8"]
+[ext_resource type="PackedScene" uid="uid://df7iwsowjq02v" path="res://scenes/enemies.tscn" id="8_v5yh8"]
 [ext_resource type="PackedScene" uid="uid://d2ybva0trn51" path="res://scenes/pickables/bonus_item.tscn" id="8_wkukv"]
 [ext_resource type="PackedScene" uid="uid://borrvnekx8vht" path="res://scenes/shared_enemy_ai.tscn" id="9_qqr5i"]
 [ext_resource type="PackedScene" uid="uid://d35gi8b3l2nhh" path="res://scenes/pellets.tscn" id="9_soaal"]
