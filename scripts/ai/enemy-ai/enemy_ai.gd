@@ -263,9 +263,6 @@ func on_chase_timer_timeout() -> void:
 
 
 func on_frightened_timer_timeout() -> void:
-	# TEST
-	print(self.name, ": Stop frightened mode!")
-	
 	if current_state == States.EATEN: return
 	self.set_state(background_state)
 

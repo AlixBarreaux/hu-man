@@ -36,30 +36,22 @@ func on_enemy_state_set(state: EnemyAI.States) -> void:
 		EnemyAI.States.EATEN:
 			frightened_enemy_ais_count -= 1
 			enemies_eaten_combo_count += 1
-			print(self.name, ": Eaten! Count--")
 			if frightened_enemy_ais_count >= 0:
 				if enemies_eaten_combo_count > 1:
 					enemy_score_value *= 2
-					print("Score value x2!")
-				else:
-					print("Score value x1.")
-				print("Score to add: ", enemy_score_value)
 				Global.increase_score(enemy_score_value)
 				total_enemies_eaten_count += 1
-				print("Cap / Current: ", total_enemies_eaten_count, " / ", enemies_to_eat_for_combo_bonus_cap)
+				
 				if total_enemies_eaten_count >= enemies_to_eat_for_combo_bonus_cap:
-					print("BONUS AWARDED!")
 					Global.increase_score(combo_bonus_score_value)
 		EnemyAI.States.FRIGHTENED:
 			frightened_enemy_ais_count += 1
-			print(self.name, ": Frightened! Count++")
 
 
 func on_enemies_timers_frightened_timer_timeout() -> void:
 	frightened_enemy_ais_count = 0
 	enemies_eaten_combo_count = 0
 	enemy_score_value = enemy_base_score_value
-	print("Frightened timer timeout, reset score to base value: ", enemy_base_score_value)
 
 
 func on_game_started() -> void:
