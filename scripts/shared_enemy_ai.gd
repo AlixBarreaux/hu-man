@@ -54,6 +54,11 @@ func on_enemies_timers_frightened_timer_timeout() -> void:
 	enemy_score_value = enemy_base_score_value
 
 
+## This value should stay the same across all EnemyAI s so it's set in this manager scene. 
+## Frightened and eaten should not be assigned here as it's not handled cases to
+## start with.
+@export var initial_ais_state: EnemyAI.States = EnemyAI.States.SCATTER
+
 func on_game_started() -> void:
 	var timer_started: bool = false
 	
@@ -66,9 +71,9 @@ func on_game_started() -> void:
 		
 		enemy_ai.state_set.connect(on_enemy_state_set)
 		
-		enemy_ai.set_state(enemy_ai.initial_state)
+		enemy_ai.set_state(initial_ais_state)
 	
-		match enemy_ai.initial_state:
+		match initial_ais_state:
 			enemy_ai.States.CHASE:
 				enemy_ai.background_state = enemy_ai.States.CHASE
 				if not timer_started:

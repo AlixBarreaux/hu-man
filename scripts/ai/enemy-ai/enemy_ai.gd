@@ -66,9 +66,6 @@ enum States {
 
 var current_state: States = States.SCATTER
 var previous_state: States = current_state
-## This value should stay the same across all EnemyAI s since SharedEnemyAI
-## can't work properly otherwise.
-var initial_state: States = States.SCATTER
 
 
 signal state_set(value: EnemyAI.States)
