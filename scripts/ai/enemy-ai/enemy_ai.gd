@@ -130,11 +130,12 @@ func go_to_next_scatter_point() -> void:
 
 
 @onready var enemies: Node = get_tree().get_root().get_node("Level/Actors/Enemies")
+@onready var shared_enemy_ai: SharedEnemyAI = get_tree().get_root().get_node("Level/SharedEnemyAI")
 
 func pick_random_destination_position() -> void:
 	randomize()
-	var random_index: int = randi() % enemies.walkable_tiles_list.size() - 1
-	set_destination_position(tile_map.map_to_local(enemies.walkable_tiles_list[random_index]))
+	var random_index: int = randi() % shared_enemy_ai.walkable_tiles_list.size() - 1
+	set_destination_position(tile_map.map_to_local(shared_enemy_ai.walkable_tiles_list[random_index]))
 
 
 @onready var enemies_home: Marker2D = get_tree().get_root().get_node("Level/AIWaypoints/EnemiesHome")
