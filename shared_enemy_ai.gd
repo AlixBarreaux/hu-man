@@ -46,11 +46,13 @@ func on_game_started() -> void:
 				enemy_ai.background_state = enemy_ai.States.CHASE
 				if not timer_started:
 					print("Chase call!")
+					timer_started = true
 					chase_timer.start()
 			enemy_ai.States.SCATTER:
 				enemy_ai.background_state = enemy_ai.States.SCATTER
 				if not timer_started:
 					print("Scatter call!")
+					timer_started = true
 					enemy_ai.scatter_timer.start()
 			_:
 				printerr(("(!) ERROR: In: " + self.get_name() + ": Uhandled state on game started!"))
