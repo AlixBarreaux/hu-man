@@ -8,7 +8,6 @@ class_name EnemyAI
 # - To avoid calling 4 times the timers on _initialize, do it in enemies_timers
 # and rename this scene to something like EnemiesSharedAI ?
 # (Careful with function / var names, signals and refs!)
-# - Pathfinding optimization: build and store the walkable tiles EnemiesSharedAI
 
 # END TODO
 
@@ -137,19 +136,12 @@ func go_to_next_scatter_point() -> void:
 		current_scatter_point_index = 0
 
 
-var walkable_tiles_list: PackedVector2Array = []
-
-func build_walkable_tiles_list() -> void:
-	for tile in tile_map.get_used_cells(0):
-		var cell_tile_data: TileData = tile_map.get_cell_tile_data(0, tile)
-		if cell_tile_data and cell_tile_data.get_custom_data("walkable"):
-			walkable_tiles_list.append(tile)
-
+@onready var enemies: Enemies = get_tree().get_root().get_node("Level/Actors/Enemies")
 
 func pick_random_destination_position() -> void:
 	randomize()
-	var random_index: int = randi() % walkable_tiles_list.size() - 1
-	set_destination_position(tile_map.map_to_local(walkable_tiles_list[random_index]))
+	var random_index: int = randi() % enemies.walkable_tiles_list.size() - 1
+	set_destination_position(tile_map.map_to_local(enemies.walkable_tiles_list[random_index]))
 
 
 @onready var enemies_home: Marker2D = get_tree().get_root().get_node("Level/AIWaypoints/EnemiesHome")
@@ -271,6 +263,9 @@ func on_chase_timer_timeout() -> void:
 
 
 func on_frightened_timer_timeout() -> void:
+	# TEST
+	print(self.name, ": Stop frightened mode!")
+	
 	if current_state == States.EATEN: return
 	self.set_state(background_state)
 
@@ -356,7 +351,7 @@ func _initialize():
 	#await get_tree().physics_frame
 	# Now that the nav map is no longer empty, can use pathfinding
 	
-	build_walkable_tiles_list()
+	#build_walkable_tiles_list()
 	build_scatter_points_list()
 
 
