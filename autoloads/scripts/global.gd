@@ -15,11 +15,16 @@ signal player_finished_dying
 signal game_ready
 signal game_started
 
-
 var initial_lives: int = 2
 var lives: int = initial_lives
 var max_lives: int = 5
 var is_game_over: bool = false
+
+
+@export var success_sound_file_path: String = "res://assets/audio/success.wav"
+## Number of points to score to get an extra life.
+var point_to_gain_life_base_cap: int = 10000
+var points_to_gain_life_cap: int = point_to_gain_life_base_cap
 
 
 func reset() -> void:
@@ -56,6 +61,11 @@ var score: int = 0:
 func set_score(value: int) -> void:
 	score = value
 	self.score_changed.emit()
+	
+	if self.score >= points_to_gain_life_cap:
+		self.increase_lives()
+		points_to_gain_life_cap += point_to_gain_life_base_cap
+		AudioManager.play_sound_file(success_sound_file_path, AudioManager.TrackTypes.MUSIC)
 	
 	if self.score > self.high_score:
 		self.set_high_score(self.score)
@@ -132,6 +142,8 @@ func on_level_cleared() -> void:
 
 
 func _ready() -> void:
+	assert(FileAccess.file_exists(success_sound_file_path))
+	
 	self.new_game_started.connect(on_new_game_started)
 	self.player_died.connect(on_player_died)
 	self.game_over.connect(on_game_over)
