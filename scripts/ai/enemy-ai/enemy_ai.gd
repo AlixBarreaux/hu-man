@@ -2,15 +2,6 @@ extends Node2D
 class_name EnemyAI
 
 
-# REFACTOR NOTES: Use SETGET on every setter function?
-
-# TODO:
-# - To avoid calling 4 times the timers on _initialize, do it in enemies_timers
-# and rename this scene to something like EnemiesSharedAI ?
-# (Careful with function / var names, signals and refs!)
-
-# END TODO
-
 @export_group("Speeds")
 @export var base_speed: float = 2.35
 var chase_speed: float = base_speed
