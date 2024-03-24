@@ -74,7 +74,9 @@ enum States {
 
 
 var current_state: States = States.SCATTER
-@export var initial_state: States = States.SCATTER
+## This value should stay the same across all EnemyAI s since SharedEnemyAI
+## can't work properly otherwise.
+var initial_state: States = States.SCATTER
 
 
 func set_state(state: States) -> void:
@@ -293,22 +295,6 @@ func on_enemy_died() -> void:
 @onready var enable_ai_timer: EnableAITimer = get_node_or_null("EnableAITimer")
 
 func on_game_started() -> void:
-	self.set_state(initial_state)
-	
-	# WARNING: TIMER CALLED BY EACH ENEMY! TIMER SHOULD BE CALLED ONCE ONLY!
-	match initial_state:
-		States.CHASE:
-			background_state = States.CHASE
-			chase_timer.start()
-		States.SCATTER:
-			background_state = States.SCATTER
-			scatter_timer.start()
-		_:
-			printerr(("(!) ERROR: In: " + self.get_name() + ": Uhandled state on game started!"))
-			
-	first_initialization = false
-	
-	
 	if not enable_ai_timer:
 		self.enable()
 

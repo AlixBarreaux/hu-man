@@ -26,7 +26,6 @@ var enemy_ai_list: Array[EnemyAI] = []
 
 
 func on_game_started() -> void:
-	print("Game started init")
 	var timer_started: bool = false
 	
 	for enemy: Enemy in enemies.get_children():
@@ -34,9 +33,7 @@ func on_game_started() -> void:
 		
 		# AI must absolutely be initialized before proceeding
 		if not enemy_ai.is_initialized:
-			print("Not initialized yet!")
 			await enemy_ai.initialized
-		print("Initialized!")
 		
 		enemy_ai.set_state(enemy_ai.initial_state)
 	
