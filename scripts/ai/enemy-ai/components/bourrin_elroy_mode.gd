@@ -83,7 +83,9 @@ func enable_elroy_mode(go_faster_than_player: bool) -> void:
 		enemy_ai.set_state(enemy_ai.States.CHASE)
 
 
+@onready var shared_enemy_ai: SharedEnemyAI = get_tree().get_root().get_node("Level/SharedEnemyAI")
+
 func disable_elroy_mode() -> void:
 	enemy_ai.elroy_mode_enabled = false
 	enemy_ai.chase_speed = enemy_ai.base_speed
-	enemy_ai.set_state(enemy_ai.initial_state)
+	enemy_ai.set_state(shared_enemy_ai.initial_ais_state)
