@@ -2,6 +2,11 @@ extends Node2D
 class_name Enemy
 
 
+@export var score_value: int = 200
+
+func set_score_value(value: int) -> void:
+	score_value = value
+
 var speed: float = 0.0
 @export var spawn_point: Marker2D = null
 @onready var spawn_position: Vector2 = spawn_point.global_position

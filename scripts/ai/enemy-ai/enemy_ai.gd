@@ -65,13 +65,17 @@ enum States {
 
 
 var current_state: States = States.SCATTER
+var previous_state: States = current_state
 ## This value should stay the same across all EnemyAI s since SharedEnemyAI
 ## can't work properly otherwise.
 var initial_state: States = States.SCATTER
 
 
+signal state_set(value: EnemyAI.States)
+
 func set_state(state: States) -> void:
 	if state == current_state and not first_initialization: return
+	previous_state = current_state
 	current_state = state
 	
 	match state:
@@ -86,6 +90,7 @@ func set_state(state: States) -> void:
 		_:
 			printerr("(!) Error in " + self.name + ": Unrecognized state!")
 
+	self.state_set.emit(state)
 
 # State waiting to be set which updates itself in the background while
 # the current one is overrinding it
