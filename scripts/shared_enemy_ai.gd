@@ -31,7 +31,9 @@ var enemies_eaten_combo_count: int = 0
 var enemy_base_score_value: int = 200
 var enemy_score_value: int = enemy_base_score_value
 
-func on_enemy_state_set(state: EnemyAI.States) -> void:
+@export var numbers_displayer_scene: PackedScene = null
+
+func on_enemy_state_set(state: EnemyAI.States, enemy: Enemy) -> void:
 	match state:
 		EnemyAI.States.EATEN:
 			frightened_enemy_ais_count -= 1
@@ -40,6 +42,13 @@ func on_enemy_state_set(state: EnemyAI.States) -> void:
 				if enemies_eaten_combo_count > 1:
 					enemy_score_value *= 2
 				Global.increase_score(enemy_score_value)
+				
+				var numbers_displayer_instance: NumbersDisplayer = numbers_displayer_scene.instantiate()
+				numbers_displayer_instance.color = Color(0.102, 0, 0.945, 1.0)
+				numbers_displayer_instance.set_text(str(enemy_score_value))
+				numbers_displayer_instance.set_global_position(enemy.get_global_position())
+				get_tree().get_root().add_child(numbers_displayer_instance)
+				
 				total_enemies_eaten_count += 1
 				
 				if total_enemies_eaten_count >= enemies_to_eat_for_combo_bonus_cap:
@@ -96,6 +105,8 @@ var total_enemies_eaten_count: int = 0
 var combo_bonus_score_value: int = 12000
 
 func _ready() -> void:
+	assert(numbers_displayer_scene != null)
+	
 	Global.game_ready.connect(on_game_started)
 	enemies_timers.frightened_timer.timeout.connect(on_enemies_timers_frightened_timer_timeout)
 	

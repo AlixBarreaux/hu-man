@@ -146,7 +146,7 @@ func on_frightened() -> void:
 	AudioManager.play_sound_file(frightened_sound_file_path, AudioManager.TrackTypes.ENEMIES)
 
 
-func on_enemy_ai_state_set(state: EnemyAI.States) -> void:
+func on_enemy_ai_state_set(state: EnemyAI.States, _enemy: Enemy) -> void:
 	match state:
 		EnemyAI.States.CHASE:
 			on_chasing()

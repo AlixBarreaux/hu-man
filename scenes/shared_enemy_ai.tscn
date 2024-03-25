@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://borrvnekx8vht"]
+[gd_scene load_steps=4 format=3 uid="uid://borrvnekx8vht"]
 
 [ext_resource type="Script" path="res://scripts/shared_enemy_ai.gd" id="1_lx544"]
+[ext_resource type="PackedScene" uid="uid://cd27qhiewkw3a" path="res://numbers_displayer.tscn" id="2_kc5qo"]
 [ext_resource type="PackedScene" uid="uid://bxko3dru3t24k" path="res://scenes/ai/enemies_timers.tscn" id="2_tm14q"]
 
 [node name="SharedEnemyAI" type="Node"]
 script = ExtResource("1_lx544")
+numbers_displayer_scene = ExtResource("2_kc5qo")
 
 [node name="EnemiesTimers" parent="." instance=ExtResource("2_tm14q")]
