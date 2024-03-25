@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bghenf8f6uhd3" path="res://scenes/ui/SceneSwitcherButton.tscn" id="1_t1key"]
 [ext_resource type="PackedScene" uid="uid://c53qsppmlwiwb" path="res://scenes/ui/quit_to_desktop_button.tscn" id="3_kh0kt"]
 
-[node name="PauseMenuUi" type="Panel"]
+[node name="PauseMenuUi" type="Panel" node_paths=PackedStringArray("first_element_to_grab_focus")]
 process_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,6 +19,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_type_variation = &"PanelOpaque"
 script = ExtResource("1_ksyub")
+first_element_to_grab_focus = NodePath("VBoxContainer2/VBoxContainer/ResumeButton")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -48,16 +49,34 @@ theme_override_constants/separation = 60
 [node name="ResumeButton" type="Button" parent="VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_left = NodePath("../QuitToDesktopButton")
+focus_neighbor_top = NodePath("../QuitToDesktopButton")
+focus_neighbor_right = NodePath("../QuitToMainMenuButton")
+focus_neighbor_bottom = NodePath("../QuitToMainMenuButton")
+focus_next = NodePath("../QuitToMainMenuButton")
+focus_previous = NodePath("../QuitToDesktopButton")
 text = "Resume Game"
 
 [node name="QuitToMainMenuButton" parent="VBoxContainer2/VBoxContainer" instance=ExtResource("1_t1key")]
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_left = NodePath("../ResumeButton")
+focus_neighbor_top = NodePath("../ResumeButton")
+focus_neighbor_right = NodePath("../QuitToDesktopButton")
+focus_neighbor_bottom = NodePath("../QuitToDesktopButton")
+focus_next = NodePath("../QuitToDesktopButton")
+focus_previous = NodePath("../ResumeButton")
 text = "Quit to Main Menu"
 scene_to_load_file_path = "res://scenes/ui/main_menu_ui.tscn"
 
 [node name="QuitToDesktopButton" parent="VBoxContainer2/VBoxContainer" instance=ExtResource("3_kh0kt")]
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_left = NodePath("../QuitToMainMenuButton")
+focus_neighbor_top = NodePath("../QuitToMainMenuButton")
+focus_neighbor_right = NodePath("../ResumeButton")
+focus_neighbor_bottom = NodePath("../ResumeButton")
+focus_next = NodePath("../ResumeButton")
+focus_previous = NodePath("../QuitToMainMenuButton")
 
 [connection signal="pressed" from="VBoxContainer2/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]

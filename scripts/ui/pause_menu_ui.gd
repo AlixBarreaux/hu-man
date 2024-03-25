@@ -2,8 +2,12 @@ extends Panel
 class_name PauseMenuUI
 
 
+@export var first_element_to_grab_focus: Control = null
+
+
 func _ready() -> void:
 	self.hide()
+	assert(first_element_to_grab_focus != null)
 
 
 func _unhandled_key_input(_event: InputEvent) -> void:
@@ -15,6 +19,7 @@ func _unhandled_key_input(_event: InputEvent) -> void:
 	
 		if self.is_visible():
 			get_tree().set_pause(true)
+			first_element_to_grab_focus.grab_focus()
 		else:
 			get_tree().set_pause(false)
 
