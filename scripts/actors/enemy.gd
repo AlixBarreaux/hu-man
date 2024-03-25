@@ -113,6 +113,7 @@ func on_chasing() -> void:
 	set_hit_box_disabled(false)
 	speed = chase_speed
 	going_home = false
+	set_process(false)
 	colors_animation_player.play("normal")
 	AudioManager.stop_track(AudioManager.TrackTypes.ENEMIES)
 
@@ -122,6 +123,7 @@ func on_scattered() -> void:
 	set_hit_box_disabled(false)
 	speed = scatter_speed
 	going_home = false
+	set_process(false)
 	colors_animation_player.play("normal")
 	AudioManager.stop_track(AudioManager.TrackTypes.ENEMIES)
 
@@ -131,6 +133,7 @@ func on_eaten() -> void:
 	set_hit_box_disabled(true)
 	speed = eaten_speed
 	going_home = true
+	set_process(false)
 	AudioManager.play_sound_file(eaten_sound_file_path, AudioManager.TrackTypes.ENEMIES)
 	await AudioManager.enemies_player.finished
 	AudioManager.play_sound_file(enemy_going_home_sound_file_path, AudioManager.TrackTypes.ENEMIES)
