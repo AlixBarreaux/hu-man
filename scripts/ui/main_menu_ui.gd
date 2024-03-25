@@ -32,6 +32,9 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	set_process_unhandled_key_input(false)
 	if event is InputEventJoypadButton or event is InputEventKey:
 		accept_event()
+		if Input.is_action_just_pressed("ui_cancel"):
+			get_tree().quit()
+		
 		AudioManager.play_sound_file(start_game_sound, AudioManager.TrackTypes.PICKUPS)
 		await AudioManager.pickups_player.finished
 		Global.new_game_started.emit()
