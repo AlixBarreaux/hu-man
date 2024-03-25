@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://b8ju6rj3bx3w2"]
+[gd_scene load_steps=42 format=3 uid="uid://b8ju6rj3bx3w2"]
 
 [ext_resource type="Script" path="res://scripts/actors/enemy.gd" id="1_umwy5"]
 [ext_resource type="Texture2D" uid="uid://bbuaqyqmhbpyi" path="res://assets/sprites/characters_animations.png" id="2_dhxas"]
@@ -365,16 +365,20 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ied60"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_f68cd"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3n58w"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_cow2b"]
-states/End/position = Vector2(613, 100)
+states/End/position = Vector2(750, 100)
 states/going_home/node = SubResource("AnimationNodeAnimation_fu0c6")
-states/going_home/position = Vector2(419, 184)
+states/going_home/position = Vector2(499, 210)
 states/idle/node = SubResource("AnimationNodeBlendSpace2D_6oxxm")
-states/idle/position = Vector2(337, 100)
+states/idle/position = Vector2(379, 100)
 states/move/node = SubResource("AnimationNodeBlendSpace2D_322v2")
-states/move/position = Vector2(498, 100)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_vxlg6"), "idle", "move", SubResource("AnimationNodeStateMachineTransition_3e2uo"), "move", "idle", SubResource("AnimationNodeStateMachineTransition_e48fe"), "idle", "going_home", SubResource("AnimationNodeStateMachineTransition_nc51a"), "going_home", "move", SubResource("AnimationNodeStateMachineTransition_ied60")]
-graph_offset = Vector2(-220, 31)
+states/move/position = Vector2(635, 100)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_vxlg6"), "idle", "move", SubResource("AnimationNodeStateMachineTransition_3e2uo"), "move", "idle", SubResource("AnimationNodeStateMachineTransition_e48fe"), "idle", "going_home", SubResource("AnimationNodeStateMachineTransition_nc51a"), "going_home", "move", SubResource("AnimationNodeStateMachineTransition_ied60"), "move", "going_home", SubResource("AnimationNodeStateMachineTransition_f68cd"), "going_home", "idle", SubResource("AnimationNodeStateMachineTransition_3n58w")]
+graph_offset = Vector2(-216, 53)
 
 [sub_resource type="Animation" id="Animation_i022p"]
 resource_name = "frightened"
@@ -437,7 +441,22 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.0235294, 0.258824, 1, 1)]
+"values": [Color(0.0235294, 0.258824, 1, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xl3dj"]
+resource_name = "going_home"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.486275)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8anbg"]
@@ -445,6 +464,7 @@ _data = {
 "RESET": SubResource("Animation_uh0sa"),
 "frightened": SubResource("Animation_i022p"),
 "frightened_ending": SubResource("Animation_xxyu2"),
+"going_home": SubResource("Animation_xl3dj"),
 "normal": SubResource("Animation_6ds4d")
 }
 
@@ -476,7 +496,6 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-active = false
 libraries = {
 "": SubResource("AnimationLibrary_utmai")
 }

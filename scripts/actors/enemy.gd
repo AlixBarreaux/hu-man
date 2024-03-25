@@ -50,7 +50,6 @@ func on_game_started() -> void:
 
 func on_level_cleared() -> void:
 	self.disable()
-	#anim_node_sm_playback.travel("Defeat Animation")
 
 
 @onready var hurt_box: HurtBox = $HurtBox
@@ -99,11 +98,6 @@ func _initialize_signals() -> void:
 @onready var enemies_timers: EnemiesTimers = shared_enemy_ai.get_node("EnemiesTimers")
 
 
-func on_enemies_timers_frightened_timer_timeout() -> void:
-	colors_animation_player.play("normal")
-	set_process(true)
-
-
 func _process(_delta: float) -> void:
 	if enemies_timers.frightened_timer.get_time_left() > 0:
 		if enemies_timers.frightened_timer.get_time_left() <= 2.0:
@@ -111,12 +105,15 @@ func _process(_delta: float) -> void:
 			colors_animation_player.play("frightened_ending")
 
 
+var going_home: bool = false
+
+
 func on_chasing() -> void:
 	set_hurt_box_disabled(true)
 	set_hit_box_disabled(false)
-	
+	speed = chase_speed
+	going_home = false
 	colors_animation_player.play("normal")
-	set_process(true)
 	AudioManager.stop_track(AudioManager.TrackTypes.ENEMIES)
 
 
@@ -124,8 +121,8 @@ func on_scattered() -> void:
 	set_hurt_box_disabled(true)
 	set_hit_box_disabled(false)
 	speed = scatter_speed
+	going_home = false
 	colors_animation_player.play("normal")
-	set_process(true)
 	AudioManager.stop_track(AudioManager.TrackTypes.ENEMIES)
 
 
@@ -133,7 +130,7 @@ func on_eaten() -> void:
 	set_hurt_box_disabled(true)
 	set_hit_box_disabled(true)
 	speed = eaten_speed
-	anim_node_sm_playback.travel("going_home")
+	going_home = true
 	AudioManager.play_sound_file(eaten_sound_file_path, AudioManager.TrackTypes.ENEMIES)
 	await AudioManager.enemies_player.finished
 	AudioManager.play_sound_file(enemy_going_home_sound_file_path, AudioManager.TrackTypes.ENEMIES)
@@ -143,6 +140,8 @@ func on_frightened() -> void:
 	set_hurt_box_disabled(false)
 	set_hit_box_disabled(true)
 	speed = frightened_speed
+	going_home = false
+	set_process(true)
 	colors_animation_player.play("frightened")
 	AudioManager.play_sound_file(frightened_sound_file_path, AudioManager.TrackTypes.ENEMIES)
 
@@ -162,6 +161,7 @@ func on_enemy_ai_state_set(state: EnemyAI.States) -> void:
 
 
 func _ready() -> void:
+	set_process(false)
 	assert(spawn_point != null)
 	
 	assert(FileAccess.file_exists(frightened_sound_file_path))
@@ -170,14 +170,13 @@ func _ready() -> void:
 	
 	enemy_ai.state_set.connect(on_enemy_ai_state_set)
 	
-	await enemies_timers.ready
-	enemies_timers.frightened_timer.timeout.connect(on_enemies_timers_frightened_timer_timeout)
+	#await enemies_timers.ready
+	#enemies_timers.frightened_timer.timeout.connect(on_enemies_timers_frightened_timer_timeout)
 	
 	self.disable()
 	self._initialize_signals()
 	self.direction = self.initial_direction
 	animation_tree.active = true
-	
 
 
 var can_move: bool = true
@@ -188,8 +187,12 @@ func _physics_process(_delta: float) -> void:
 		self.global_position += velocity
 		
 		if velocity != Vector2(0.0, 0.0):
-			animation_tree.set("parameters/move/blend_position", direction)
-			anim_node_sm_playback.travel("move")
+			if going_home:
+				anim_node_sm_playback.travel("going_home")
+				colors_animation_player.play("going_home")
+			else:
+				animation_tree.set("parameters/move/blend_position", direction)
+				anim_node_sm_playback.travel("move")
 		else:
 			animation_tree.set("parameters/idle/blend_position", direction)
 			anim_node_sm_playback.travel("idle")
