@@ -14,8 +14,5 @@ func on_scattered() -> void:
 		self.set_state(self.States.CHASE)
 		return
 	
-	#enemy.set_hurt_box_disabled(true)
-	#enemy.set_hit_box_disabled(false)
 	set_destination_location(DestinationLocations.SCATTER_AREA)
 	go_to_first_scatter_point()
-	#enemy.speed = scatter_speed
