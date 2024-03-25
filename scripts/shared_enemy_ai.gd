@@ -71,14 +71,12 @@ func on_enemies_timers_frightened_timer_timeout() -> void:
 func on_game_started() -> void:
 	var timer_started: bool = false
 	
-	for enemy: Enemy in enemies.get_children():
-		var enemy_ai: EnemyAI = enemy.enemy_ai
-		
+	for enemy_ai: EnemyAI in enemy_ai_list:
 		# AI must absolutely be initialized before proceeding
 		if not enemy_ai.is_initialized:
 			await enemy_ai.initialized
 		
-		enemy_ai.state_set.connect(on_enemy_state_set)
+		#enemy_ai.state_set.connect(on_enemy_state_set)
 		
 		enemy_ai.set_state(initial_ais_state)
 	
@@ -113,6 +111,6 @@ func _ready() -> void:
 	for enemy: Enemy in enemies.get_children():
 		enemy_ai_list.append(enemy.enemy_ai)
 	
-	for enemy in enemy_ai_list:
+	for enemy_ai in enemy_ai_list:
 		self.build_walkable_tiles_list()
-	
+		enemy_ai.state_set.connect(on_enemy_state_set)
