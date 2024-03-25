@@ -1405,7 +1405,7 @@ position = Vector2(1752, 168)
 position = Vector2(168, 792)
 
 [node name="PowerPellet4" parent="Pickables/Pellets/Power" index="3" instance=ExtResource("11_7tp22")]
-position = Vector2(1080, 456)
+position = Vector2(1752, 792)
 
 [node name="BonusItems" parent="Pickables" instance=ExtResource("7_eb02v")]
 
