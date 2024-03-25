@@ -380,6 +380,21 @@ states/move/position = Vector2(635, 100)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_vxlg6"), "idle", "move", SubResource("AnimationNodeStateMachineTransition_3e2uo"), "move", "idle", SubResource("AnimationNodeStateMachineTransition_e48fe"), "idle", "going_home", SubResource("AnimationNodeStateMachineTransition_nc51a"), "going_home", "move", SubResource("AnimationNodeStateMachineTransition_ied60"), "move", "going_home", SubResource("AnimationNodeStateMachineTransition_f68cd"), "going_home", "idle", SubResource("AnimationNodeStateMachineTransition_3n58w")]
 graph_offset = Vector2(-216, 53)
 
+[sub_resource type="Animation" id="Animation_uh0sa"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_i022p"]
 resource_name = "frightened"
 length = 0.001
@@ -394,37 +409,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 2,
 "values": [Color(0.0235294, 0.258824, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_6ds4d"]
-resource_name = "normal"
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_uh0sa"]
-resource_name = "RESET"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_xxyu2"]
@@ -457,6 +441,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 0.486275)]
+}
+
+[sub_resource type="Animation" id="Animation_6ds4d"]
+resource_name = "normal"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8anbg"]
