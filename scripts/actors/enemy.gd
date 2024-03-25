@@ -12,6 +12,7 @@ var velocity: Vector2 = self.direction
 
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var anim_node_sm_playback: AnimationNodeStateMachinePlayback = animation_tree.get("parameters/playback")
+@onready var colors_animation_player: AnimationPlayer = $ColorsAnimationPlayer
 
 @export var enemy_ai: Node2D = null
 
@@ -80,13 +81,33 @@ func _initialize_signals() -> void:
 	Global.player_finished_dying.connect(on_player_finished_dying)
 
 
+@onready var shared_enemy_ai: SharedEnemyAI = get_tree().get_root().get_node("Level/SharedEnemyAI")
+@onready var enemies_timers: EnemiesTimers = shared_enemy_ai.get_node("EnemiesTimers")
+
+
+func on_enemies_timers_frightened_timer_timeout() -> void:
+	colors_animation_player.play("normal")
+	set_process(true)
+
+
+func _process(_delta: float) -> void:
+	if enemies_timers.frightened_timer.get_time_left() > 0:
+		if enemies_timers.frightened_timer.get_time_left() <= 2.0:
+			set_process(false)
+			colors_animation_player.play("frightened_ending")
+
+
 func _ready() -> void:
 	assert(spawn_point != null)
+	
+	await enemies_timers.ready
+	enemies_timers.frightened_timer.timeout.connect(on_enemies_timers_frightened_timer_timeout)
 	
 	self.disable()
 	self._initialize_signals()
 	self.direction = self.initial_direction
 	animation_tree.active = true
+	
 
 
 var can_move: bool = true

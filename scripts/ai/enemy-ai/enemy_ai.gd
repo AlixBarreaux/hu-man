@@ -25,6 +25,8 @@ func on_chasing() -> void:
 	enemy.set_hit_box_disabled(false)
 	set_destination_location(DestinationLocations.CHASE_TARGET)
 	enemy.speed = chase_speed
+	enemy.colors_animation_player.play("normal")
+	enemy.set_process(true)
 	AudioManager.stop_track(AudioManager.TrackTypes.ENEMIES)
 
 
@@ -34,6 +36,8 @@ func on_scattered() -> void:
 	set_destination_location(DestinationLocations.SCATTER_AREA)
 	go_to_first_scatter_point()
 	enemy.speed = scatter_speed
+	enemy.colors_animation_player.play("normal")
+	enemy.set_process(true)
 	AudioManager.stop_track(AudioManager.TrackTypes.ENEMIES)
 
 
@@ -53,6 +57,7 @@ func on_frightened() -> void:
 	set_destination_location(DestinationLocations.RANDOM_LOCATION)
 	frightened_timer.start()
 	enemy.speed = frightened_speed
+	enemy.colors_animation_player.play("frightened")
 	AudioManager.play_sound_file(frightened_sound_file_path, AudioManager.TrackTypes.ENEMIES)
 
 
@@ -220,7 +225,7 @@ func on_power_pellet_picked_up(_value: int) -> void:
 
 
 @onready var shared_ai: SharedEnemyAI = get_tree().get_root().get_node("Level/SharedEnemyAI")
-@onready var enemies_timers: EnemiesTimer = shared_ai.get_node("EnemiesTimers")
+@onready var enemies_timers: EnemiesTimers = shared_ai.get_node("EnemiesTimers")
 @onready var scatter_timer: Timer = enemies_timers.get_node("ScatterDurationTimer")
 @onready var chase_timer: Timer = enemies_timers.get_node("ChaseDurationTimer")
 @onready var frightened_timer: Timer = enemies_timers.get_node("FrightenedDurationTimer")

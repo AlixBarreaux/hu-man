@@ -1,5 +1,5 @@
 extends Node
-class_name EnemiesTimer
+class_name EnemiesTimers
 
 
 @onready var pellets: Pellets = get_tree().get_root().get_node("Level/Pickables/Pellets")

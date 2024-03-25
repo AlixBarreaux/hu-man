@@ -16,7 +16,7 @@ func build_walkable_tiles_list() -> void:
 
 
 
-@onready var enemies_timers: EnemiesTimer = $EnemiesTimers
+@onready var enemies_timers: EnemiesTimers = $EnemiesTimers
 @onready var scatter_timer: Timer = enemies_timers.get_node("ScatterDurationTimer")
 @onready var chase_timer: Timer = enemies_timers.get_node("ChaseDurationTimer")
 #@onready var frightened_timer: Timer = enemies_timers.get_node("FrightenedDurationTimer")

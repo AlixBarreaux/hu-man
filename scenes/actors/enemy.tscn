@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://b8ju6rj3bx3w2"]
+[gd_scene load_steps=36 format=3 uid="uid://b8ju6rj3bx3w2"]
 
 [ext_resource type="Script" path="res://scripts/actors/enemy.gd" id="1_umwy5"]
 [ext_resource type="Texture2D" uid="uid://bbuaqyqmhbpyi" path="res://assets/sprites/characters_animations.png" id="2_dhxas"]
@@ -17,6 +17,33 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [48]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_vah8a"]
+resource_name = "going_home"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -266,6 +293,7 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_utmai"]
 _data = {
 "RESET": SubResource("Animation_l74b6"),
+"going_home": SubResource("Animation_vah8a"),
 "idle_down": SubResource("Animation_ejr3t"),
 "idle_left": SubResource("Animation_tspr8"),
 "idle_right": SubResource("Animation_cnirk"),
@@ -339,6 +367,78 @@ states/move/position = Vector2(498, 100)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_vxlg6"), "idle", "move", SubResource("AnimationNodeStateMachineTransition_3e2uo"), "move", "idle", SubResource("AnimationNodeStateMachineTransition_e48fe")]
 graph_offset = Vector2(-260, 5)
 
+[sub_resource type="Animation" id="Animation_i022p"]
+resource_name = "frightened"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 2,
+"values": [Color(0.0235294, 0.258824, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6ds4d"]
+resource_name = "normal"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_uh0sa"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xxyu2"]
+resource_name = "frightened_ending"
+length = 0.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.0235294, 0.258824, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8anbg"]
+_data = {
+"RESET": SubResource("Animation_uh0sa"),
+"frightened": SubResource("Animation_i022p"),
+"frightened_ending": SubResource("Animation_xxyu2"),
+"normal": SubResource("Animation_6ds4d")
+}
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_to6e0"]
 radius = 18.0
 height = 56.0
@@ -372,6 +472,11 @@ tree_root = SubResource("AnimationNodeStateMachine_cow2b")
 anim_player = NodePath("../AnimationPlayer")
 parameters/idle/blend_position = Vector2(0, 0)
 parameters/move/blend_position = Vector2(0, 0)
+
+[node name="ColorsAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8anbg")
+}
 
 [node name="HurtBox" parent="." node_paths=PackedStringArray("actor_to_hurt") instance=ExtResource("3_cjgj1")]
 collision_mask = 2
