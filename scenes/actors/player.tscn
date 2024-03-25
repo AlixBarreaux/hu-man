@@ -653,7 +653,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -3)
 texture = ExtResource("2_dwyyd")
-hframes = 36
+hframes = 37
 vframes = 2
 frame = 12
 

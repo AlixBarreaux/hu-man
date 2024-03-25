@@ -14,7 +14,21 @@ var velocity: Vector2 = self.direction
 @onready var anim_node_sm_playback: AnimationNodeStateMachinePlayback = animation_tree.get("parameters/playback")
 @onready var colors_animation_player: AnimationPlayer = $ColorsAnimationPlayer
 
-@export var enemy_ai: Node2D = null
+@export var enemy_ai: EnemyAI = null
+
+
+@export var base_speed: float = 2.35
+var chase_speed: float = base_speed
+var scatter_speed: float = base_speed
+var eaten_speed: float = base_speed * 2
+var frightened_speed: float = base_speed / 1.5
+
+
+@export_group("Sound Files")
+@export_file("*.ogg", "*.wav") var frightened_sound_file_path: String = ""
+@export_file("*.ogg", "*.wav") var eaten_sound_file_path: String = ""
+@export_file("*.ogg", "*.wav") var enemy_going_home_sound_file_path: String = ""
+@export_group("")
 
 
 func enable() -> void:
@@ -97,8 +111,64 @@ func _process(_delta: float) -> void:
 			colors_animation_player.play("frightened_ending")
 
 
+func on_chasing() -> void:
+	set_hurt_box_disabled(true)
+	set_hit_box_disabled(false)
+	
+	colors_animation_player.play("normal")
+	set_process(true)
+	AudioManager.stop_track(AudioManager.TrackTypes.ENEMIES)
+
+
+func on_scattered() -> void:
+	set_hurt_box_disabled(true)
+	set_hit_box_disabled(false)
+	speed = scatter_speed
+	colors_animation_player.play("normal")
+	set_process(true)
+	AudioManager.stop_track(AudioManager.TrackTypes.ENEMIES)
+
+
+func on_eaten() -> void:
+	set_hurt_box_disabled(true)
+	set_hit_box_disabled(true)
+	speed = eaten_speed
+	anim_node_sm_playback.travel("going_home")
+	AudioManager.play_sound_file(eaten_sound_file_path, AudioManager.TrackTypes.ENEMIES)
+	await AudioManager.enemies_player.finished
+	AudioManager.play_sound_file(enemy_going_home_sound_file_path, AudioManager.TrackTypes.ENEMIES)
+
+
+func on_frightened() -> void:
+	set_hurt_box_disabled(false)
+	set_hit_box_disabled(true)
+	speed = frightened_speed
+	colors_animation_player.play("frightened")
+	AudioManager.play_sound_file(frightened_sound_file_path, AudioManager.TrackTypes.ENEMIES)
+
+
+func on_enemy_ai_state_set(state: EnemyAI.States) -> void:
+	match state:
+		EnemyAI.States.CHASE:
+			on_chasing()
+		EnemyAI.States.SCATTER:
+			on_scattered()
+		EnemyAI.States.EATEN:
+			on_eaten()
+		EnemyAI.States.FRIGHTENED:
+			on_frightened()
+		_:
+			printerr("(!) ERROR: In: " + self.get_name() + ": Unhandled enemy ai state!")
+
+
 func _ready() -> void:
 	assert(spawn_point != null)
+	
+	assert(FileAccess.file_exists(frightened_sound_file_path))
+	assert(FileAccess.file_exists(eaten_sound_file_path))
+	assert(FileAccess.file_exists(enemy_going_home_sound_file_path))
+	
+	enemy_ai.state_set.connect(on_enemy_ai_state_set)
 	
 	await enemies_timers.ready
 	enemies_timers.frightened_timer.timeout.connect(on_enemies_timers_frightened_timer_timeout)

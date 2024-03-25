@@ -87,5 +87,5 @@ func enable_elroy_mode(go_faster_than_player: bool) -> void:
 
 func disable_elroy_mode() -> void:
 	enemy_ai.elroy_mode_enabled = false
-	enemy_ai.chase_speed = enemy_ai.base_speed
+	enemy.chase_speed = enemy.base_speed
 	enemy_ai.set_state(shared_enemy_ai.initial_ais_state)

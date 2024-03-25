@@ -2,63 +2,25 @@ extends Node2D
 class_name EnemyAI
 
 
-@export_group("Speeds")
-@export var base_speed: float = 2.35
-var chase_speed: float = base_speed
-@export var scatter_speed: float = base_speed
-@export var eaten_speed: float = base_speed * 2
-@export var frightened_speed: float = base_speed / 1.5
-
-
-@export_group("Sound Files")
-@export_file("*.ogg", "*.wav") var frightened_sound_file_path: String = ""
-@export_file("*.ogg", "*.wav") var eaten_sound_file_path: String = ""
-@export_file("*.ogg", "*.wav") var enemy_going_home_sound_file_path: String = ""
-@export_group("")
-
-
 var in_home: bool = true
 
 
 func on_chasing() -> void:
-	enemy.set_hurt_box_disabled(true)
-	enemy.set_hit_box_disabled(false)
 	set_destination_location(DestinationLocations.CHASE_TARGET)
-	enemy.speed = chase_speed
-	enemy.colors_animation_player.play("normal")
-	enemy.set_process(true)
-	AudioManager.stop_track(AudioManager.TrackTypes.ENEMIES)
 
 
 func on_scattered() -> void:
-	enemy.set_hurt_box_disabled(true)
-	enemy.set_hit_box_disabled(false)
 	set_destination_location(DestinationLocations.SCATTER_AREA)
 	go_to_first_scatter_point()
-	enemy.speed = scatter_speed
-	enemy.colors_animation_player.play("normal")
-	enemy.set_process(true)
-	AudioManager.stop_track(AudioManager.TrackTypes.ENEMIES)
 
 
 func on_eaten() -> void:
-	enemy.set_hurt_box_disabled(true)
-	enemy.set_hit_box_disabled(true)
 	set_destination_location(DestinationLocations.ENEMIES_HOME)
-	enemy.speed = eaten_speed
-	AudioManager.play_sound_file(eaten_sound_file_path, AudioManager.TrackTypes.ENEMIES)
-	await AudioManager.enemies_player.finished
-	AudioManager.play_sound_file(enemy_going_home_sound_file_path, AudioManager.TrackTypes.ENEMIES)
 
 
 func on_frightened() -> void:
-	enemy.set_hurt_box_disabled(false)
-	enemy.set_hit_box_disabled(true)
 	set_destination_location(DestinationLocations.RANDOM_LOCATION)
 	frightened_timer.start()
-	enemy.speed = frightened_speed
-	enemy.colors_animation_player.play("frightened")
-	AudioManager.play_sound_file(frightened_sound_file_path, AudioManager.TrackTypes.ENEMIES)
 
 
 enum States {
@@ -285,7 +247,6 @@ func enable() -> void:
 
 
 func on_enemy_died() -> void:
-	#frightened_timer.stop()
 	self.set_state(States.EATEN)
 
 
@@ -342,9 +303,6 @@ func _initialize():
 func _ready() -> void:
 	assert(enemy != null)
 	self.disable()
-	assert(FileAccess.file_exists(frightened_sound_file_path))
-	assert(FileAccess.file_exists(eaten_sound_file_path))
-	assert(FileAccess.file_exists(enemy_going_home_sound_file_path))
 	self._initialize_signals()
 	call_deferred("_initialize")
 

@@ -1405,7 +1405,7 @@ position = Vector2(1752, 168)
 position = Vector2(168, 792)
 
 [node name="PowerPellet4" parent="Pickables/Pellets/Power" index="3" instance=ExtResource("11_7tp22")]
-position = Vector2(1752, 792)
+position = Vector2(1080, 456)
 
 [node name="BonusItems" parent="Pickables" instance=ExtResource("7_eb02v")]
 
@@ -1417,7 +1417,7 @@ position = Vector2(960, 648)
 [node name="Players" type="Node" parent="Actors"]
 
 [node name="Player" parent="Actors/Players" node_paths=PackedStringArray("spawn_point") instance=ExtResource("4_u33na")]
-position = Vector2(1752, 744)
+position = Vector2(1128, 456)
 spawn_point = NodePath("../../../PlayerSpawnPoint")
 
 [node name="Enemies" parent="Actors" instance=ExtResource("8_v5yh8")]
