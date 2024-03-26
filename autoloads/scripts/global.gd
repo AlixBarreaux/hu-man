@@ -23,7 +23,7 @@ var is_game_over: bool = false
 
 @export var success_sound_file_path: String = "res://assets/audio/success.wav"
 ## Number of points to score to get an extra life.
-var point_to_gain_life_base_cap: int = 2500
+var point_to_gain_life_base_cap: int = 4500
 var points_to_gain_life_cap: int = point_to_gain_life_base_cap
 
 
