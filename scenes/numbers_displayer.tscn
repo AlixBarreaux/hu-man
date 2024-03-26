@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cd27qhiewkw3a"]
 
-[ext_resource type="Script" path="res://numbers_displayer.gd" id="1_56j0m"]
+[ext_resource type="Script" path="res://scripts/numbers_displayer.gd" id="1_56j0m"]
 
 [node name="NumbersDisplayer" type="Label"]
 offset_right = 386.0
