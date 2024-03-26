@@ -21,7 +21,7 @@ var velocity: Vector2 = self.direction
 var chase_speed: float = base_speed
 var scatter_speed: float = base_speed
 var eaten_speed: float = base_speed * 2
-var frightened_speed: float = base_speed / 1.5
+var frightened_speed: float = base_speed / 2.0
 
 
 @export_group("Sound Files")
