@@ -13,7 +13,7 @@ var direction: Vector2 = self.initial_direction
 var next_direction: Vector2 = direction
 
 
-func _unhandled_key_input(event: InputEvent) -> void:
+func _unhandled_key_input(_event: InputEvent) -> void:
 	movement_input_vector = Vector2(0.0, 0.0)
 	
 	movement_input_vector.x = Input.get_axis("move_left", "move_right")
